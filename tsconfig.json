@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "@tsconfig/node18/tsconfig.json",
+    "@vue/tsconfig/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["./docs/**/*.{vue,ts}", "./docs/.vitepress/**/*.{vue,ts}"],
+  "exclude": ["node_modules"]
+}
