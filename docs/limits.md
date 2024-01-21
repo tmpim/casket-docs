@@ -7,7 +7,7 @@ to all sites on the same listener (if there are multiple configured, the minimum
 
 Request body sizes can also be limited. When the number of bytes read from a request body exceeds the limit, reading
 will terminate and an error will be sent to the client. (Technically, it depends on each middleware that reads a request
-body to handle the error properly, but standard Caddy directives should respond with HTTP 413.) By default, there is no
+body to handle the error properly, but standard Casket directives should respond with HTTP 413.) By default, there is no
 size limit.
 
 The size values must be positive integers and are interpreted as bytes unless a unit is given. Valid examples: `3500`
@@ -15,7 +15,7 @@ The size values must be positive integers and are interpreted as bytes unless a 
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 limits size
 ```
 
@@ -23,7 +23,7 @@ limits size
 
 For more control, you can open a block:
 
-``` caddyfile
+``` casketfile
 limits {
     header size
     body   [path] size
@@ -37,13 +37,13 @@ limits {
 
 Limit all request headers and bodies to 7.5 kilobytes:
 
-``` caddyfile
+``` casketfile
 limits 7500
 ```
 
 Limit only request bodies within /upload to 50 megabytes:
 
-``` caddyfile
+``` casketfile
 limits {
     body /upload 50mb
 }
@@ -51,7 +51,7 @@ limits {
 
 Various limits:
 
-``` caddyfile
+``` casketfile
 limits {
     header 100KB
     body   /upload 100MB

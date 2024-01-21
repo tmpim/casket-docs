@@ -3,8 +3,8 @@
 tls configures HTTPS connections. **Since HTTPS is [enabled automatically](/automatic-https), this directive should only
 be used to deliberately override default settings. Use with care, if at all.**
 
-Caddy supports SNI (Server Name Indication), so you can serve multiple HTTPS sites from the same port on your machine.
-In addition, Caddy implements OCSP stapling for all qualifying certificates. Caddy also automatically rotates all TLS
+Casket supports SNI (Server Name Indication), so you can serve multiple HTTPS sites from the same port on your machine.
+In addition, Casket implements OCSP stapling for all qualifying certificates. Casket also automatically rotates all TLS
 session ticket keys periodically.
 
 The tls directive will ignore sites that are explicitly defined to be http:// or are on port 80. This allows you to use
@@ -17,37 +17,37 @@ challenge](/automatic-https#enabling-the-dns-challenge) and obtain a single [wil
 certificate](/automatic-https#wildcards).
 
 ::: warning
-**Caddy ships with sane defaults for cipher suites, curves, key types, and protocols.** Their exact selection and
+**Casket ships with sane defaults for cipher suites, curves, key types, and protocols.** Their exact selection and
 ordering may change at any time with new releases. You probably do not need to change them yourself. Adjust the TLS
 configuration at your own risk.
 :::
 
-Caddy does not disambiguate between different or conflicting TLS configurations with the same hostname as the key. If a
+Casket does not disambiguate between different or conflicting TLS configurations with the same hostname as the key. If a
 TLS configuration is customized, then any other TLS configuration keyed by the same hostname must match, or at least be
 compatible, or it is an error. This includes cipher suites, curve preferences, etc.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 tls off
 ```
 
 Disables TLS for the site. Not recommended unless you have a good reason. With TLS off, automatic HTTPS is also
 disabled, so the default port (2015) will not be changed.
 
-``` caddyfile
+``` casketfile
 tls email
 ```
 
 -   **email** is the email address to use with which to generate a certificate with a trusted CA. By providing an email
-    here you will not be prompted when you run Caddy.
+    here you will not be prompted when you run Casket.
 
 Although the above syntax is not needed to enable TLS, it allows you to specify the email address used for your CA
 account, instead of prompting for one or using another one from a previous run.
 
-To use Caddy with your own certificate and key:
+To use Casket with your own certificate and key:
 
-``` caddyfile
+``` casketfile
 tls cert key
 ```
 
@@ -60,19 +60,19 @@ HTTP to HTTPS. You will need to do that yourself if you are managing your own ce
 
 You can use this directive multiple times to specify multiple certificate and key pairs.
 
-Or to have Caddy generate and use an untrusted, self-signed certificate in memory that lasts 7 days (enough for local
+Or to have Casket generate and use an untrusted, self-signed certificate in memory that lasts 7 days (enough for local
 development):
 
-``` caddyfile
+``` casketfile
 tls self_signed
 ```
 
-The above syntaxes use Caddy's default TLS settings with your own certificate and key or a self-signed certificate that
+The above syntaxes use Casket's default TLS settings with your own certificate and key or a self-signed certificate that
 lasts for 7 days: it intended for local development only.
 
 Advanced users may open a settings block for more control, optionally specifying their own certificate and key:
 
-``` caddyfile
+``` casketfile
 tls [cert key] {
     ca        uri
     protocols min max
@@ -113,9 +113,9 @@ tls [cert key] {
     walked in search of .pem files. Each .pem file must contain the PEM-encoded certificate (chain) and key blocks,
     concatenated together.
 -   **ask** enables [On-Demand TLS](/automatic-https#on-demand). On-Demand TLS is NOT recommended if the hostname is
-    given in the Caddyfile and known at configuration-time. The URL will be queried via GET and should return a 200
+    given in the Casketfile and known at configuration-time. The URL will be queried via GET and should return a 200
     status code if the `domain` form value from the query string is allowed to be given a certificate. Redirects at this
-    endpoint are not followed. The URL should only be internally accessible. When using this option, Caddy does not
+    endpoint are not followed. The URL should only be internally accessible. When using this option, Casket does not
     enforce any extra rate limiting; your endpoint is expected to make wise decisions instead.
 -   **key_type** is the type of key to use when generating keys for certificates (only applies to managed or TLS or
     self-signed certificates). Valid values are rsa2048, rsa4096, rsa8192, p256, and p384. Default is currently p256.
@@ -176,7 +176,7 @@ The HTTP/2 spec blacklists over 275 cipher suites for security reasons. Unless y
 accept the default cipher suite settings.
 :::
 
-Cipher suites may be added to or removed from Caddy at any time. Similarly, the default cipher suites may be changed at
+Cipher suites may be added to or removed from Casket at any time. Similarly, the default cipher suites may be changed at
 any time.
 
 ## Curves
@@ -190,7 +190,7 @@ The following curves are supported for EC cipher suites:
 
 ## Summary of Features {#summary}
 
-In summary, Caddy implements these TLS features for you automatically. It is the only server to do so by default:
+In summary, Casket implements these TLS features for you automatically. It is the only server to do so by default:
 
 -   Session identifiers
 -   Session ticket key rotation
@@ -211,13 +211,13 @@ manage certificates manually or need custom settings.
 
 Serve with HTTPS using a certificate and private key located one folder up:
 
-``` caddyfile
+``` casketfile
 tls ../cert.pem ../key.pem
 ```
 
 Obtain certificates during TLS handshakes as needed, after consulting a backend for permission:
 
-``` caddyfile
+``` casketfile
 tls {
     ask http://localhost:9095/should-obtain-cert
 }
@@ -225,7 +225,7 @@ tls {
 
 Load all certificates and keys from .pem files found in /www/certificates:
 
-``` caddyfile
+``` casketfile
 tls {
     load /www/certificates
 }
@@ -233,6 +233,6 @@ tls {
 
 Serve a site with a self-signed certificate in memory (untrusted by browsers, but convenient for local development):
 
-``` caddyfile
+``` casketfile
 tls self_signed
 ```

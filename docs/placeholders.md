@@ -1,6 +1,6 @@
 # Placeholders
 
-Some directives allow you to use placeholders in your Caddyfile to fill out a value differently for every request. For
+Some directives allow you to use placeholders in your Casketfile to fill out a value differently for every request. For
 example, the value `{path}` would be replaced by the path portion of the request URL. These are also called replaceable
 values.
 
@@ -35,7 +35,7 @@ These values are obtained from the request.
 | **{?key}**                    | The value of the "key" argument from the query string                                                                                                                            |
 | **{remote}**                  | The client's IP address                                                                                                                                                          |
 | **{request}**                 | The entire HTTP request (sans body), compacted to one line                                                                                                                       |
-| **{request_id}**              | The request_id UUID. Will be blank unless [`request_id`](request_id) directive is used in Caddyfile                                                                              |
+| **{request_id}**              | The request_id UUID. Will be blank unless [`request_id`](request_id) directive is used in Casketfile                                                                              |
 | **{request_body}**            | The request body, compacted to one line (max length 100 KB; JSON or XML only)                                                                                                    |
 | **{rewrite_path}**            | Same as {path}, but is the value of the path after rewrites                                                                                                                      |
 | **{rewrite_path_escaped}**    | Query-escaped variant of {rewrite_path}                                                                                                                                          |

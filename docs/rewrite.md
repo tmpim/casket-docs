@@ -8,7 +8,7 @@ back-end applications.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 rewrite [not] from to...
 ```
 
@@ -19,7 +19,7 @@ rewrite [not] from to...
 
 Advanced users may open a block and make a complex rewrite rule:
 
-``` caddyfile
+``` casketfile
 rewrite [basepath] {
     regexp pattern
     ext    extensions...
@@ -66,20 +66,20 @@ Note: As a general rule, you can negate any condition `cond` by prefixing it wit
 
 Rewrite everything to /index.php. (`rewrite / /index.php` will only match /)
 
-``` caddyfile
+``` casketfile
 rewrite .* /index.php
 ```
 
 When requests come in for /mobile, actually serve /mobile/index.
 
-``` caddyfile
+``` casketfile
 rewrite /mobile /mobile/index
 ```
 
 If the file is not favicon.ico and it is not a valid file or directory, serve the maintenance page if present, or
 finally, rewrite to index.php.
 
-``` caddyfile
+``` casketfile
 rewrite {
     if {file} not favicon.ico
     to {path} {path}/ /maintenance.html /index.php
@@ -88,7 +88,7 @@ rewrite {
 
 If user agent includes "mobile" and path is not a valid file/directory, rewrite to the mobile index page.
 
-``` caddyfile
+``` casketfile
 rewrite {
     if {>User-agent} has mobile
     to {path} {path}/ /mobile/index.php
@@ -97,7 +97,7 @@ rewrite {
 
 Rewrite /app to /index with a query string. `{1}` is the matched group `(.*)`.
 
-``` caddyfile
+``` casketfile
 rewrite /app {
     r  (.*)
     to /index?path={1}
@@ -106,7 +106,7 @@ rewrite /app {
 
 Rewrite requests for /app/example to /index.php?category=example.
 
-``` caddyfile
+``` casketfile
 rewrite /app {
     r  ^/(\w+)/?$
     to /index?category={1}

@@ -3,13 +3,13 @@
 ratelimit is used to limit the request processing rate based on client&#39;s IP address/request header. Excessive
 requests will be terminated with an error 429 (Too Many Requests) and `X-RateLimit-RetryAfter` header will be returned.
 
-**[Full documentation](https://github.com/xuqingfeng/caddy-rate-limit/blob/master/README.md)**
+**[Full documentation](https://github.com/tmpim/casket-plugins/blob/master/rate-limit/README.md)**
 
 ## Examples
 
 ### For single resource:
 
-``` caddyfile
+``` casketfile
 ratelimit methods path rate burst unit
 ```
 
@@ -20,7 +20,7 @@ client can exceed; burst &gt;= rate (e.g. 2); `unit` is the time interval (curre
 
 ### For multiple resources:
 
-``` caddyfile
+``` casketfile
 ratelimit methods rate burst unit {
     whitelist CIDR,CIDR
     limit_by_header xxx
@@ -43,14 +43,14 @@ don&#39;t want to apply rate limit on some special resources, add `^` in front o
 ### Examples
 
 * Limit clients to 2 requests per second (bursts of 3) to any methods and any resources under /r:
-    ``` caddyfile
+    ``` casketfile
     ratelimit * /r 2 3 second
     ```
 
 * Don't perform rate limit if requests come from 1.2.3.4 or 192.168.1.0/30(192.168.1.0 \~ 192.168.1.3), for the listed
   paths, limit clients to 2 requests per minute (bursts of 2) if the request method is GET or POST and always ignore
   /dist/app.js:
-    ``` caddyfile
+    ``` casketfile
     ratelimit 2 2 minute {
         whitelist 1.2.3.4/32,192.168.1.0/30
         status *

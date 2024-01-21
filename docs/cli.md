@@ -1,10 +1,10 @@
 # Command Line Interface
 
-This page describes Caddy's command line interface. For a quick reference and to see default values, run Caddy with
-`-help` or `-h`, for example: `caddy -h`.
+This page describes Casket's command line interface. For a quick reference and to see default values, run Casket with
+`-help` or `-h`, for example: `casketfile -h`.
 
 ::: info
-Remember that Caddy runs fine without any options. These flags simply give you more control over the process if needed.
+Remember that Casket runs fine without any options. These flags simply give you more control over the process if needed.
 :::
 
 ## Flags
@@ -12,7 +12,7 @@ Remember that Caddy runs fine without any options. These flags simply give you m
 #### -agree
 
 Indicates that you have read and agree to the Let's Encrypt Subscriber Agreement. If this flag is not specified, it is
-possible that Caddy will prompt you to agree to terms during runtime. Thus, this flag is recommended in automated
+possible that Casket will prompt you to agree to terms during runtime. Thus, this flag is recommended in automated
 environments.
 
 #### -ca
@@ -26,7 +26,7 @@ the ACME CA server. In those cases, raising this value can help. Accepts a durat
 
 #### -conf
 
-The Caddyfile to use to configure Caddy. Must be a valid path to the file, either relative or absolute. Can be a glob
+The Casketfile to use to configure Casket. Must be a valid path to the file, either relative or absolute. Can be a glob
 string as well, to load all matching files as if they were imported into a single configuration.
 
 #### -cpu
@@ -62,10 +62,10 @@ The file from which to load the environment.
 
 #### -email
 
-Email address to use for TLS certificate generation if not [specified for a site in the Caddyfile](/tls). It is not
+Email address to use for TLS certificate generation if not [specified for a site in the Casketfile](/tls). It is not
 required, but is strongly recommended so you can recover your account if you lose your private key. If an email is not
-available, Caddy may prompt you for an email address during runtime. This option is recommended in automated
-environments if not [specified in the Caddyfile](/tls).
+available, Casket may prompt you for an email address during runtime. This option is recommended in automated
+environments if not [specified in the Casketfile](/tls).
 
 #### -grace
 
@@ -75,12 +75,12 @@ duration short. Syntax is same as Go's [time.ParseDuration](https://golang.org/p
 
 #### -help or -h {#help}
 
-Show basic flag help. Caddy will terminate after showing help; it will not serve sites.
+Show basic flag help. Casket will terminate after showing help; it will not serve sites.
 
 #### -host
 
-The default hostname or IP address to listen on. Sites defined in the Caddyfile without a hostname will assume this one.
-This is usually used with `-port` to quickly get simple sites up and running without a Caddyfile.
+The default hostname or IP address to listen on. Sites defined in the Casketfile without a hostname will assume this one.
+This is usually used with `-port` to quickly get simple sites up and running without a Casketfile.
 
 #### -http-port
 
@@ -99,7 +99,7 @@ directive's "alpn" setting.
 
 #### -log
 
-Enable the process log. The value must be either the path to a log file, stdout, or stderr. Caddy will create the log
+Enable the process log. The value must be either the path to a log file, stdout, or stderr. Casket will create the log
 file if it does not already exist. This file will be used to log information and errors that occur during runtime. The
 log file is rotated when it gets large, so it is safe to use for long-running processes.
 
@@ -114,30 +114,30 @@ If true, rotated process log files will be gzipped. Default is true.
 
 #### -pidfile
 
-The pidfile to write. Used with automated environments. Caddy will write a file containing the current process ID.
+The pidfile to write. Used with automated environments. Casket will write a file containing the current process ID.
 
 #### -plugins
 
-Lists the plugins registered with Caddy. Caddy will terminate after printing; it will not serve sites.
+Lists the plugins registered with Casket. Casket will terminate after printing; it will not serve sites.
 
 #### -port
 
 The default port to listen on. This is usually used with `-host` to quickly get simple sites up and running without a
-Caddyfile.
+Casketfile.
 
 #### -quic
 
-Enables experimental QUIC support. See [the QUIC wiki page](https://github.com/caddyserver/caddy/wiki/QUIC) for more
+Enables experimental QUIC support. See [the QUIC wiki page](https://github.com/tmpim/casket/wiki/QUIC) for more
 details how to experiment with QUIC.
 
 #### -quiet
 
-Quiet mode. If quiet, Caddy will not print informational initialization output, only the addresses being served.
+Quiet mode. If quiet, Casket will not print informational initialization output, only the addresses being served.
 
 #### -revoke
 
-Hostname for which to revoke the SSL certificate. Caddy will stop after revocation is complete; it will not serve sites
-if this option is used. The certificate must be under Caddy's management. 
+Hostname for which to revoke the SSL certificate. Casket will stop after revocation is complete; it will not serve sites
+if this option is used. The certificate must be under Casket's management. 
 
 ::: warning
 Revocation is meant for compromised private keys only. Do not revoke a certificate to renew it.
@@ -149,28 +149,28 @@ Path to the default site root from which to serve files.
 
 #### -type
 
-Change the server type. Default is http. If your Caddyfile is for another server type, use this option to tell it which
+Change the server type. Default is http. If your Casketfile is for another server type, use this option to tell it which
 server type to use.
 
 #### -validate
 
-Parse the Caddyfile and exit. If syntactically valid, a message will be printed to stdout and the process log (if any)
+Parse the Casketfile and exit. If syntactically valid, a message will be printed to stdout and the process log (if any)
 and will exit with status 0. If not, an error will be returned with a non-zero exit status.
 
 #### -version
 
-Print the version. It also prints build information if not from a tagged release. Caddy will terminate after printing;
+Print the version. It also prints build information if not from a tagged release. Casket will terminate after printing;
 it does not serve sites if this option is used.
 
 ## Signals
 
-On POSIX-compliant systems, Caddy can be controlled with signals. Here we list them roughly in order from the most
+On POSIX-compliant systems, Casket can be controlled with signals. Here we list them roughly in order from the most
 forceful action to most graceful.
 
 #### KILL
 
-Forcefully exits the process immediately. This signal cannot be caught, so Caddy won't know what hit it. Any pidfile
-created with the `-pidfile` flag and other runtime assets will NOT be cleaned up by Caddy.
+Forcefully exits the process immediately. This signal cannot be caught, so Casket won't know what hit it. Any pidfile
+created with the `-pidfile` flag and other runtime assets will NOT be cleaned up by Casket.
 
 #### QUIT
 
@@ -192,89 +192,89 @@ the error is logged and the configuration rolls back with zero downtime.
 
 #### USR2
 
-Gracefully restarts the process with an updated binary. Useful when upgrading the Caddy binary. Replace the binary with
+Gracefully restarts the process with an updated binary. Useful when upgrading the Casket binary. Replace the binary with
 a new version and send this signal. Configuration will be transferred to the new process. If an error occurs, the error
 will be logged and the configuration rolls back with zero downtime.
 
-## Short Caddyfile
+## Short Casketfile
 
-Caddy also accepts non-flag arguments, which are understood to be shorthand Caddyfile text. This is useful for quick,
+Casket also accepts non-flag arguments, which are understood to be shorthand Casketfile text. This is useful for quick,
 temporary server instances.
 
-Each unflagged argument is a line in a Caddyfile that serves the default host and port. Remember to enclose the line in
+Each unflagged argument is a line in a Casketfile that serves the default host and port. Remember to enclose the line in
 quotes if it contains spaces or other special characters.
 
 For example, a server that lets you browse files on the default host and port:
 
-``` caddyfile
-$ caddy browse
+``` casketfile
+$ casketfile browse
 ```
 
 To serve markdown files on-the-fly, instantly, on a custom port:
 
-``` caddyfile
-$ caddy -port 8080 markdown
+``` casketfile
+$ casketfile -port 8080 markdown
 ```
 
 All of the above, but with an access log:
 
-``` caddyfile
-$ caddy -port 8080 browse markdown "log access.log"
+``` casketfile
+$ casketfile -port 8080 browse markdown "log access.log"
 ```
 
 This shorthand feature is intended for quick, simple configurations only.
 
-## Pipe a Caddyfile
+## Pipe a Casketfile
 
-Advanced users may wish to pipe the contents of a Caddyfile into Caddy from programmed environments. If you pipe in the
-Caddyfile, you must use the `-conf` flag with a value of `stdin` - for example:
+Advanced users may wish to pipe the contents of a Casketfile into Casket from programmed environments. If you pipe in the
+Casketfile, you must use the `-conf` flag with a value of `stdin` - for example:
 
-``` caddyfile
-$ echo "localhost:1234" | caddy -conf stdin
+``` casketfile
+$ echo "localhost:1234" | casketfile -conf stdin
 ```
 
-Piping the Caddyfile is convenient when starting Caddy using a dynamically-generated Caddyfile from a parent process you
+Piping the Casketfile is convenient when starting Casket using a dynamically-generated Casketfile from a parent process you
 have control over.
 
 ::: warning
-If you pipe in a Caddyfile, it will be impossible to read from stdin later in the program because the parent process
-must send EOF to close the pipe so Caddy can unblock and start serving. This will cause problems, for instance, if Caddy
+If you pipe in a Casketfile, it will be impossible to read from stdin later in the program because the parent process
+must send EOF to close the pipe so Casket can unblock and start serving. This will cause problems, for instance, if Casket
 has to prompt you for an email address or agreement to terms. So when piping input, use flags to avoid the need for
 stdin later (e.g. the -email flag).
 :::
 
 ## Environment Variables
 
-Caddy recognizes certain environment variables.
+Casket recognizes certain environment variables.
 
 #### HOME
 
-The home folder. Caddy will create a .caddy folder here if using managed TLS (automatic HTTPS), and possibly persist
+The home folder. Casket will create a .casketfile folder here if using managed TLS (automatic HTTPS), and possibly persist
 other state here in the future or if configured to do so.
 
-#### CADDYPATH
+#### CASKETPATH
 
-If set, Caddy will use this folder to store assets instead of the default \$HOME/.caddy. When running multiple Caddy
+If set, Casket will use this folder to store assets instead of the default \$HOME/.casketfile. When running multiple Casket
 instances serving unrelated sites (e.g. as part of a hosting service shared among many users), it is strongly
-recommended for each Caddy instance to have its own CADDYPATH so that instances aren't stepping on each other and
+recommended for each Casket instance to have its own CASKETPATH so that instances aren't stepping on each other and
 sharing state.
 
 #### CASE_SENSITIVE_PATH {#case-sensitive-path}
 
-If `1` or `true`, Caddy will treat request paths in a case-sensitive manner when accessing assets on the file system or
+If `1` or `true`, Casket will treat request paths in a case-sensitive manner when accessing assets on the file system or
 matching requests for middleware handlers. The default is 0 (false; meaning case-INsensitive paths).
 
-#### CADDY_UUID_FILE {#caddy-uuid-file}
+#### CASKET_UUID_FILE {#casketfile-uuid-file}
 
-A custom file path to the file where the instance UUID is stored. This should be set if you have multiple Caddy
-instances configured to share the same CADDYPATH (e.g. in a cluster), so that each instance will act individually. (They
-can still share the CADDYPATH and gain the benefits of sharing certificate resources, etc.)
+A custom file path to the file where the instance UUID is stored. This should be set if you have multiple Casket
+instances configured to share the same CASKETPATH (e.g. in a cluster), so that each instance will act individually. (They
+can still share the CASKETPATH and gain the benefits of sharing certificate resources, etc.)
 
-#### CADDY_CLUSTERING {#caddy-clustering}
+#### CASKET_CLUSTERING {#casketfile-clustering}
 
-The name of the clustering plugin to use. Cluster plugins allow Caddy to operate in clusters or behind load balancers
+The name of the clustering plugin to use. Cluster plugins allow Casket to operate in clusters or behind load balancers
 with any storage backend implemented by the plugin. The default is "file" which uses the local file system, meaning that
-if the CADDYPATH is a shared folder, any instances in the cluster sharing that folder can coordinate the management of
+if the CASKETPATH is a shared folder, any instances in the cluster sharing that folder can coordinate the management of
 certificates, etc. See the docs for your clustering plugin to know how to configure it; and [see a list of CertMagic
 storage implementations](https://github.com/mholt/certmagic/wiki/Storage-Implementations).
 
@@ -286,4 +286,4 @@ storage implementations](https://github.com/mholt/certmagic/wiki/Storage-Impleme
 -   **3** - error stopping with SIGTERM
 -   **4** - shutdown callback(s) returned error(s)
 
-A good rule of thumb is to NOT automatically restart Caddy if it exits with status of 1.
+A good rule of thumb is to NOT automatically restart Casket if it exits with status of 1.

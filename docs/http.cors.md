@@ -8,7 +8,7 @@ Supports Cross Origin Resource Sharing headers
 
 ### Simple usage
 
-``` caddyfile
+``` casketfile
 cors
 ```
 
@@ -16,7 +16,7 @@ Allows all origins access to all resources
 
 ### Only allow certain origin domains
 
-``` caddyfile
+``` casketfile
 cors / http://mytrusteddomain.tld http://myotherdomain.com
 ```
 
@@ -24,7 +24,7 @@ Only allow cross-origin requests from a few specific domains
 
 ### Full config
 
-``` caddyfile
+``` casketfile
 cors / {
     origin            http://allowedsite.com
     origin            http://anothersite.org https://anothersite.org

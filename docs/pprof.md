@@ -13,7 +13,7 @@ Go Programs](https://blog.golang.org/profiling-go-programs).
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 pprof
 ```
 
@@ -21,6 +21,6 @@ pprof
 
 Enable pprof endpoints:
 
-``` caddyfile
+``` casketfile
 pprof
 ```

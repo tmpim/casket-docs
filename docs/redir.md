@@ -5,7 +5,7 @@ make a redirect conditional.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 redir from to [code]
 ```
 
@@ -16,13 +16,13 @@ redir from to [code]
 
 To create a permanent, "catch-all" redirect, omit the *from* value:
 
-``` caddyfile
+``` casketfile
 redir to
 ```
 
 If you have a lot of redirects, share a redirect code by making a table:
 
-``` caddyfile
+``` casketfile
 redir [code] {
     from to [code]
 }
@@ -33,7 +33,7 @@ redirect code is specified, the default is used.
 
 A group of redirects can also be conditional:
 
-``` caddyfile
+``` casketfile
 redir [code] {
     if    a cond b
     if_op [and|or]
@@ -57,19 +57,19 @@ path or other portions of the request URL by using [replaceable values](/placeho
 When a request comes in for `/resources/images/photo.jpg`, redirect to `/resources/images/drawing.jpg` with HTTP 307
 (Temporary Redirect) status code:
 
-``` caddyfile
+``` casketfile
 redir /resources/images/photo.jpg /resources/images/drawing.jpg 307
 ```
 
 Redirect all requests to https://newsite.com while preserving the request URI:
 
-``` caddyfile
+``` casketfile
 redir https://newsite.com{uri}
 ```
 
 Defining multiple redirections that share a 307 status code, except the last one:
 
-``` caddyfile
+``` casketfile
 redir 307 {
     /foo     /info/foo
     /todo    /notes
@@ -79,7 +79,7 @@ redir 307 {
 
 Redirect only if the forwarded protocol is HTTP:
 
-``` caddyfile
+``` casketfile
 redir 301 {
     if {>X-Forwarded-Proto} is http
     /  https://{host}{uri}

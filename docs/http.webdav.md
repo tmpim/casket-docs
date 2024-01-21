@@ -2,13 +2,13 @@
 
 WebDAV capabilities with support for path restriction rules and users.
 
-**[Full documentation](https://github.com/hacdias/caddy-webdav/blob/master/README.md)**
+**[Full documentation](https://github.com/tmpim/casket-plugins/blob/master/webdav/README.md)**
 
 ## Examples
 
 ### Syntax
 
-``` caddyfile
+``` casketfile
 webdav [url] {
     scope       path
     modify      [true|false]
@@ -20,15 +20,15 @@ webdav [url] {
 ```
 
 All the options are optional. + **url** is the place where you can access the WebDAV interface. Defaults to `/`. +
-**scope** is an absolute or relative (to the current working directory of Caddy) path that indicates the scope of the
+**scope** is an absolute or relative (to the current working directory of Casket) path that indicates the scope of the
 WebDAV. Defaults to `.`. + **modify** indicates if the user has permission to edit/modify the files. Defaults to
 `true`. + **allow** and **block** are used to allow or deny access to specific files or directories using their relative
 path to the scope. You can use the magic word `dotfiles` to allow or deny the access to every file starting by a dot. +
 **allow_r** and **block_r** and variations of the previous options but you are able to use regular expressions with
 them. It is highly recommended to use this directive alongside with
-[`basicauth`](https://caddyserver.com/docs/basicauth) to protect the WebDAV interface.
+[`basicauth`](/basicauth) to protect the WebDAV interface.
 
-``` caddyfile
+``` casketfile
 webdav { 
   # You set the global configurations here and 
   # all the users will inherit them. 
@@ -40,7 +40,7 @@ webdav {
 
 ### Basic
 
-``` caddyfile
+``` casketfile
 webdav
 ```
 
@@ -48,7 +48,7 @@ WebDAV on `/` for the current working directory.
 
 ### Custom Scope
 
-``` caddyfile
+``` casketfile
 webdav /admin {
     scope /
 }
@@ -58,7 +58,7 @@ WebDAV on `/admin` for the whole file system.
 
 ### Denying Rules
 
-``` caddyfile
+``` casketfile
 webdav {
     scope /
     block /etc
@@ -70,7 +70,7 @@ WebDAV on `/` for the whole file system, without access to `/etc` and `/dev` dir
 
 ### User Permissions
 
-``` caddyfile
+``` casketfile
 basicauth / sam pass
 webdav {
     scope /

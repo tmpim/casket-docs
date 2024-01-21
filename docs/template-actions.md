@@ -1,6 +1,6 @@
 # Template Actions
 
-Caddy's template features make it possible to add some dynamic content to your static website and include pages to help
+Casket's template features make it possible to add some dynamic content to your static website and include pages to help
 reduce duplication. Templates are supported by a few different directives such as [templates](/templates),
 [browse](/browse), and [markdown](/markdown).
 
@@ -9,9 +9,9 @@ Template actions only work on directives that support them. Check the documentat
 they can be used.
 :::
 
-Caddy templates use the syntax defined in Go's [text/template](http://golang.org/pkg/text/template/) package.
+Casket templates use the syntax defined in Go's [text/template](http://golang.org/pkg/text/template/) package.
 Understanding text/template will help you take full advantage of templates, but for those of us who aren't programmers,
-here are some simplified instructions. Caddy also adds some extra helpful functions for templating web pages
+here are some simplified instructions. Casket also adds some extra helpful functions for templating web pages
 specifically, which we've documented here.
 
 ## Basic Syntax

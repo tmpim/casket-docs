@@ -4,7 +4,7 @@ status writes a status code to the response. It does not write a response body.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 status code path
 ```
 
@@ -13,7 +13,7 @@ status code path
 
 If you have a lot of status rewrites to group, share a status code by making a table:
 
-``` caddyfile
+``` casketfile
 status code {
     path
 }
@@ -25,19 +25,19 @@ Each line describes a base path which should have that status code written.
 
 For a catch-all status:
 
-``` caddyfile
+``` casketfile
 status 404 /
 ```
 
 To hide the existence of a secret folder:
 
-``` caddyfile
+``` casketfile
 status 404 /secrets
 ```
 
 To hide the existence of multiple folders:
 
-``` caddyfile
+``` casketfile
 status 404 {
     /hidden
     /secrets

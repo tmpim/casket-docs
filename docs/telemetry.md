@@ -1,6 +1,6 @@
 # Telemetry
 
-The primary aim of the Caddy Telemetry Project is to gain insights into the status and health of the Internet, globally
+The primary aim of the Casket Telemetry Project is to gain insights into the status and health of the Internet, globally
 and in near-real-time, from a server-side perspective, without being constrained to a specific network or proprietary
 source. A secondary goal is to provide server operators with information about their servers and their interactions with
 clients.
@@ -16,49 +16,49 @@ clients.
 
 **Site owners:** Telemetry data makes it possible for operators to have a white-box understanding of their web servers.
 Traditional monitoring tools usually require tedious analysis when anomalies occur because they have only an external
-perspective of the process. Caddy telemetry, on the other hand, operates from within the process and can give detailed
+perspective of the process. Casket telemetry, on the other hand, operates from within the process and can give detailed
 insights when you need answers. And when everything is nominal, it's also just really interesting to see how and what
 your web server is doing. Telemetry is useful beyond access logging because it gives unique data points over time about
 the effects your clients have on your servers.
 
 **Researchers:** While client-side scans of the Internet are not uncommon, for the first time you now have access to a
-global, *server-side* perspective from which to observe the behavior and health of the Internet. Caddy telemetry is
+global, *server-side* perspective from which to observe the behavior and health of the Internet. Casket telemetry is
 uniquely positioned to offer anonymized aggregate data about *clients* on the Internet in conjunction together with an
 internal view of the web servers which answer them. Our long-term hope is that with your participation and feedback, we
 can build methods to detect emerging botnets, DDoS attacks, and other threats in real-time and work to automatically
 mitigate them.
 
-**Industry experts:** Information provided by Caddy telemetry can certainly be useful when making decisions about new
+**Industry experts:** Information provided by Casket telemetry can certainly be useful when making decisions about new
 Web standards, building out or monitoring network infrastructure, and developing Internet software.
 
 ## The Implementation {#implementation}
 
-When telemetry is enabled, Caddy takes various tallies and records certain events in the background while it is running.
+When telemetry is enabled, Casket takes various tallies and records certain events in the background while it is running.
 It sends updates to a collector endpoint on a regular basis, flushing the local buffer of data.
 
-Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Caddy instance should
+Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Casket instance should
 not suffer any noticable performance degredation. It has several safety measures built-in to ensure optimal performance,
 even at the expense of the data, including a limit to the number of data points that can be buffered. The collection
 endpoint may notice if certain metrics are too expensive and temporarily disable them on a per-instance basis to improve
 performance. The collection endpoint may also entirely terminate telemetry reporting from any instance. In addition,
 collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
 
-Each Caddy instance generates its own unique, random ID called a UUID. It is stored in a file called `$CADDYPATH/uuid`
-(the default CADDYPATH is `$HOME/.caddy`). This UUID is NOT generated in connection with the collection endpoint in any
-way, and does NOT associate with any individual person. We recommend that each Caddy instance you run have its own
-CADDYPATH so that your reports are more discernable when you go to look up your instance.
+Each Casket instance generates its own unique, random ID called a UUID. It is stored in a file called `$CASKETPATH/uuid`
+(the default CASKETPATH is `$HOME/.casketfile`). This UUID is NOT generated in connection with the collection endpoint in any
+way, and does NOT associate with any individual person. We recommend that each Casket instance you run have its own
+CASKETPATH so that your reports are more discernable when you go to look up your instance.
 
 As you would expect, all transmissions are encrypted with HTTPS.
 
 ## The Metrics {#metrics}
 
-This table lists the metrics that are collected by Caddy core and the standard plugins in alphabetical order; but keep
+This table lists the metrics that are collected by Casket core and the standard plugins in alphabetical order; but keep
 in mind that third-party plugins might add their own which are not documented here; check their documentation instead.
 
 | Key                            | Description                                                                                                   |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------|
 | arch                           | The microarchitecture compiled for                                                                            |
-| caddy_version                  | Caddy version                                                                                                 |
+| casketfile_version                  | Casket version                                                                                                 |
 | container                      | Whether the process is running in a container                                                                 |
 | cpu.aes_ni                     | Whether AES-NI is available                                                                                   |
 | cpu.brand_name                 | The brand name of the CPU                                                                                     |
@@ -68,7 +68,7 @@ in mind that third-party plugins might add their own which are not documented he
 | goroutines                     | Number of goroutines currently running                                                                        |
 | http_deployment_guess          | A rough guess as to whether it looks like a dev or production instance                                        |
 | http_mitm                      | Count of whether [MITM was detected](/mitm-detection)                                                         |
-| http_num_sites                 | Number of sites defined in your HTTP Caddyfile (∑ blocks \* number of keys per block)                         |
+| http_num_sites                 | Number of sites defined in your HTTP Casketfile (∑ blocks \* number of keys per block)                         |
 | http_request_count             | Number of HTTP(S) requests handled                                                                            |
 | http_user_agent                | User-Agent request header values                                                                              |
 | http_user_agent_count          | Number of requests with the associated User-Agent string                                                      |
@@ -76,7 +76,7 @@ in mind that third-party plugins might add their own which are not documented he
 | memory.sys                     | Bytes of memory obtained from the OS                                                                          |
 | instance_id                    | The instance UUID                                                                                             |
 | num_listeners                  | Number of listeners opened                                                                                    |
-| num_server_blocks              | The number of server blocks defined in your Caddyfile                                                         |
+| num_server_blocks              | The number of server blocks defined in your Casketfile                                                         |
 | os                             | The OS compiled for                                                                                           |
 | server_type                    | The server type plugin being run (HTTP, DNS, etc.)                                                            |
 | sigtrap                        | Name and count of signal (or interrupt) trapped                                                               |
@@ -103,19 +103,19 @@ Telemetry is enabled by default in the source code and disabled by default on ou
 how representative the aggregate data is, telemetry may be toggled at compile-time or customized at run-time.
 
 **Note that telemetry does NOT target personal information.** Telemetry is programmed to report only technical data
-about machines, connections, and Caddy instances; NOT end users, session IDs, cookies, etc. If you are considering
+about machines, connections, and Casket instances; NOT end users, session IDs, cookies, etc. If you are considering
 turning off telemetry because of applicable laws, make sure the laws actually apply to you.
 
 The recommended way to disable telemetry is to turn off only the metrics that you do not want to report. You can do this
 with the [`-disabled-metrics` CLI flag](/cli#disabled-metrics). (The disabled_metrics, timestamp, and instance_id
-metrics cannot be disabled individually.) This will prevent Caddy from collecting the specified information throughout
+metrics cannot be disabled individually.) This will prevent Casket from collecting the specified information throughout
 the lifetime of the process, and is useful if, for example, you discover that a particular metric is causing your
 telemetry buffer to fill up too quickly under heavy load (there is a limit to how many items can be buffered for
 emission).
 
-However, if you wish to disable telemetry entirely, it can be done at compile-time. When you download Caddy from the
+However, if you wish to disable telemetry entirely, it can be done at compile-time. When you download Casket from the
 website, you can choose to have telemetry disabled. If building from source, you can set `enableTelemetry` to false to
 turn it off. Note that if you disable telemetry you will not have the ability to look up your instance and view its
 metrics. It also does not contribute to the research efforts that are otherwise made possible, and it makes it difficult
-to diagnose problems and improve Caddy. We recommend leaving telemetry on to gain [its benefits](#benefits) and to
+to diagnose problems and improve Casket. We recommend leaving telemetry on to gain [its benefits](#benefits) and to
 improve the Web overall.

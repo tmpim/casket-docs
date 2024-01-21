@@ -2,13 +2,13 @@
 
 Allows you to obtain certificates using DNS records for domains managed by DuckDNS.
 
-**[Full documentation](https://github.com/caddyserver/dnsproviders/blob/master/README.md)**
+**[Full documentation](https://github.com/tmpim/dnsproviders/blob/master/README.md)**
 
 ## Examples
 
 ### Usage
 
-``` caddyfile
+``` casketfile
 tls {
     dns duckdns
 }

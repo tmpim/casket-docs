@@ -22,7 +22,7 @@ resource retrieval (i.e. if they respond with secret content to OPTIONS requests
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 basicauth path username password
 ```
 
@@ -33,7 +33,7 @@ basicauth path username password
 This syntax is convenient for protecting a single file or base path/directory with the default realm "Restricted". To
 protect multiple resources or to specify a realm, use the following variation:
 
-``` caddyfile
+``` casketfile
 basicauth username password {
     realm name
     resources
@@ -51,14 +51,14 @@ basicauth username password {
 
 Protect all files in /secret so only Bob can access them with the password "hiccup":
 
-``` caddyfile
+``` casketfile
 basicauth /secret Bob hiccup
 ```
 
 Protect multiple files and directories in the realm "Mary Lou's documents" so Mary Lou has access with her password
 "milkshakes":
 
-``` caddyfile
+``` casketfile
 basicauth "Mary Lou" milkshakes {
     realm "Mary Lou's documents"
     /notes-for-mary-lou.txt

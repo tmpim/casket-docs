@@ -6,13 +6,13 @@ log enables request logging. The request log is also known from some vernaculars
 
 With no arguments, an access log is written to access.log in the common log format for all requests:
 
-``` caddyfile
+``` casketfile
 log
 ```
 
 Customize the log file location:
 
-``` caddyfile
+``` casketfile
 log file
 ```
 
@@ -21,7 +21,7 @@ log file
 
 To restrict this log to certain requests or to change the log format:
 
-``` caddyfile
+``` casketfile
 log path file [format]
 ```
 
@@ -31,7 +31,7 @@ log path file [format]
 
 Large log files are rolled automatically. You can customize log rolling or other things by opening a block:
 
-``` caddyfile
+``` casketfile
 log path file [format] {
     rotate_size     mb
     rotate_age      days
@@ -61,13 +61,13 @@ Currently there are two predefined formats.
 
 -   **{common}** (default)
 
-    ``` caddyfile
+    ``` casketfile
     {remote} - {user} [{when}] \"{method} {uri} {proto}\" {status} {size}
     ```
 
 -   **{combined}** - {common} appended with
 
-    ``` caddyfile
+    ``` casketfile
     \"{>Referer}\" \"{>User-Agent}\"
     ```
 
@@ -87,7 +87,7 @@ The log destination can be one of a few things:
 Logs have the potential to fill the disk. To mitigate this, request logs are rotated ("rolled") automatically according
 to this default configuration:
 
-``` caddyfile
+``` casketfile
 rotate_size 100 # Rotate a log when it reaches 100 MB
 rotate_age  14  # Keep rotated log files for 14 days
 rotate_keep 10  # Keep at most 10 rotated log files
@@ -100,31 +100,31 @@ You can specify these subdirectives to customize log rolling.
 
 Log all requests to access.log:
 
-``` caddyfile
+``` casketfile
 log
 ```
 
 Log all requests to stdout:
 
-``` caddyfile
+``` casketfile
 log stdout
 ```
 
 Custom log format:
 
-``` caddyfile
+``` casketfile
 log / stdout "{proto} Request: {method} {path}"
 ```
 
 Predefined format:
 
-``` caddyfile
+``` casketfile
 log / stdout "{combined}"
 ```
 
 With rotation:
 
-``` caddyfile
+``` casketfile
 log requests.log {
     rotate_size 50  # Rotate after 50 MB
     rotate_age  90  # Keep rotated files for 90 days
@@ -135,7 +135,7 @@ log requests.log {
 
 To mask (anonymize) IPv4 addresses and IPv6 addresses down to a couple octets:
 
-``` caddyfile
+``` casketfile
 log requests.log {
     ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
 }

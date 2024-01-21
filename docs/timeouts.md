@@ -1,6 +1,6 @@
 # http.timeouts
 
-timeouts configures Caddy's HTTP timeouts:
+timeouts configures Casket's HTTP timeouts:
 
 -   **Read:** Maximum duration for reading the entire request, including the body.
 -   **Read Header:** The amount of time allowed to read request headers.
@@ -9,7 +9,7 @@ timeouts configures Caddy's HTTP timeouts:
 
 Timeouts are an important way to maintain server connectivity in the face of buggy or malicious clients.
 
-Because timeouts apply to an entire HTTP server which may serve multiple sites defined in your Caddyfile, the timeout
+Because timeouts apply to an entire HTTP server which may serve multiple sites defined in your Casketfile, the timeout
 values for each site will be reduced to their minimum values (with 0 or none being the lowest) across all sites that
 share that server. It's a good idea to keep your timeouts the same or just set them on one site to avoid confusion. A
 timeout set on one site will apply to all sites that share that server.
@@ -18,7 +18,7 @@ timeout set on one site will apply to all sites that share that server.
 
 To set all the timeouts to the same value:
 
-``` caddyfile
+``` casketfile
 timeouts val
 ```
 
@@ -27,7 +27,7 @@ timeouts val
 
 You can also configure each timeout individually:
 
-``` caddyfile
+``` casketfile
 timeouts {
     read   val
     header val
@@ -42,13 +42,13 @@ Valid values are durations, or `0` or `none` to disable the timeout if it was pr
 
 Set all timeouts to 1 minute:
 
-``` caddyfile
+``` casketfile
 timeouts 1m
 ```
 
 Set custom read timeout and write timeouts:
 
-``` caddyfile
+``` casketfile
 timeouts {
     read  30s
     write 20s

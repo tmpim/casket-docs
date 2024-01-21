@@ -7,7 +7,7 @@ directive.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 header path name value
 ```
 
@@ -18,7 +18,7 @@ header path name value
 
 This directive can be used multiple times, or you can group multiple custom header fields for the same path:
 
-``` caddyfile
+``` casketfile
 header path {
     name value
 }
@@ -28,19 +28,19 @@ header path {
 
 Custom header for all pages:
 
-``` caddyfile
+``` casketfile
 header / X-Custom-Header "My value"
 ```
 
 Strip the "Hidden" field from header:
 
-``` caddyfile
+``` casketfile
 header / -Hidden
 ```
 
 Multiple custom headers for a specific path, while removing the Server field:
 
-``` caddyfile
+``` casketfile
 header /api {
     Access-Control-Allow-Origin  *
     Access-Control-Allow-Methods "GET, POST, OPTIONS"
@@ -50,7 +50,7 @@ header /api {
 
 Add some security headers to all pages:
 
-``` caddyfile
+``` casketfile
 header / {
     # Enable HTTP Strict Transport Security (HSTS) to force clients to always
     # connect via HTTPS (do not use if only testing)

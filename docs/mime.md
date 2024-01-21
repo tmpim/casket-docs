@@ -8,7 +8,7 @@ use this middleware to set the right Content-Type.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 mime ext type
 ```
 
@@ -17,7 +17,7 @@ mime ext type
 
 If you have a lot of MIME types to set, open a block:
 
-``` caddyfile
+``` casketfile
 mime {
     ext type
 }
@@ -29,13 +29,13 @@ Each line defines a MIME extension-type pair. You can have as many lines as you 
 
 Customize the Content-Type of Flash files:
 
-``` caddyfile
+``` casketfile
 mime .swf application/x-shockwave-flash
 ```
 
 For multiple files:
 
-``` caddyfile
+``` casketfile
 mime {
     .swf application/x-shockwave-flash
     .pdf application/pdf

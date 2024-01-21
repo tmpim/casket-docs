@@ -1,7 +1,7 @@
 # http.expvar
 
 expvar exposes variables about the runtime or current process state in JSON format. The default endpoint is /debug/vars.
-By default, it reports memory statistics, the command used to run Caddy, and the number of goroutines.
+By default, it reports memory statistics, the command used to run Casket, and the number of goroutines.
 
 ::: warning
 This is a debugging tool. Although it is usually safe to use this on live sites, take care that you do not reveal
@@ -12,7 +12,7 @@ For more information, please see [Go's expvar documentation](https://golang.org/
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 expvar [path]
 ```
 
@@ -22,12 +22,12 @@ expvar [path]
 
 Enable expvar at the default path:
 
-``` caddyfile
+``` casketfile
 expvar
 ```
 
 Enable expvar at a custom path:
 
-``` caddyfile
+``` casketfile
 expvar /stats
 ```

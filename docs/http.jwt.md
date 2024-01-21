@@ -1,6 +1,6 @@
 # http.jwt
 
-This middleware implements an authorization layer for Caddy based on JSON Web Tokens (JWT).
+This middleware implements an authorization layer for Casket based on JSON Web Tokens (JWT).
 
 **[Full documentation](https://github.com/BTBurke/caddy-jwt/blob/master/README.md)**
 
@@ -8,7 +8,7 @@ This middleware implements an authorization layer for Caddy based on JSON Web To
 
 ### Basic Syntax
 
-``` caddyfile
+``` casketfile
 jwt [path]
 ```
 
@@ -18,7 +18,7 @@ validate your tokens.
 
 ### Advanced Syntax
 
-``` caddyfile
+``` casketfile
 jwt {
    path [path]
    redirect [location]

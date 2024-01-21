@@ -1,14 +1,14 @@
 # http.prometheus
 
-This directive enables prometheus metrics for Caddy.
+This directive enables prometheus metrics for Casket.
 
-**[Full documentation](https://github.com/miekg/caddy-prometheus/blob/master/README.md)**
+**[Full documentation](https://github.com/tmpim/casket-plugins/blob/master/prometheus/README.md)**
 
 ## Examples
 
 ### Enable metrics
 
-``` caddyfile
+``` casketfile
 prometheus
 ```
 

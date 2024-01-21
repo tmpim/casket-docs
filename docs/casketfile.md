@@ -1,17 +1,17 @@
-# Caddyfile Syntax
+# Casketfile Syntax
 
-This page describes the syntax of the Caddyfile. If it is your first time writing a Caddyfile, try the [Caddyfile
-primer](/tutorial/caddyfile) tutorial instead. This page is not beginner-friendly; it is technical and kind of boring.
+This page describes the syntax of the Casketfile. If it is your first time writing a Casketfile, try the [Casketfile
+primer](/tutorial/casketfile) tutorial instead. This page is not beginner-friendly; it is technical and kind of boring.
 
-Although this article is verbose, the Caddyfile is designed to be easily readable and writable by humans. You will find
+Although this article is verbose, the Casketfile is designed to be easily readable and writable by humans. You will find
 that it is easy to remember, not cumbersome, and flows off the fingers.
 
-The term "Caddyfile" often refers to a file, but more generally means a blob of Caddy configuration text. A Caddyfile
-can be used to configure any Caddy server type: HTTP, DNS, etc. The basic structure and syntax of the Caddyfile is the
-same for all server types, but semantics change. Because of this variability, this document treats the Caddyfile only as
-the generic configuration syntax as it applies to all server types. Caddyfile documentation for specific types may be
+The term "Casketfile" often refers to a file, but more generally means a blob of Casket configuration text. A Casketfile
+can be used to configure any Casket server type: HTTP, DNS, etc. The basic structure and syntax of the Casketfile is the
+same for all server types, but semantics change. Because of this variability, this document treats the Casketfile only as
+the generic configuration syntax as it applies to all server types. Casketfile documentation for specific types may be
 found within their respective docs. For instance, the HTTP server [documents the semantics of its
-Caddyfile](/http-caddyfile).
+Casketfile](/http-casketfile).
 
 ### Topics
 
@@ -27,12 +27,12 @@ Caddyfile](/http-caddyfile).
 
 ## File Format & Encoding {#format}
 
-The Caddyfile is plain Unicode text encoded with UTF-8. Each code point is distinct; specifically, lowercase and
+The Casketfile is plain Unicode text encoded with UTF-8. Each code point is distinct; specifically, lowercase and
 uppercase characters are different. A leading byte order mark (0xFEFF), if present, will be ignored.
 
 ## Lexical Syntax
 
-A **token** is a sequence of whitespace-delimited characters in the Caddyfile. A token that starts with quotes `"` is
+A **token** is a sequence of whitespace-delimited characters in the Casketfile. A token that starts with quotes `"` is
 read literally (including whitespace) until the next instance of quotes `"` that is not escaped. Quote literals may be
 escaped with a backslash like so: `\"`. Only quotes are escapable. “Smart quotes” are not valid as quotes.
 
@@ -47,22 +47,22 @@ Tokens are then evaluated by the parser for structure.
 
 ## Structure
 
-A Caddyfile has no global scope. The most global unit of the Caddyfile is an **entry**. An entry consists of a list of
+A Casketfile has no global scope. The most global unit of the Casketfile is an **entry**. An entry consists of a list of
 labels and a definition associated with those labels. A **label** is a string identifier, and a **definition** is a body
 (one or more lines) of tokens grouped together in a *block*:
 
-![list of labels list of labels filler text definition (block) definition body filler text](/img/caddyfile_structure_1.png)
+![list of labels list of labels filler text definition (block) definition body filler text](/img/casketfile_structure_1.png)
 
-A Caddyfile with *only one* entry may consist simply of the label line(s) followed by the definition on the next
-line(s), as shown above. However, a Caddyfile with *more than one* entry **must** enclose each definition in curly
+A Casketfile with *only one* entry may consist simply of the label line(s) followed by the definition on the next
+line(s), as shown above. However, a Casketfile with *more than one* entry **must** enclose each definition in curly
 braces `{ }`. The opening curly brace `{` must be at the end of the label line, and the closing curly brace `}` must be
 the only token on its line:
 
-![list of labels list of labels filler text definition (block) definition body filler text list of labels list of labels filler text definition (block) definition body filler text](/img/caddyfile_structure_2.png)
+![list of labels list of labels filler text definition (block) definition body filler text list of labels list of labels filler text definition (block) definition body filler text](/img/casketfile_structure_2.png)
 
 Consistent tab indentation is encouraged within blocks enclosed by curly braces.
 
-**The first line of a Caddyfile is always a label line.** Comment lines, empty lines, and [import](/import) lines are
+**The first line of a Casketfile is always a label line.** Comment lines, empty lines, and [import](/import) lines are
 the exceptions.
 
 ## Labels
@@ -70,20 +70,20 @@ the exceptions.
 Labels are the only tokens that appear outside of blocks (with one exception being the [import](/import) directive). A
 label line may have just one label:
 
-``` caddyfile
+``` casketfile
 label
 ```
 
 or several labels, separated by spaces:
 
-``` caddyfile
+``` casketfile
 label1 label2 ...
 ```
 
 If many labels are to head a block, the labels may be suffixed with a comma. A comma-suffixed label may be followed by a
 newline, in which case the next line will be considered part of the same line:
 
-``` caddyfile
+``` casketfile
 label1,
 label2
 ```
@@ -91,7 +91,7 @@ label2
 Mixing of these patterns is valid (but discouraged), as long as the last label of the line has a comma if the next line
 is to continue the list of labels:
 
-``` caddyfile
+``` casketfile
 label1 label2,
 label3, label4,
 label5
@@ -105,7 +105,7 @@ same definition.
 The body of the definition follows label lines. The first token of each line in a definition body is a **directive**.
 Every token *after* the directive on the same line is an **argument**. Arguments are optional:
 
-``` caddyfile
+``` casketfile
 directive1
 directive2 arg1 arg2
 directive3 arg3
@@ -118,7 +118,7 @@ Directives may span multiple lines by opening a block. Blocks are enclosed by cu
 brace `{` must be at the end of the directive's first line, and the closing curly brace `}` must be the only token on
 its line:
 
-``` caddyfile
+``` casketfile
 directive {
     ...
 }
@@ -127,7 +127,7 @@ directive {
 Within a directive block, the first token of each line may be considered a **subdirective** or **property**, depending
 on how it is used (other terms may be applied). And as before, they can have arguments:
 
-``` caddyfile
+``` casketfile
 directive arg1 {
     subdir arg2 arg3
     ...
@@ -142,7 +142,7 @@ empty, the curly braces should be omitted entirely.
 Any token (label, directive, argument, etc.) may contain or consist solely of an environment variable, which takes the
 Unix form or Windows form, enclosed in curly braces `{ }` without extra whitespace:
 
-``` caddyfile
+``` casketfile
 label_{$ENV_VAR_1}
 directive {%ENV_VAR_2%}
 ```
@@ -160,10 +160,10 @@ docs](/import) for more information.
 
 ## Reusable Snippets {#snippets}
 
-You can define snippets to be reused later in your Caddyfile by defining a block with a single-token label surrounded by
+You can define snippets to be reused later in your Casketfile by defining a block with a single-token label surrounded by
 parentheses:
 
-``` caddyfile
+``` casketfile
 (mysnippet) {
     ...
 }
@@ -171,15 +171,15 @@ parentheses:
 
 Then you can invoke the snippet with the `import` directive:
 
-``` caddyfile
+``` casketfile
 import mysnippet
 ```
 
 ## Examples
 
-A very simple Caddyfile with only one entry:
+A very simple Casketfile with only one entry:
 
-``` caddyfile
+``` casketfile
 label1
 
 directive1 argument1
@@ -188,7 +188,7 @@ directive2
 
 Appending the prior example with another entry introduces the need for curly braces:
 
-``` caddyfile
+``` casketfile
 label1 {
     directive1 arg1
     directive2
@@ -201,7 +201,7 @@ label2, label3 {
 
 Some people prefer to always use braces even if there's just one entry; this is fine, but unnecessary:
 
-``` caddyfile
+``` casketfile
 label1 {
     directive1 arg1
     directive2
@@ -210,7 +210,7 @@ label1 {
 
 Example in which a directive opens a block:
 
-``` caddyfile
+``` casketfile
 label1
 
 directive arg1 {
@@ -221,7 +221,7 @@ directive arg4
 
 Similarly, but in an indented definition body, and with a comment:
 
-``` caddyfile
+``` casketfile
 label1 {
     directive1 arg1
     directive2 arg2 {

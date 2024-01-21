@@ -6,7 +6,7 @@ An extension in the URL is detected by checking the last element of the path for
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 ext extensions...
 ```
 
@@ -15,10 +15,10 @@ ext extensions...
 
 ## Examples
 
-Suppose you have a file called /contact.html. You could serve that file at /contact by having Caddy try .html files.
+Suppose you have a file called /contact.html. You could serve that file at /contact by having Casket try .html files.
 
 To try .html, .htm, and .php in order:
 
-``` caddyfile
+``` casketfile
 ext .html .htm .php
 ```

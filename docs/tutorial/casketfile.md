@@ -1,38 +1,38 @@
-# Caddyfile Primer
+# Casketfile Primer
 
-This tutorial will show you how easy it is to configure Caddy with the Caddyfile.
+This tutorial will show you how easy it is to configure Casket with the Casketfile.
 
-The Caddyfile is a text file that configures how Caddy runs.
+The Casketfile is a text file that configures how Casket runs.
 
-**The first line of the Caddyfile is *always* the address of the site to serve.** For example:
+**The first line of the Casketfile is *always* the address of the site to serve.** For example:
 
-``` caddyfile
+``` casketfile
 localhost:8080
 ```
 
-When you save that in a file called Caddyfile, Caddy will automatically find it when you start it:
+When you save that in a file called Casketfile, Casket will automatically find it when you start it:
 
 ```sh
-caddy
+casket
 ```
 
-If the Caddyfile is in a different location or has a different name, tell Caddy where it is:
+If the Casketfile is in a different location or has a different name, tell Casket where it is:
 
 ``` shell
-caddy -conf ../path/to/Caddyfile
+casket -conf ../path/to/Casketfile
 ```
 
-The lines following a site address start with a directive. Directives are [keywords that Caddy recognizes](/). For
+The lines following a site address start with a directive. Directives are [keywords that Casket recognizes](/). For
 example, [gzip](/gzip) is an HTTP directive:
 
-``` caddyfile
+``` casketfile
 localhost:8080
 gzip
 ```
 
 Directives might have one or more arguments after them:
 
-``` caddyfile
+``` casketfile
 localhost:8080
 gzip
 log ../access.log
@@ -41,7 +41,7 @@ log ../access.log
 Some directives require more configuration than can fit on one line. For those directives, you can open a *block* and
 set more parameters. The open curly brace must be at the end of a line:
 
-``` caddyfile
+``` casketfile
 localhost:8080
 gzip
 log ../access.log
@@ -55,17 +55,17 @@ If the directive block is left empty, you should omit the curly braces entirely.
 
 Arguments that contain whitespace must be enclosed in quotes `"`.
 
-The Caddyfile can also have comments starting with the `#` character:
+The Casketfile can also have comments starting with the `#` character:
 
-``` caddyfile
+``` casketfile
 # Comments can start a line
 foobar # or go at the end
 ```
 
-To configure multiple sites with a single Caddyfile, you **must** use curly braces around each one to separate their
+To configure multiple sites with a single Casketfile, you **must** use curly braces around each one to separate their
 configurations:
 
-``` caddyfile
+``` casketfile
 mysite.com {
     root /www/mysite.com
 }
@@ -81,7 +81,7 @@ own line. **All directives must appear inside a site's definition.**
 
 For sites which share the same configuration, specify multiple addresses:
 
-``` caddyfile
+``` casketfile
 localhost:8080, https://site.com, http://mysite.com {
     ...
 }
@@ -90,7 +90,7 @@ localhost:8080, https://site.com, http://mysite.com {
 Site addresses can also be defined under a specific path or have wildcards in place of individual domain labels from the
 left side:
 
-``` caddyfile
+``` casketfile
 example.com/static, *.example.com {
     ...
 }
@@ -102,15 +102,15 @@ directory, you may wish to suffix the path with a forward slash `/`.
 Use of environment variables is allowed in addresses and arguments. They must be enclosed in curly braces, and you can
 use either Unix or Windows variable formats:
 
-``` caddyfile
+``` casketfile
 localhost:{$PORT}
 root {%SITE_ROOT%}
 ```
 
 Either syntax works on any platform. A single environment variable does not expand out into multiple arguments/values.
 
-There is **no inheritence or scripting** in the Caddyfile and **you may not specify the same site address more than
+There is **no inheritence or scripting** in the Casketfile and **you may not specify the same site address more than
 once**. Yes, sometimes that means you copy+paste a few repeated lines. If you have many repeated lines, you can use the
 [import](/import) directive to reduce repetition.
 
-Alrighty, that should be more than enough to make you literate in the [Caddy docs](/). Go forth and conquer!
+Alrighty, that should be more than enough to make you literate in the [Casket docs](/). Go forth and conquer!

@@ -11,11 +11,11 @@ Note that [custom error pages](/errors) do not get executed as templates, even i
 are served by a separate middleware.
 
 Templates can come from static files or be loaded by other middleware. For example, you can [proxy](/proxy) to a backend
-that outputs a template which Caddy then executes with this directive.
+that outputs a template which Casket then executes with this directive.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 templates [path [extensions...]]
 ```
 
@@ -27,7 +27,7 @@ be executed as templates are .html, .htm, .tpl, .tmpl, and .txt.
 
 For more options, open a block:
 
-``` caddyfile
+``` casketfile
 templates {
     path    basepath
     ext     extensions...
@@ -67,18 +67,18 @@ See [Template Actions](/template-actions).
 
 Enable templates for all .html, .htm, .tpl, .tmpl, and .txt files:
 
-``` caddyfile
+``` casketfile
 templates
 ```
 
 Templates for the same file extensions but only under /portfolio:
 
-``` caddyfile
+``` casketfile
 templates /portfolio
 ```
 
 Enable templates only on .html and .txt files in /portfolio:
 
-``` caddyfile
+``` casketfile
 templates /portfolio .html .txt
 ```

@@ -11,7 +11,7 @@ do. When you specify custom error pages, error logging is automatically enabled.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 errors [logfile]
 ```
 
@@ -20,7 +20,7 @@ errors [logfile]
 
 To specify custom error pages, open a block:
 
-``` caddyfile
+``` casketfile
 errors [logfile] {
     code     file
     rotate_size     mb
@@ -57,7 +57,7 @@ The default log destination is `stderr`.
 Logs have the potential to fill the disk. To mitigate this, error logs are rotated ("rolled") automatically according to
 this default configuration:
 
-``` caddyfile
+``` casketfile
 rotate_size 100 # Rotate a log when it reaches 100 MB
 rotate_age  14  # Keep rotated log files for 14 days
 rotate_keep 10  # Keep at most 10 rotated log files
@@ -70,19 +70,19 @@ You can specify these subdirectives to customize log rolling.
 
 Log errors to stderr:
 
-``` caddyfile
+``` casketfile
 errors
 ```
 
 Log errors to a custom file in the parent directory:
 
-``` caddyfile
+``` casketfile
 errors ../error.log
 ```
 
 Log errors and serve custom error pages:
 
-``` caddyfile
+``` casketfile
 errors {
     404 404.html # Not Found
     500 500.html # Internal Server Error
@@ -91,7 +91,7 @@ errors {
 
 Log errors to custom log file and serve custom error pages:
 
-``` caddyfile
+``` casketfile
 errors ../error.log {
     404 404.html # Not Found
     500 500.html # Internal Server Error
@@ -100,7 +100,7 @@ errors ../error.log {
 
 Define a default, catch-all error page:
 
-``` caddyfile
+``` casketfile
 errors {
     * default_error.html
 }
@@ -108,13 +108,13 @@ errors {
 
 Make errors visible to the client (for debugging only):
 
-``` caddyfile
+``` casketfile
 errors visible
 ```
 
 Customize error log rolling:
 
-``` caddyfile
+``` casketfile
 errors {
     rotate_size 50  # Rotate after 50 MB
     rotate_age  90  # Keep rotated files for 90 days

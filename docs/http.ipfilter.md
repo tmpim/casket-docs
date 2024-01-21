@@ -8,27 +8,27 @@ The ipfilter directive adds the ability to allow or block requests based on the 
 
 ### Filter a specific IP or a CIDR range.
 
-``` caddyfile
+``` casketfile
 ipfilter / {
     rule block
     ip 70.1.128.0/19 2001:db8::/122 9.12.20.16
 }
 ```
 
-`caddy` will block any clients with IPs that fall into one of these two ranges `70.1.128.0/19` and `2001:db8::/122` , or
+`casketfile` will block any clients with IPs that fall into one of these two ranges `70.1.128.0/19` and `2001:db8::/122` , or
 a client that has an IP of `9.12.20.16` explicitly.
 
 ### Filter clients based on specified IPs stored as file names in the
 
-``` caddyfile
+``` casketfile
 ipfilter / {
     rule block
     prefix_dir blacklisted
 }
 ```
 
-`caddy` will block any client IP that appears as a file name in the `blacklisted` directory. A relative pathname is
-relative to the CWD when `caddy` is started. When putting the blacklisted directory in the web server document tree you
+`casketfile` will block any client IP that appears as a file name in the `blacklisted` directory. A relative pathname is
+relative to the CWD when `casketfile` is started. When putting the blacklisted directory in the web server document tree you
 should also add an `internal` directive to ensure those files are not visible via HTTP GET requests. For example,
 `internal /blacklisted/`. You can also specify an absolute pathname to locate the blacklist directory outside the
 document tree. You can create the file in the root of the blacklist directory. This is known as using a &#34;flat&#34;
@@ -38,7 +38,7 @@ use a &#34;sharded&#34; namespace. This involves creating the file in a subdirec
 of the address. For example, `blacklisted/127/0/127.0.0.1` or
 `blacklisted/2601/647/2601:647:4601:fa93:1865:4b6c:d055:3f3`. Note that you can also whitelist IP addresses using this
 mechanism by specifying `rule allow`. This may be useful when it follows a more general blocking rule (e.g., by country)
-and you want to selectively allow some addresses through but don&#39;t want to hardcode the addresses in the Caddy
+and you want to selectively allow some addresses through but don&#39;t want to hardcode the addresses in the Casket
 config file. This mechanism is most useful when coupled with automated monitoring of your web server activity to detect
 signals that your server is under attack from malware. All your monitoring software has to do is create a file in the
 blacklist directory. At this time the content of the file is ignored. In the future the contents will probably be read
@@ -47,7 +47,7 @@ directive. So you should consider putting some explanatory text in the file expl
 
 ### Filter clients based on their Country ISO Code
 
-``` caddyfile
+``` casketfile
 ipfilter / {
     rule allow
     database /data/GeoLite.mmdb
@@ -55,13 +55,13 @@ ipfilter / {
 }
 ```
 
-with that in your `Caddyfile` caddy will only serve users from the `United States` or `Japan`. filtering with country
+with that in your `Casketfile` casketfile will only serve users from the `United States` or `Japan`. filtering with country
 codes requires a local copy of the Geo database, can be downloaded for free from
 [MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 ### Define a block page
 
-``` caddyfile
+``` casketfile
 ipfilter / {
     rule allow
     blockpage default.html
@@ -69,11 +69,11 @@ ipfilter / {
 }
 ```
 
-`caddy` will serve only these 2 IPs, eveyone else will get `default.html`.
+`casketfile` will serve only these 2 IPs, eveyone else will get `default.html`.
 
 ### Multiple paths
 
-``` caddyfile
+``` casketfile
 ipfilter /notglobal /secret {
     rule allow
     ip 84.235.124.4
@@ -84,7 +84,7 @@ Only serve `84.235.124.4` under `/notglobal` and `/secret`.
 
 ### Multiple blocks
 
-``` caddyfile
+``` casketfile
 ipfilter / {
     rule allow
     ip 32.55.3.10
@@ -101,7 +101,7 @@ You can use as many `ipfilter` blocks as you please, the above says: block every
 
 ### Syntax
 
-``` caddyfile
+``` casketfile
 ipfilter <basepath> {
     rule       <block | allow>
     ip         <addresses or CIDR ranges to block>
@@ -125,7 +125,7 @@ implicitly blocked. \* **ip**: A sequence of IP adddresses or CIDR ranges to mat
 `ip 1.2.3.4 192.168.0.0/24` This is optional. It can be used more than once in each `ipfilter` block rather than
 enumerating all IPs after a single `ip` directive. \* **prefix_dir**: Specifies a directory in which to search for file
 names matching the IP address of the request. This is optional. It is an error to use this more than once per `ipfilter`
-block. You can specify a relative pathname to place it relative to the Caddy server CWD (which should be the content
+block. You can specify a relative pathname to place it relative to the Casket server CWD (which should be the content
 root dir). When putting the blacklisted directory in the web server document tree you should also add an `internal`
 directive to ensure those files are not visible via HTTP GET requests. For example, `internal /blacklist/`. You can also
 specify an absolute pathname to locate the blacklist directory outside the document tree. And the path can include
@@ -140,7 +140,7 @@ Using equal-signs in place of colons in the file name may be necessary on platfo
 meaning to colons in file names. You have to use one or the other; you cannot mix them in the same file name. Note that
 you can also whitelist IP addresses using this mechanism by specifying `rule allow`. This may be useful when it follows
 a more general blocking rule (e.g., by country) and you want to selectively allow some addresses through but don&#39;t
-want to hardcode the addresses in the Caddy config file. This mechanism is most useful when coupled with automated
+want to hardcode the addresses in the Casket config file. This mechanism is most useful when coupled with automated
 monitoring of your web server activity to detect signals that your server is under attack from malware. All your
 monitoring software has to do is create a file in the blacklist directory. At this time the content of the file is
 ignored. In the future the contents will probably be read and exposed as a placeholder variable for use in conjuction

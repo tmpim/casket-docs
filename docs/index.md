@@ -16,7 +16,7 @@ Using this directive overwrites the list, it does not append to it.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 index filenames...
 ```
 
@@ -26,6 +26,6 @@ index filenames...
 
 Use only goaway.png and easteregg.html as index files:
 
-``` caddyfile
+``` casketfile
 index goaway.png easteregg.html
 ```

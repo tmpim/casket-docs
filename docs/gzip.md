@@ -3,18 +3,18 @@
 gzip enables gzip compression if the client supports it. By default, responses are not gzipped. If enabled, the default
 settings will ensure that images, videos, and archives (already compressed) are not gzipped.
 
-Note that, even without the gzip directive, Caddy will serve .gz (gzip) or .br (brotli) compressed files if they already
+Note that, even without the gzip directive, Casket will serve .gz (gzip) or .br (brotli) compressed files if they already
 exist on disk and the client supports that encoding.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 gzip
 ```
 
 The plain gzip config is good enough for most things, but you can gain more control if needed:
 
-``` caddyfile
+``` casketfile
 gzip {
     ext        extensions...
     not        paths
@@ -34,14 +34,14 @@ gzip {
 
 Enable gzip compression:
 
-``` caddyfile
+``` casketfile
 gzip
 ```
 
 Enable very fast but minimal compression except in the /images and /videos folders (note, however, that images and
 videos will not be gzipped anyway):
 
-``` caddyfile
+``` casketfile
 gzip {
     level 1
     not   /images /videos

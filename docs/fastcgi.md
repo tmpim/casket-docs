@@ -5,7 +5,7 @@ it is by default a generic FastCGI proxy. This directive may be used multiple ti
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 fastcgi path endpoint [preset] {
     root     directory
     ext      extension
@@ -50,7 +50,7 @@ A preset is shorthand for a certain FastCGI configuration. These presets are ava
 
 -   **php** is shorthand for:
 
-    ``` caddyfile
+    ``` casketfile
     ext   .php
     split .php
     index index.php
@@ -63,19 +63,19 @@ individual settings if needed by declaring them manually.
 
 Proxy all requests to a FastCGI responder listening at 127.0.0.1:9000:
 
-``` caddyfile
+``` casketfile
 fastcgi / 127.0.0.1:9000
 ```
 
 Forward all requests in /blog to a PHP site (like WordPress) being served with php-fpm:
 
-``` caddyfile
+``` casketfile
 fastcgi /blog/ 127.0.0.1:9000 php
 ```
 
 With custom FastCGI configuration:
 
-``` caddyfile
+``` casketfile
 fastcgi / 127.0.0.1:9001 {
     split .html
 }
@@ -83,7 +83,7 @@ fastcgi / 127.0.0.1:9001 {
 
 With PHP preset, but overriding the ext property:
 
-``` caddyfile
+``` casketfile
 fastcgi / 127.0.0.1:9001 php {
     ext .html
 }
@@ -92,7 +92,7 @@ fastcgi / 127.0.0.1:9001 php {
 With PHP preset, but the FastCGI server is running in a container based on an [official Docker
 image](https://hub.docker.com/_/php/) (with container port 9000 published to 127.0.0.1:9001):
 
-``` caddyfile
+``` casketfile
 fastcgi / 127.0.0.1:9001 php {
     root /var/www/html
 }

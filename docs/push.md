@@ -7,12 +7,12 @@ asked for. It is *not* a replacement for WebSockets. It must also be configured 
 client-side caching, or pushing can actually decrease performance. If a client caches a resource after the first time it
 is pushed, subsequent pushes of the same resource are unnecessary.
 
-Caddy knows which resources to push either from rules you provide in the Caddyfile or from [Link
+Casket knows which resources to push either from rules you provide in the Casketfile or from [Link
 headers](https://w3c.github.io/preload/#server-push-http-2) coming from some upstream.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 push
 ```
 
@@ -21,7 +21,7 @@ backend app with [proxy](/proxy) or [fastcgi](/fastcgi), for example, that sets 
 
 To configure a basic push rule:
 
-``` caddyfile
+``` casketfile
 push path [resources...]
 ```
 
@@ -32,7 +32,7 @@ push path [resources...]
 To push many resources that won't fit on a single line or to change the method or headers of the synthetic request used
 to initiate the pushes, open a block:
 
-``` caddyfile
+``` casketfile
 push path [resources...] {
     method method
     header name value
@@ -51,25 +51,25 @@ push path [resources...] {
 
 Enable server push for all requests using Link headers:
 
-``` caddyfile
+``` casketfile
 push
 ```
 
 Push Google Analytics script for all requests (not cache-aware):
 
-``` caddyfile
+``` casketfile
 push / /ga.js
 ```
 
 Push a couple CSS files for requests to the home page:
 
-``` caddyfile
+``` casketfile
 push /index.html /common.css /home.css
 ```
 
 Push many resources to the home page:
 
-``` caddyfile
+``` casketfile
 push /index.html {
     /resources/css/common.css
     /resources/css/home.css
@@ -83,7 +83,7 @@ push /index.html {
 
 Specify a method and header for all push requests:
 
-``` caddyfile
+``` casketfile
 push {
     method HEAD
     header MyHeader "The value"

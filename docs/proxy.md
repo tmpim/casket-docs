@@ -1,7 +1,7 @@
 # http.proxy
 
 proxy facilitates both a basic reverse proxy and a robust load balancer. The proxy has support for multiple backends and
-adding custom headers. The load balancing features include multiple policies, health checks, and failovers. Caddy can
+adding custom headers. The load balancing features include multiple policies, health checks, and failovers. Casket can
 also proxy WebSocket connections.
 
 This middleware adds a [placeholder](/placeholders) that can be used in [log](/log) formats: **{upstream}** - the name
@@ -11,7 +11,7 @@ of the upstream host to which the request was proxied.
 
 In its most basic form, a simple reverse proxy uses this syntax:
 
-``` caddyfile
+``` casketfile
 proxy from to
 ```
 
@@ -20,7 +20,7 @@ proxy from to
 
 However, advanced features including load balancing can be utilized with an expanded syntax:
 
-``` caddyfile
+``` casketfile
 proxy from to... {
     policy name [value]
     fail_timeout duration
@@ -52,7 +52,7 @@ proxy from to... {
     (http/https/quic/srv) is not specified, http is used. Unix sockets may also be used by prefixing "unix:". QUIC
     connections are experimental, but to try it, just use "quic://" for the scheme. Service discovery using SRV lookup
     is supported. If the endpoint starts with `srv://` or `srv+https://` it will be considered as a service locator and
-    Caddy will attempt to resolve available services via SRV DNS lookup.
+    Casket will attempt to resolve available services via SRV DNS lookup.
 -   **policy** is the load balancing policy to use; applies only with multiple backends. May be one of random,
     least_conn, round_robin, first, ip_hash, uri_hash, or header. If header is chosen, the header name must also be
     provided. Default is random. This setting is not applicable if destination is a service locator.
@@ -124,7 +124,7 @@ The following presets are available:
 -   **websocket**\
     Indicates this proxy is forwarding WebSocket connections. It is shorthand for:
 
-    ``` caddyfile
+    ``` casketfile
     header_upstream Connection {>Connection}
     header_upstream Upgrade {>Upgrade}
     ```
@@ -136,7 +136,7 @@ The following presets are available:
 -   **transparent**\
     Passes thru host information from the original request as most backend apps would expect. Shorthand for:
 
-    ``` caddyfile
+    ``` casketfile
     header_upstream Host {host}
     header_upstream X-Real-IP {remote}
     header_upstream X-Forwarded-For {remote}
@@ -151,7 +151,7 @@ There are several load balancing policies available:
 -   **random** (default) - Randomly select a backend
 -   **least_conn** - Select backend with the fewest active connections
 -   **round_robin** - Select backend in round-robin fashion
--   **first** - Select the first available backend in the order they are defined in the Caddyfile
+-   **first** - Select the first available backend in the order they are defined in the Casketfile
 -   **ip_hash** - Select backend by hashing the request IP, distributing evenly over the hash space based on the total
     number of backends
 -   **uri_hash** - Select backend by hashing the request URI, distributing evenly over the hash space based on the total
@@ -163,19 +163,19 @@ There are several load balancing policies available:
 
 Proxy all requests within /api to a backend system:
 
-``` caddyfile
+``` casketfile
 proxy /api localhost:9005
 ```
 
 Load-balance all requests between three backends (using random policy):
 
-``` caddyfile
+``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100
 ```
 
 Same as above, with header affinity:
 
-``` caddyfile
+``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
     policy header X-My-Header
 }
@@ -183,7 +183,7 @@ proxy / web1.local:80 web2.local:90 web3.local:100 {
 
 Round-robin style:
 
-``` caddyfile
+``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
     policy round_robin
 }
@@ -191,7 +191,7 @@ proxy / web1.local:80 web2.local:90 web3.local:100 {
 
 With health checks and proxy headers to pass hostname, IP, and scheme upstream:
 
-``` caddyfile
+``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
     policy round_robin
     health_check /health
@@ -201,7 +201,7 @@ proxy / web1.local:80 web2.local:90 web3.local:100 {
 
 Proxy WebSocket connections:
 
-``` caddyfile
+``` casketfile
 proxy /stream localhost:8080 {
     websocket
 }
@@ -209,7 +209,7 @@ proxy /stream localhost:8080 {
 
 Proxy everything except requests to /static or /robots.txt:
 
-``` caddyfile
+``` casketfile
 proxy / backend:1234 {
     except /static /robots.txt
 }
@@ -217,13 +217,13 @@ proxy / backend:1234 {
 
 Proxy to a backend with HTTPS on the standard HTTPS port:
 
-``` caddyfile
+``` casketfile
 proxy / https://backend
 ```
 
-To have Caddy retry when an upstream connection fails once in a while (EOF errors, for instance):
+To have Casket retry when an upstream connection fails once in a while (EOF errors, for instance):
 
-``` caddyfile
+``` casketfile
 proxy / backend:1234 {
     try_duration 5s
 }

@@ -6,7 +6,7 @@ behavior.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 markdown [basepath] {
     ext         extensions...
     [css|js]    file
@@ -41,7 +41,7 @@ matter can be in YAML, TOML, or JSON formats.
 +++
 template = "blog"
 title = "Blog Homepage"
-sitename = "A Caddy site"
+sitename = "A Casket site"
 +++
 ```
 
@@ -51,7 +51,7 @@ sitename = "A Caddy site"
 ---
 template: blog
 title: Blog Homepage
-sitename: A Caddy site
+sitename: A Casket site
 ---
 ```
 
@@ -61,7 +61,7 @@ sitename: A Caddy site
 {
     "template": "blog",
     "title": "Blog Homepage",
-    "sitename": "A Caddy site"
+    "sitename": "A Casket site"
 }
 ```
 
@@ -91,20 +91,20 @@ Here is a simple example template (contrived):
 </html>
 ```
 
-Along with these template actions, all the standard [Caddy template actions](/template-actions) are available to you in
+Along with these template actions, all the standard [Casket template actions](/template-actions) are available to you in
 Markdown templates. Be sure to sanitize anything you render as HTML (use the `html`, `js`, and `urlquery` functions)!
 
 ## Examples
 
 Serve Markdown pages in /blog with no special formatting (assumes .md is the Markdown extension):
 
-``` caddyfile
+``` casketfile
 markdown /blog
 ```
 
 Same as above, but with custom CSS and JS files:
 
-``` caddyfile
+``` casketfile
 markdown /blog {
     ext .md .txt
     css /css/blog.css
@@ -114,7 +114,7 @@ markdown /blog {
 
 With custom templates:
 
-``` caddyfile
+``` casketfile
 markdown /blog {
     template default.html
     template blog  blog.html

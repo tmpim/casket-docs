@@ -8,7 +8,7 @@ A DNS server plugin.
 
 ### CoreDNS
 
-``` caddyfile
+``` casketfile
 .:53 {
     cache    
     forward . 8.8.8.8:53

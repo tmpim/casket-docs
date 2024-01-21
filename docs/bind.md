@@ -10,7 +10,7 @@ socket. (Virtual hosts are not shared across different listeners.)
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 bind host
 ```
 
@@ -20,6 +20,6 @@ bind host
 
 To make your socket accessible only to that machine, bind to IP 127.0.0.1 (localhost):
 
-``` caddyfile
+``` casketfile
 bind 127.0.0.1
 ```

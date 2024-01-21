@@ -1,14 +1,14 @@
 # http.geoip
 
-geoip is a Caddy plugin that allow to determine user Geolocation by IP address using MaxMind database.
+geoip is a Casket plugin that allow to determine user Geolocation by IP address using MaxMind database.
 
-**[Full documentation](https://github.com/kodnaplakal/caddy-geoip/blob/master/README.md)**
+**[Full documentation](https://github.com/tmpim/casket-plugins/blob/master/geoip/README.md)**
 
 ## Examples
 
 ### Proxy pass headers to backend
 
-``` caddyfile
+``` casketfile
 localhost
 geoip /path/to/db/GeoLite2-City.mmdb
 proxy / localhost:3000 {

@@ -7,7 +7,7 @@ When request_id is used, the `{request_id}` [placeholder](/placeholders) will ha
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 request_id [header_field]
 ```
 
@@ -22,13 +22,13 @@ request_id [header_field]
 
 Set the request ID in a response header:
 
-``` caddyfile
+``` casketfile
 request_id 
-header /  Caddy-Request-Id {request_id}
+header /  Casket-Request-Id {request_id}
 ```
 
 Read the request ID from a request header called X-Request-ID, if present:
 
-``` caddyfile
+``` casketfile
 request_id X-Request-ID
 ```

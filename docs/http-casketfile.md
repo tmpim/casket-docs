@@ -1,7 +1,7 @@
-# The HTTP Caddyfile
+# The HTTP Casketfile
 
-This page documents how the HTTP server uses the Caddyfile. If you haven't already, take the [Caddyfile
-tutorial](/tutorial/caddyfile) or read up on the [Caddyfile syntax](/caddyfile) first.
+This page documents how the HTTP server uses the Casketfile. If you haven't already, take the [Casketfile
+tutorial](/tutorial/casketfile) or read up on the [Casketfile syntax](/casketfile) first.
 
 ### Topics
 
@@ -12,7 +12,7 @@ tutorial](/tutorial/caddyfile) or read up on the [Caddyfile syntax](/caddyfile) 
 
 ## Site Addresses {#addresses}
 
-The HTTP server uses site addresses for [labels](/caddyfile#structure). Addresses are specified in the form
+The HTTP server uses site addresses for [labels](/casketfile#structure). Addresses are specified in the form
 `scheme://host:port/path`, where all but one are optional.
 
 The host portion is usually localhost or the domain name. The default port is 2015 (unless the site qualifies for
@@ -21,7 +21,7 @@ specify a port. Valid schemes are "http" or "https" which represent, respectivel
 and port are specified, the port takes precedence. For example (this table assumes automatic HTTPS is applied where it
 qualifies):
 
-``` caddyfile
+``` casketfile
 :2015                    # Host: (any), Port: 2015
 localhost                # Host: localhost; Port: 2015
 localhost:8080           # Host: localhost; Port: 8080
@@ -56,18 +56,18 @@ a forward slash like `/foo/`, which will *not* match `/foobar`.
 
 Most directives invoke a layer of middleware. Middleware is a small layer in the application that handles HTTP requests
 and does one thing really well. Middleware are chained together (pre-compiled, if you will) at startup. Only middleware
-handlers which are invoked from the Caddyfile will be chained in, so small Caddyfiles are very fast and efficient.
+handlers which are invoked from the Casketfile will be chained in, so small Casketfiles are very fast and efficient.
 
 The syntax of arguments varies from directive to directive. Some have required arguments, others don't. Consult the
 documentation of each directive for their signatures.
 
 For directives which are registered as plugins, the documentation pages will show the directive name prefixed with the
-server type, for example, "http.realip" or "dns.dnssec". When using them in the Caddyfile, drop the prefix ("http.").
-The prefix is just to assure unique naming, but is not used in the Caddyfile.
+server type, for example, "http.realip" or "dns.dnssec". When using them in the Casketfile, drop the prefix ("http.").
+The prefix is just to assure unique naming, but is not used in the Casketfile.
 
 ## Placeholders
 
 In some cases, directives will accept [placeholders](/placeholders) (replaceable values). These are words that are
 enclosed by curly braces `{ }` and interpreted by the HTTP server at request-time. For example, `{query}` or
 `{>Referer}`. Think of them like variables. These placeholders have no relationship to the environment variables you can
-use in Caddyfiles, except we borrowed the syntax for familiarity.
+use in Casketfiles, except we borrowed the syntax for familiarity.

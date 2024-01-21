@@ -8,16 +8,16 @@ Each command that is executed is blocking, unless you suffix the command with a 
 command to be run in the background. (Do not do this when the server is exiting, or the command may not finish before
 its parent process exits.) The output and error of the command go to stdout and stderr, respectively. There is no stdin.
 
-A command will only be executed once for each time it appears in the Caddyfile. In other words, even if this directive
-is shared by more than one host, a command will only execute once per appearance in the Caddyfile.
+A command will only be executed once for each time it appears in the Casketfile. In other words, even if this directive
+is shared by more than one host, a command will only execute once per appearance in the Casketfile.
 
-Note that commands scheduled for the shutdown event will not execute if Caddy is force-terminated, for example, by using
+Note that commands scheduled for the shutdown event will not execute if Casket is force-terminated, for example, by using
 a "Force Quit" feature provided by your operating system. However, a typical SIGINT (Ctrl+C) will allow the shutdown
 commands to execute.
 
 ## Syntax
 
-``` caddyfile
+``` casketfile
 on event command
 ```
 
@@ -36,18 +36,18 @@ Commands can execute on the following events:
 
 Start php-fpm before the server starts listening:
 
-``` caddyfile
+``` casketfile
 on startup /etc/init.d/php-fpm start
 ```
 
 Stop php-fpm when the server quits:
 
-``` caddyfile
+``` casketfile
 on shutdown /etc/init.d/php-fpm stop
 ```
 
 On Windows, you might need to use quotes when the command path contains spaces:
 
-``` caddyfile
+``` casketfile
 on startup "\"C:\Program Files\PHP\v7.0\php-cgi.exe\" -b 127.0.0.1:9123" &
 ```

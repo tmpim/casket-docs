@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import caddyfile from "./caddyfile.tmLanguage.json";
+import casketfile from "./casketfile.tmLanguage.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -29,11 +29,11 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Using Caddy",
+        text: "Using Casket",
         items: [
           { link: "/tutorial/", text: "Getting Started" },
           { link: "/cli", text: "Command Line Interface" },
-          { link: "/caddyfile", text: "Caddyfile Syntax" },
+          { link: "/casketfile", text: "Casketfile Syntax" },
           { link: "/telemetry", text: "Telemetry" },
         ]
       },
@@ -43,14 +43,14 @@ export default defineConfig({
         items: [
           { link: "/tutorial/", text: "Quick Start" },
           { link: "/tutorial/beginner", text: "Beginner Tutorial" },
-          { link: "/tutorial/caddyfile", text: "Caddyfile Primer" },
+          { link: "/tutorial/casketfile", text: "Casketfile Primer" },
         ]
       },
 
       {
         text: "HTTP Server",
         items: [
-          { link: "/http-caddyfile", text: "HTTP Caddyfile" },
+          { link: "/http-casketfile", text: "HTTP Casketfile" },
           { link: "/automatic-https", text: "Automatic HTTPS" },
           { link: "/mitm-detection", text: "MITM Detection" },
           { link: "/placeholders", text: "Placeholders" },
@@ -180,7 +180,7 @@ export default defineConfig({
   },
 
   markdown: {
-    languages: [caddyfile as any]
+    languages: [casketfile as any]
   },
 
   ignoreDeadLinks: [
