@@ -2,7 +2,8 @@
 
 This plugin allows Caddy to use Redis to store and share TLS data across multiple Caddy instances in a cluster.
 
-**[Full documentation](/blob/master/README.md)**
+<!-- TODO: -->
+<!--**[Full documentation](/blob/master/README.md)**-->
 
 ## Examples
 

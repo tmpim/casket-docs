@@ -1,6 +1,6 @@
 # Quick Start
 
-1.  [Download Caddy](/v1/download) and put it in your PATH.
+1.  [Download Caddy](https://github.com/tmpim/casket/releases) and put it in your PATH.
 
 2.  `cd` to your website's directory.
 

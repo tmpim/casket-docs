@@ -47,8 +47,6 @@ export default defineConfig({
         ]
       },
 
-      // TODO
-
       {
         text: "HTTP Server",
         items: [
@@ -106,30 +104,19 @@ export default defineConfig({
           {
             text: "DNS Providers",
             items: [
-              { link: "/tls.dns.auroradns", text: "tls.dns.auroradns" },
               { link: "/tls.dns.azure", text: "tls.dns.azure" },
               { link: "/tls.dns.cloudflare", text: "tls.dns.cloudflare" },
-              { link: "/tls.dns.cloudxns", text: "tls.dns.cloudxns" },
               { link: "/tls.dns.digitalocean", text: "tls.dns.digitalocean" },
               { link: "/tls.dns.dnsimple", text: "tls.dns.dnsimple" },
-              { link: "/tls.dns.dnsmadeeasy", text: "tls.dns.dnsmadeeasy" },
-              { link: "/tls.dns.dnspod", text: "tls.dns.dnspod" },
               { link: "/tls.dns.duckdns", text: "tls.dns.duckdns" },
               { link: "/tls.dns.dyn", text: "tls.dns.dyn" },
-              { link: "/tls.dns.exoscale", text: "tls.dns.exoscale" },
-              { link: "/tls.dns.gandi", text: "tls.dns.gandi" },
-              { link: "/tls.dns.gandiv5", text: "tls.dns.gandiv5" },
               { link: "/tls.dns.godaddy", text: "tls.dns.godaddy" },
               { link: "/tls.dns.googlecloud", text: "tls.dns.googlecloud" },
               { link: "/tls.dns.lightsail", text: "tls.dns.lightsail" },
               { link: "/tls.dns.linode", text: "tls.dns.linode" },
               { link: "/tls.dns.namecheap", text: "tls.dns.namecheap" },
               { link: "/tls.dns.namedotcom", text: "tls.dns.namedotcom" },
-              { link: "/tls.dns.namesilo", text: "tls.dns.namesilo" },
-              { link: "/tls.dns.ns1", text: "tls.dns.ns1" },
-              { link: "/tls.dns.otc", text: "tls.dns.otc" },
               { link: "/tls.dns.ovh", text: "tls.dns.ovh" },
-              { link: "/tls.dns.powerdns", text: "tls.dns.powerdns" },
               { link: "/tls.dns.rackspace", text: "tls.dns.rackspace" },
               { link: "/tls.dns.rfc2136", text: "tls.dns.rfc2136" },
               { link: "/tls.dns.route53", text: "tls.dns.route53" },
@@ -139,43 +126,15 @@ export default defineConfig({
           {
             text: "Directives/Middleware",
             items: [
-              { link: "/dyndns", text: "dyndns" },
-              { link: "/http.authz", text: "http.authz" },
-              { link: "/http.awses", text: "http.awses" },
-              { link: "/http.awslambda", text: "http.awslambda" },
-              { link: "/http.cache", text: "http.cache" },
-              { link: "/http.cgi", text: "http.cgi" },
               { link: "/http.cors", text: "http.cors" },
-              { link: "/http.datadog", text: "http.datadog" },
-              { link: "/http.expires", text: "http.expires" },
-              { link: "/http.filter", text: "http.filter" },
               { link: "/http.forwardproxy", text: "http.forwardproxy" },
               { link: "/http.geoip", text: "http.geoip" },
-              { link: "/http.git", text: "http.git" },
-              { link: "/http.gomods", text: "http.gomods" },
-              { link: "/http.gopkg", text: "http.gopkg" },
-              { link: "/http.grpc", text: "http.grpc" },
               { link: "/http.ipfilter", text: "http.ipfilter" },
               { link: "/http.jwt", text: "http.jwt" },
-              { link: "/http.locale", text: "http.locale" },
-              { link: "/http.login", text: "http.login" },
-              { link: "/http.mailout", text: "http.mailout" },
-              { link: "/http.minify", text: "http.minify" },
-              { link: "/http.nobots", text: "http.nobots" },
-              { link: "/http.permission", text: "http.permission" },
               { link: "/http.prometheus", text: "http.prometheus" },
-              { link: "/http.proxyprotocol", text: "http.proxyprotocol" },
-              { link: "/http.pubsub", text: "http.pubsub" },
               { link: "/http.ratelimit", text: "http.ratelimit" },
               { link: "/http.realip", text: "http.realip" },
-              { link: "/http.reauth", text: "http.reauth" },
-              { link: "/http.recaptcha", text: "http.recaptcha" },
-              { link: "/http.restic", text: "http.restic" },
-              { link: "/http.s3browser", text: "http.s3browser" },
-              { link: "/http.supervisor", text: "http.supervisor" },
-              { link: "/http.torproxy", text: "http.torproxy" },
               { link: "/http.webdav", text: "http.webdav" },
-              { link: "/http.webp", text: "http.webp" },
             ]
           },
           {
@@ -223,4 +182,8 @@ export default defineConfig({
   markdown: {
     languages: [caddyfile as any]
   },
+
+  ignoreDeadLinks: [
+    "http://localhost:2015"
+  ]
 });

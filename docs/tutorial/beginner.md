@@ -1,7 +1,7 @@
 # Beginner Tutorial
 
 This tutorial will help you install, run, and configure Caddy for your first time. It assumes you have never used a web
-server before! (If you have, do the [quick start](/tutorial).) Although Caddy is very easy to use, it is still
+server before! (If you have, do the [quick start](/tutorial/).) Although Caddy is very easy to use, it is still
 expected that you are already familiar with using your machine:
 
 -   Extracting, moving, and renaming files
@@ -20,8 +20,8 @@ With these prerequisites, you're ready to go.
 
 ## Download
 
-Download Caddy from [the download page](/v1/download). You can get Caddy for nearly any OS and architecture. Caddy's
-download page is unique from other web servers: it lets you customize your build with plugins.
+Download Caddy from [the download page](https://github.com/tmpim/casket/releases). You can get Caddy for nearly any OS
+and architecture. Caddy's download page is unique from other web servers: it lets you customize your build with plugins.
 
 For this tutorial, you don't need any plugins.
 

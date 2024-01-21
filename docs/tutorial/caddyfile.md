@@ -22,8 +22,8 @@ If the Caddyfile is in a different location or has a different name, tell Caddy 
 caddy -conf ../path/to/Caddyfile
 ```
 
-The lines following a site address start with a directive. Directives are [keywords that Caddy recognizes](/v1/docs).
-For example, [gzip](/gzip) is an HTTP directive:
+The lines following a site address start with a directive. Directives are [keywords that Caddy recognizes](/). For
+example, [gzip](/gzip) is an HTTP directive:
 
 ``` caddyfile
 localhost:8080
@@ -113,4 +113,4 @@ There is **no inheritence or scripting** in the Caddyfile and **you may not spec
 once**. Yes, sometimes that means you copy+paste a few repeated lines. If you have many repeated lines, you can use the
 [import](/import) directive to reduce repetition.
 
-Alrighty, that should be more than enough to make you literate in the [Caddy docs](/v1/docs). Go forth and conquer!
+Alrighty, that should be more than enough to make you literate in the [Caddy docs](/). Go forth and conquer!
