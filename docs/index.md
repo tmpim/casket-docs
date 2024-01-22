@@ -22,20 +22,20 @@ usability.
 <div class="tight-list">
 
 - Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
-- Add `serverarchive` to download folders as archives in the [`browse`](/browse) directive
-  ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
-- Default `browse` template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
-- Backported `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
-- Add `exclude` directive to `basicauth`
+- Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
+  ([#1](https://github.com/tmpim/casket/pull/1))
+- Add `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
+- Add `exclude` directive to [`basicauth`](/basicauth)
   ([52c171f](https://github.com/tmpim/casket/commit/52c171f6c6d5941e0fd3e75aaad202a68f1305bc))
+- Add `servearchive` to download folders as archives in the [`browse`](/browse) directive
+  ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
+- Default [`browse`](/browse) template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
 - Automatic MIME type detection based on extension to the `mime` directive
   ([67a1cb7..69ea3e2](https://github.com/tmpim/casket/compare/67a1cb7..69ea3e2))
 - Redirect HTTP -> HTTPS even for self-managed TLS configurations (`self_signed`, own certificates, etc.)
   ([#26](https://github.com/tmpim/casket/pull/26))
 - Environment variables everywhere placeholders are supported
   ([1bedd5e](https://github.com/tmpim/casket/commit/1bedd5e))
-- Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
-  ([#1](https://github.com/tmpim/casket/pull/1))
 
 </div>
 

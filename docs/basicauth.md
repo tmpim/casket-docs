@@ -1,5 +1,9 @@
 # http.basicauth
 
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
+
 basicauth implements HTTP Basic Authentication. Basic Authentication can be used to protect directories and files with a
 username and password. Note that basic auth is *not secure* over plain HTTP. Use discretion when deciding what to
 protect with HTTP Basic Authentication.
@@ -23,12 +27,18 @@ resource retrieval (i.e. if they respond with secret content to OPTIONS requests
 ## Syntax
 
 ``` casketfile
-basicauth path username password
+basicauth path username password {
+  exclude [paths...]
+}
 ```
 
 -   **path** is the file or directory to protect
 -   **username** is the username
 -   **password** is the password
+-   **exclude** <NewInCasket version="v1.2.10" /> is a list of paths to exclude from protection. This is useful if you
+    want to protect a directory but allow access to a specific file within it. Paths are relative to the protected path.
+    For example, if you want to protect `/secret` but allow access to `/secret/allowed.txt`, you would use `exclude
+    allowed.txt`.
 
 This syntax is convenient for protecting a single file or base path/directory with the default realm "Restricted". To
 protect multiple resources or to specify a realm, use the following variation:
@@ -36,7 +46,8 @@ protect multiple resources or to specify a realm, use the following variation:
 ``` casketfile
 basicauth username password {
     realm name
-    resources
+    exclude [paths...]
+    resources...
 }
 ```
 
@@ -45,6 +56,10 @@ basicauth username password {
 -   **realm** identifies the protection partition; it is optional and cannot be repeated. Realms are used to specify the
     space in which the protection applies. This can be convenient for user agents that are configured to remember
     authentication details (which is most browsers).
+-   **exclude** <NewInCasket version="v1.2.10" /> is a list of paths to exclude from protection. This is useful if you
+    want to protect a directory but allow access to a specific file within it. Paths are relative to the protected path.
+    For example, if you want to protect `/secret` but allow access to `/secret/allowed.txt`, you would use `exclude
+    allowed.txt`.
 -   **resources** is a list of files/directories to protect, one per line.
 
 ## Examples
@@ -65,4 +80,12 @@ basicauth "Mary Lou" milkshakes {
     /marylou-files
     /another-file.txt
 }
+```
+
+Protect all files in the root (`/`) except for `/robots.txt` and everything in `/public`:
+
+``` casketfile
+basicauth / Bob hiccup {
+  exclude /robots.txt /public
+}  
 ```
