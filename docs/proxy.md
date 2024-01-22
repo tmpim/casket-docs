@@ -1,5 +1,9 @@
 # http.proxy
 
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
+
 proxy facilitates both a basic reverse proxy and a robust load balancer. The proxy has support for multiple backends and
 adding custom headers. The load balancing features include multiple policies, health checks, and failovers. Casket can
 also proxy WebSocket connections.
@@ -53,9 +57,19 @@ proxy from to... {
     connections are experimental, but to try it, just use "quic://" for the scheme. Service discovery using SRV lookup
     is supported. If the endpoint starts with `srv://` or `srv+https://` it will be considered as a service locator and
     Casket will attempt to resolve available services via SRV DNS lookup.
--   **policy** is the load balancing policy to use; applies only with multiple backends. May be one of random,
-    least_conn, round_robin, first, ip_hash, uri_hash, or header. If header is chosen, the header name must also be
-    provided. Default is random. This setting is not applicable if destination is a service locator.
+-   **policy** is the load balancing policy to use; applies only with multiple backends. This setting is not applicable 
+    if destination is a service locator. May be one of:
+    - `random` (**default**) Selects a host at random from the available backends.
+    - `least_conn` Selects the host with the least active connections.
+    - `round_robin` Selects the next host in round-robin fashion.
+    - `first` Selects the first available host in the order they are defined in the Casketfile.
+    - `ip_hash` Selects a host based on a hash of the request IP, distributing evenly over the hash space based on the
+        total number of backends.
+        ([Hash implementation](https://github.com/tmpim/casket/blob/5fd2388a/caskethttp/proxy/policy.go#L127))
+    - `uri_hash` Selects a host based on a hash of the request URI.
+    - `header`. Selects a host based on a hash of the given header(s). The header names must be specified after. For 
+        example, `policy header X-My-Header`. <NewInCasket /> Multiple headers can be specified by  separating them with 
+        spaces.
 -   **fail_timeout** specifies how long to remember a failed request to a backend. A timeout \> 0 enables request
     failure counting and is required for load balancing between backends in case of failures. If the number of failed
     requests accumulates to the max_fails value, the host will be considered down and no requests will be routed to it
