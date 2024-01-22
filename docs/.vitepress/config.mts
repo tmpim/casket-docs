@@ -19,7 +19,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: "/img/logo.svg",
+    logo: "/logo.png",
 
     // https://vitepress.dev/reference/default-theme-config
     nav: [
