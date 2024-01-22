@@ -12,6 +12,7 @@ usability.
 - [Getting Started](/tutorial)
 - [Download Casket](https://github.com/tmpim/casket/releases)
 - [GitHub](https://github.com/tmpim/casket)
+- [Caddy v1 documentation archive](https://caddy.its-em.ma)
 
 </div>
 
