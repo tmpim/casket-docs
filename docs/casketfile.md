@@ -45,14 +45,31 @@ A Casketfile has no global scope. The most global unit of the Casketfile is an *
 labels and a definition associated with those labels. A **label** is a string identifier, and a **definition** is a body
 (one or more lines) of tokens grouped together in a *block*:
 
-![list of labels list of labels filler text definition (block) definition body filler text](/img/casketfile_structure_1.png)
+<div class="language-casketfile vp-adaptive-theme">
+  <pre class="!px-6 !whitespace-normal">
+    <span class="bg-red-500/30 rounded px-2 py-1">list of labels</span>
+    <div class="bg-purple-500/30 rounded px-2 py-4 max-w-[300px] mt-2">definition (block)</div>
+  </pre>
+</div>
 
 A Casketfile with *only one* entry may consist simply of the label line(s) followed by the definition on the next
 line(s), as shown above. However, a Casketfile with *more than one* entry **must** enclose each definition in curly
 braces `{ }`. The opening curly brace `{` must be at the end of the label line, and the closing curly brace `}` must be
 the only token on its line:
 
-![list of labels list of labels filler text definition (block) definition body filler text list of labels list of labels filler text definition (block) definition body filler text](/img/casketfile_structure_2.png)
+<div class="language-casketfile vp-adaptive-theme">
+  <pre class="!px-6 !whitespace-normal">
+    <span class="bg-red-500/30 rounded px-2 py-1">list of labels</span>
+    <span class="text-lg font-bold">{</span>
+    <div class="bg-purple-500/30 rounded px-2 py-4 max-w-[300px] mt-2 ml-6">definition (block)</div>
+    <span class="text-lg font-bold">}</span>
+    <br /><br />
+    <span class="bg-red-500/30 rounded px-2 py-1">list of labels</span>
+    <span class="text-lg font-bold">{</span>
+    <div class="bg-purple-500/30 rounded px-2 py-4 max-w-[300px] mt-2 ml-6">definition (block)</div>
+    <span class="text-lg font-bold">}</span>
+  </pre>
+</div>
 
 Consistent tab indentation is encouraged within blocks enclosed by curly braces.
 
