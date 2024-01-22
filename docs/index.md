@@ -17,20 +17,25 @@ usability.
 
 ## New in Casket
 
+::: info
+These docs have only recently been forked from the Caddy v1 docs, so the features marked below with ❓ are not yet
+documented, but will be in due course.
+:::
+
 <div class="tight-list">
 
-- Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
+- ❓ Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
 - Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
   ([#1](https://github.com/tmpim/casket/pull/1))
-- Add `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
+- ❓ Add `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
 - Add `exclude` option to the [`basicauth`](/basicauth) directive
   ([52c171f](https://github.com/tmpim/casket/commit/52c171f6c6d5941e0fd3e75aaad202a68f1305bc))
 - Add `servearchive` option to the [`browse`](/browse) directive to download folders as archives
   ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
 - Default [`browse`](/browse) template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
-- Automatic MIME type detection based on extension to the `mime` directive
+- ❓ Automatic MIME type detection based on extension to the `mime` directive
   ([67a1cb7..69ea3e2](https://github.com/tmpim/casket/compare/67a1cb7..69ea3e2))
-- Redirect HTTP -> HTTPS even for self-managed TLS configurations (`self_signed`, own certificates, etc.)
+- ❓ Redirect HTTP -> HTTPS even for self-managed TLS configurations (`self_signed`, own certificates, etc.)
   ([#26](https://github.com/tmpim/casket/pull/26))
 - Environment variables everywhere placeholders are supported
   ([1bedd5e](https://github.com/tmpim/casket/commit/1bedd5e))
@@ -44,11 +49,11 @@ The following fixes have been made in Casket since the last Caddy v1 build:
 <div class="tight-list">
 
 - Updated various DNS providers
-- Support [scoped API tokens](https://developers.cloudflare.com/cloudflare-one/api-terraform/scoped-api-tokens/) in
+- ❓ Support [scoped API tokens](https://developers.cloudflare.com/cloudflare-one/api-terraform/scoped-api-tokens/) in
   [`tls.cloudflare.dns`](/tls.dns.cloudflare)
-  ([dnsproviders@b6e727b..66e13a8](https://github.com/tmpim/dnsproviders/compare/b6e727b..66e13a8))
-- Try all extensions in `ext` directive ([#4](https://github.com/tmpim/casket/pull/4/commits/9e4238c))
-- Don't try to obtain certificates for reserved TLDs such as `.example`, `.invalid`, `.localhost`, `.test`, `.local` and
+  ([dnsproviders](https://github.com/tmpim/dnsproviders/compare/b6e727b..66e13a8))
+- ❓ Try all extensions in `ext` directive ([#4](https://github.com/tmpim/casket/pull/4/commits/9e4238c))
+- ❓ Don't try to obtain certificates for reserved TLDs such as `.example`, `.invalid`, `.localhost`, `.test`, `.local` and
   `.app` ([#12](https://github.com/tmpim/casket/issues/12))
 
 </div>
