@@ -1,5 +1,9 @@
 # http.browse
 
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
+
 browse enables directory browsing within the specified base path. It displays a file listing for directories which don't
 have an index file in them. In other server software, this is often called indexing.
 
@@ -11,14 +15,26 @@ This middleware may set cookies to preserve UI preferences if the user changes t
 ## Syntax
 
 ``` casketfile
-browse [path [tplfile]]
+browse [path [tplfile]] {
+  path         directory
+  tplfile      file
+  servearchive [types...]
+  buffer       size
+}
 ```
 
 -   **path** is the base path to match. Any directories in this base path become browsable.
 -   **tplfile** is the location of a template file to use.
+-   **servearchive** enables serving archives of directories. A button will be added to the browse page to download the
+    directory as an archive. By default, all archive types are supported. You can specify which types to support by
+    adding them as arguments. Supported types are: `zip`, `tar`, `tar.gz`, `tar.xz`, `tar.br`, `tar.bz2`, `tar.lz4`,
+    `tar.sz`, `tar.zst`. ([More info](#archives))
+-   **buffer** is the size of the buffer used when generating archives. The default is 10MB. The size values must be
+    positive integers and are interpreted as bytes unless a unit is given. Valid examples: `3500` (3,500 bytes), `500kb`
+    (500 kilobytes), `10mb` (10 megabytes), `1gb` (1 gigabyte).
 
 A default template will be used if no template file is specified. Without any arguments, browsing is enabled on the
-entire site (path=/).
+entire site (`path=/`).
 
 ## Template Format
 
@@ -77,6 +93,44 @@ curl -H "Accept: application/json" 'localhost:2015/?limit=1'
 
 The above example demonstrates how to ask for JSON, as well as how to limit the number of entries that we want via a
 query called **limit**. To yield the whole listing, omit the limit query.
+
+## Archives
+
+If you enable archive serving with the `servearchive` option, a button will be added to the browse page to download the
+directory as an archive. By default, all archive types are supported. You can specify which types to support by adding
+them as arguments. All archives are created with a top-level directory named after the directory being archived.
+
+#### Archive Types
+
+<div class="tight-list">
+
+Supported types are: 
+- `zip` - [ZIP](https://en.wikipedia.org/wiki/ZIP_(file_format)) with [DEFLATE](https://en.wikipedia.org/wiki/Deflate)
+  compression (Level 6)
+- `tar` - [tar](https://en.wikipedia.org/wiki/Tar_(computing)) with no compression
+- `tar.gz` - tar with [Gzip](https://en.wikipedia.org/wiki/Gzip) compression (Level 6)
+- `tar.xz` - tar with
+  [LZMA](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm#xz_and_7z_formats) compression
+- `tar.br` - tar with [Brotli](https://en.wikipedia.org/wiki/Brotli) compression (Quality 3)
+- `tar.bz2` - tar with [bzip2](https://en.wikipedia.org/wiki/Bzip2) compression (Level 2)
+- `tar.lz4` - tar with [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)) compression (Level 1)
+- `tar.sz` - tar with [Snappy](https://en.wikipedia.org/wiki/Snappy_(compression)) compression
+- `tar.zst` - tar with [Zstandard](https://en.wikipedia.org/wiki/Zstandard) compression (Level 3)
+
+</div>
+
+#### Performance
+
+The archives are generated on-the-fly, so they are always up-to-date. They are not cached by Casket itself, unless you
+have another caching proxy in front. The archive is streamed to the client, so the memory overhead is relatively low,
+but you can tune the buffer size with the `buffer` option. However, if the archive format is compressed, each archive
+request may consume a lot of CPU time. If you are concerned about this, you should only allow the `tar` format.
+
+#### API
+
+Archives for a directory can be downloaded by sending a GET request to the directory path with the `?archive` query
+parameter set to the desired archive type. For example, to download a ZIP archive of the current directory, send a GET
+request to: `/path/to/dir?archive=zip`.
 
 ## Examples
 

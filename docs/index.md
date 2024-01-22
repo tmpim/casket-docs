@@ -22,7 +22,7 @@ usability.
 <div class="tight-list">
 
 - Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
-- Add `serverarchive` to download folders as archives in the `browse` directive
+- Add `serverarchive` to download folders as archives in the [`browse`](/browse) directive
   ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
 - Default `browse` template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
 - Backported `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
@@ -34,7 +34,7 @@ usability.
   ([#26](https://github.com/tmpim/casket/pull/26))
 - Environment variables everywhere placeholders are supported
   ([1bedd5e](https://github.com/tmpim/casket/commit/1bedd5e))
-- Allow use of multiple headers for loadbalancing policy in the `proxy` directive
+- Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
   ([#1](https://github.com/tmpim/casket/pull/1))
 
 </div>
