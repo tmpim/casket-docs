@@ -25,13 +25,13 @@ browse [path [tplfile]] {
 
 -   **path** is the base path to match. Any directories in this base path become browsable.
 -   **tplfile** is the location of a template file to use.
--   **servearchive** enables serving archives of directories. A button will be added to the browse page to download the
-    directory as an archive. By default, all archive types are supported. You can specify which types to support by
-    adding them as arguments. Supported types are: `zip`, `tar`, `tar.gz`, `tar.xz`, `tar.br`, `tar.bz2`, `tar.lz4`,
-    `tar.sz`, `tar.zst`. ([More info](#archives))
--   **buffer** is the size of the buffer used when generating archives. The default is 10MB. The size values must be
-    positive integers and are interpreted as bytes unless a unit is given. Valid examples: `3500` (3,500 bytes), `500kb`
-    (500 kilobytes), `10mb` (10 megabytes), `1gb` (1 gigabyte).
+-   **servearchive** <NewInCasket version="v1.2.10" /> enables serving archives of directories. A button will be added
+    to the browse page to download the directory as an archive. By default, all archive types are supported. You can
+    specify which types to support by adding them as arguments. Supported types are: `zip`, `tar`, `tar.gz`, `tar.xz`,
+    `tar.br`, `tar.bz2`, `tar.lz4`, `tar.sz`, `tar.zst`. ([More info](#archives))
+-   **buffer** <NewInCasket version="v1.2.10" /> is the size of the buffer used when generating archives. The default is
+    10MB. The size values must be positive integers and are interpreted as bytes unless a unit is given. Valid examples:
+    `3500` (3,500 bytes), `500kb` (500 kilobytes), `10mb` (10 megabytes), `1gb` (1 gigabyte).
 
 A default template will be used if no template file is specified. Without any arguments, browsing is enabled on the
 entire site (`path=/`).
@@ -95,6 +95,8 @@ The above example demonstrates how to ask for JSON, as well as how to limit the 
 query called **limit**. To yield the whole listing, omit the limit query.
 
 ## Archives
+
+<NewInCasket version="v1.2.10" />
 
 If you enable archive serving with the `servearchive` option, a button will be added to the browse page to download the
 directory as an archive. By default, all archive types are supported. You can specify which types to support by adding

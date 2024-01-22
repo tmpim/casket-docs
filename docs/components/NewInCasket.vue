@@ -1,20 +1,13 @@
 <template>
   <span
-    :title="title"
-    class="inline-block whitespace-nowrap rounded bg-green-600 text-white px-2 py-1 text-xs font-semibold"
+    :title="version ? `New in Casket ${version}` : 'New in Casket'"
+    class="inline-block whitespace-nowrap rounded bg-green-600 text-white px-2 py-1 text-xs font-semibold select-none"
   >
-    New in Casket
+    {{ version ? `Casket ${version}` : 'New in Casket' }}
   </span>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-
-const props = defineProps<{
-  version?: string;
-}>();
-
-const title = props.version
-  ? `New in Casket ${props.version}`
-  : "New in Casket";
+const props = defineProps<{ version?: string; }>();
 </script>
