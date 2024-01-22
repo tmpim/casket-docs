@@ -42,20 +42,20 @@ Web standards, building out or monitoring network infrastructure, and developing
 
 ## The Implementation {#implementation}
 
-When telemetry is enabled, Casket takes various tallies and records certain events in the background while it is running.
-It sends updates to a collector endpoint on a regular basis, flushing the local buffer of data.
+When telemetry is enabled, Casket takes various tallies and records certain events in the background while it is
+running. It sends updates to a collector endpoint on a regular basis, flushing the local buffer of data.
 
-Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Casket instance should
-not suffer any noticable performance degredation. It has several safety measures built-in to ensure optimal performance,
-even at the expense of the data, including a limit to the number of data points that can be buffered. The collection
-endpoint may notice if certain metrics are too expensive and temporarily disable them on a per-instance basis to improve
-performance. The collection endpoint may also entirely terminate telemetry reporting from any instance. In addition,
-collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
+Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Casket instance
+should not suffer any noticable performance degredation. It has several safety measures built-in to ensure optimal
+performance, even at the expense of the data, including a limit to the number of data points that can be buffered. The
+collection endpoint may notice if certain metrics are too expensive and temporarily disable them on a per-instance basis
+to improve performance. The collection endpoint may also entirely terminate telemetry reporting from any instance. In
+addition, collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
 
 Each Casket instance generates its own unique, random ID called a UUID. It is stored in a file called `$CASKETPATH/uuid`
-(the default CASKETPATH is `$HOME/.casketfile`). This UUID is NOT generated in connection with the collection endpoint in any
-way, and does NOT associate with any individual person. We recommend that each Casket instance you run have its own
-CASKETPATH so that your reports are more discernable when you go to look up your instance.
+(the default CASKETPATH is `$HOME/.casketfile`). This UUID is NOT generated in connection with the collection endpoint
+in any way, and does NOT associate with any individual person. We recommend that each Casket instance you run have its
+own CASKETPATH so that your reports are more discernable when you go to look up your instance.
 
 As you would expect, all transmissions are encrypted with HTTPS.
 
@@ -67,7 +67,7 @@ in mind that third-party plugins might add their own which are not documented he
 | Key                            | Description                                                                                                   |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------|
 | arch                           | The microarchitecture compiled for                                                                            |
-| casketfile_version                  | Casket version                                                                                                 |
+| casketfile_version             | Casket version                                                                                                |
 | container                      | Whether the process is running in a container                                                                 |
 | cpu.aes_ni                     | Whether AES-NI is available                                                                                   |
 | cpu.brand_name                 | The brand name of the CPU                                                                                     |
@@ -77,7 +77,7 @@ in mind that third-party plugins might add their own which are not documented he
 | goroutines                     | Number of goroutines currently running                                                                        |
 | http_deployment_guess          | A rough guess as to whether it looks like a dev or production instance                                        |
 | http_mitm                      | Count of whether [MITM was detected](/mitm-detection)                                                         |
-| http_num_sites                 | Number of sites defined in your HTTP Casketfile (∑ blocks \* number of keys per block)                         |
+| http_num_sites                 | Number of sites defined in your HTTP Casketfile (∑ blocks \* number of keys per block)                        |
 | http_request_count             | Number of HTTP(S) requests handled                                                                            |
 | http_user_agent                | User-Agent request header values                                                                              |
 | http_user_agent_count          | Number of requests with the associated User-Agent string                                                      |
@@ -85,7 +85,7 @@ in mind that third-party plugins might add their own which are not documented he
 | memory.sys                     | Bytes of memory obtained from the OS                                                                          |
 | instance_id                    | The instance UUID                                                                                             |
 | num_listeners                  | Number of listeners opened                                                                                    |
-| num_server_blocks              | The number of server blocks defined in your Casketfile                                                         |
+| num_server_blocks              | The number of server blocks defined in your Casketfile                                                        |
 | os                             | The OS compiled for                                                                                           |
 | server_type                    | The server type plugin being run (HTTP, DNS, etc.)                                                            |
 | sigtrap                        | Name and count of signal (or interrupt) trapped                                                               |

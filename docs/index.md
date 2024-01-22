@@ -17,17 +17,15 @@ usability.
 
 ## New in Casket
 
-<!-- TODO: Link to documentation pages for these -->
-
 <div class="tight-list">
 
 - Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
 - Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
   ([#1](https://github.com/tmpim/casket/pull/1))
 - Add `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
-- Add `exclude` directive to [`basicauth`](/basicauth)
+- Add `exclude` option to the [`basicauth`](/basicauth) directive
   ([52c171f](https://github.com/tmpim/casket/commit/52c171f6c6d5941e0fd3e75aaad202a68f1305bc))
-- Add `servearchive` to download folders as archives in the [`browse`](/browse) directive
+- Add `servearchive` option to the [`browse`](/browse) directive to download folders as archives
   ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
 - Default [`browse`](/browse) template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
 - Automatic MIME type detection based on extension to the `mime` directive
@@ -46,11 +44,12 @@ The following fixes have been made in Casket since the last Caddy v1 build:
 <div class="tight-list">
 
 - Updated various DNS providers
-- Support newer API tokens in `tls.cloudflare.dns`
+- Support [scoped API tokens](https://developers.cloudflare.com/cloudflare-one/api-terraform/scoped-api-tokens/) in
+  [`tls.cloudflare.dns`](/tls.dns.cloudflare)
   ([dnsproviders@b6e727b..66e13a8](https://github.com/tmpim/dnsproviders/compare/b6e727b..66e13a8))
+- Try all extensions in `ext` directive ([#4](https://github.com/tmpim/casket/pull/4/commits/9e4238c))
 - Don't try to obtain certificates for reserved TLDs such as `.example`, `.invalid`, `.localhost`, `.test`, `.local` and
   `.app` ([#12](https://github.com/tmpim/casket/issues/12))
-- Try all extensions in `ext` directive ([#4](https://github.com/tmpim/casket/pull/4/commits/9e4238c))
 
 </div>
 
@@ -61,7 +60,7 @@ considered to be stable software, so it does not see much active development, bu
 necessary. [Pull requests](https://github.com/tmpim/casket) are welcome for any bug fixes or feature-creep you may
 encounter along the way.
 
-[(see more)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
+[(more info)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
 
 ## Why not Caddy v2?
 
@@ -78,7 +77,7 @@ of unnecessary "cloud-native" features. There are a few big things that pushed u
    than what made Caddy good before. It still has automatic certificate management, but that's about all of the previous
    magic that remains.
 
-[(see more)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
+[(Discussion)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
 
 ## Known issues with Casket
 
@@ -94,4 +93,4 @@ for true maintainability going forward, that you should be aware of if you are c
   outside of ours without making an effort to merge those plugins upstream in
   [casket-plugins](https://github.com/tmpim/casket-plugins) (PRs definitely welcome there too!).
 
-[(see more)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
+[(Discussion)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)

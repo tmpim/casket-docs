@@ -11,9 +11,9 @@ its parent process exits.) The output and error of the command go to stdout and 
 A command will only be executed once for each time it appears in the Casketfile. In other words, even if this directive
 is shared by more than one host, a command will only execute once per appearance in the Casketfile.
 
-Note that commands scheduled for the shutdown event will not execute if Casket is force-terminated, for example, by using
-a "Force Quit" feature provided by your operating system. However, a typical SIGINT (Ctrl+C) will allow the shutdown
-commands to execute.
+Note that commands scheduled for the shutdown event will not execute if Casket is force-terminated, for example, by
+using a "Force Quit" feature provided by your operating system. However, a typical SIGINT (Ctrl+C) will allow the
+shutdown commands to execute.
 
 ## Syntax
 

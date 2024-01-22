@@ -39,8 +39,8 @@ entire site (`path=/`).
 ## Template Format
 
 A template is simply an HTML file with *actions* in it. The actions are parsed and executed to display dynamic content.
-This directive supports [Casket's template actions](/template-actions) as well as some additional actions specific to the
-browse directive. You may use template actions that render [this struct
+This directive supports [Casket's template actions](/template-actions) as well as some additional actions specific to
+the browse directive. You may use template actions that render [this struct
 type](https://github.com/tmpim/casket/blob/5fd2388ac586cc615be4fa8186ba5e4eaf72a03a/caskethttp/browse/browse.go#L100-L134)
 (notice that some helper methods are available).
 

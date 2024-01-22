@@ -154,8 +154,8 @@ docs](/import) for more information.
 
 ## Reusable Snippets {#snippets}
 
-You can define snippets to be reused later in your Casketfile by defining a block with a single-token label surrounded by
-parentheses:
+You can define snippets to be reused later in your Casketfile by defining a block with a single-token label surrounded
+by parentheses:
 
 ``` casketfile
 (mysnippet) {

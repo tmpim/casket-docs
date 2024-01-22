@@ -54,14 +54,14 @@ connection was actually secure, and we have to be able to reproduce your report.
 
 ## False Negatives
 
-When HTTPS interception is occurring but Casket is not able to detect it (an "unlikely" classification), there could be a
-number of reasons. From least to most ominous:
+When HTTPS interception is occurring but Casket is not able to detect it (an "unlikely" classification), there could be
+a number of reasons. From least to most ominous:
 
 -   It could simply be that Casket's detection heuristics are not comprehensive enough. Please [file an
     issue](https://github.com/tmpim/casket/issues/new) as long as you can provide enough information to catch the
     interception, including the ClientHello bytes and as many details about the MITM software that are known.
--   The client is not sending a recognized User-Agent header. Except for a few limited exceptions, Casket only checks for
-    MITM with major browsers.
+-   The client is not sending a recognized User-Agent header. Except for a few limited exceptions, Casket only checks
+    for MITM with major browsers.
 -   The TLS proxy is preserving the original properties of the TLS handshake between the client and the server. This
     scenario is not the worst false negative because at least the browser will be able to show a warning if the TLS
     connection is weak.

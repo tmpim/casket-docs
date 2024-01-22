@@ -45,9 +45,9 @@ disabled, but should not ultimately affect uptime.
 
 ### The .casketfile folder {#dot-casketfile}
 
-Casket will create a folder in your home directory called `.casketfile`. It uses this to store and manage cryptographic assets
-required to serve your site privately over HTTPS. If there is no home folder, the .casketfile folder is created in the
-current working directory unless `CASKETPATH` is set. The home folder is learned from the environment (`$HOME` or
+Casket will create a folder in your home directory called `.casketfile`. It uses this to store and manage cryptographic
+assets required to serve your site privately over HTTPS. If there is no home folder, the .casketfile folder is created
+in the current working directory unless `CASKETPATH` is set. The home folder is learned from the environment (`$HOME` or
 `%HOMEPATH%`). Multiple Casket instances can use or mount the `acme` subfolder as a disk and Casket will automatically
 share the certificates and coordinate maintenance between them.
 
@@ -73,21 +73,22 @@ management as long as they share (mount) the same \$CASKETPATH/acme folder.
 
 ### Sharing certificates between multiple Casket instances {#fleet}
 
-As of version 0.10.12, Casket supports using automatic HTTPS in a fleet/cluster configuration. As of version 0.11.2, this
-is done via clustering plugins. For example, Casket can join a cluster by using the file system, Amazon S3, Consul, and
-others through these plugins. Simply build Casket with your desired clustering plugin and set the `CASKET_CLUSTERING`
-environment variable. See the docs for your clustering plugin to learn how to configure it. Also [see which storage
-backends Casket supports](https://github.com/mholt/certmagic/wiki/Storage-Implementations) for TLS assets.
+As of version 0.10.12, Casket supports using automatic HTTPS in a fleet/cluster configuration. As of version 0.11.2,
+this is done via clustering plugins. For example, Casket can join a cluster by using the file system, Amazon S3, Consul,
+and others through these plugins. Simply build Casket with your desired clustering plugin and set the
+`CASKET_CLUSTERING` environment variable. See the docs for your clustering plugin to learn how to configure it. Also
+[see which storage backends Casket supports](https://github.com/mholt/certmagic/wiki/Storage-Implementations) for TLS
+assets.
 
 ### Wildcard certificates {#wildcards}
 
-Casket can obtain and manage wildcard certificates when it is configured to serve a site with a qualifying wildcard name.
-A site name qualifies for a wildcard if only its left-most domain label is a wildcard. For example, `*.example.com`
-qualifies, but these do not: `sub.*.example.com`, `foo*.example.com`, `*bar.example.com`, `*.*.example.com`, etc. To get
-a wildcard, you simply need to enable the DNS challenge (described below; it's very easy). We recommend using wildcards
-*only* when you have so many subdomains that you would encounter CA rate limits trying to obtain certificates for them
-all. If you have many subdomains configured differently in your Casketfile, you can also force a wildcard for them by
-using the `wildcard` subdirective of the [tls](/tls) directive.
+Casket can obtain and manage wildcard certificates when it is configured to serve a site with a qualifying wildcard
+name. A site name qualifies for a wildcard if only its left-most domain label is a wildcard. For example,
+`*.example.com` qualifies, but these do not: `sub.*.example.com`, `foo*.example.com`, `*bar.example.com`,
+`*.*.example.com`, etc. To get a wildcard, you simply need to enable the DNS challenge (described below; it's very
+easy). We recommend using wildcards *only* when you have so many subdomains that you would encounter CA rate limits
+trying to obtain certificates for them all. If you have many subdomains configured differently in your Casketfile, you
+can also force a wildcard for them by using the `wildcard` subdirective of the [tls](/tls) directive.
 
 ### Transparency reports {#transparency}
 
@@ -331,25 +332,25 @@ To serve a site over HTTPS, a valid SSL certificate is required from a trusted c
 starts, it obtains certificates for eligible sites from [Let's Encrypt](https://letsencrypt.org). The following process
 is nearly entirely *automatic* and *on by default*.
 
-If necessary, Casket creates an account on the CA's server with (or without) your email address. Casket may have to prompt
-you for an email address if it is not able to find one from the Casketfile, in the command line flags, or on disk from a
-previous run. Use the `-agree` flag along with providing an email address to ensure you are not prompted to agree to
-terms, when using in automated environments. But that should only be needed the first time automatic HTTPS is used.
+If necessary, Casket creates an account on the CA's server with (or without) your email address. Casket may have to
+prompt you for an email address if it is not able to find one from the Casketfile, in the command line flags, or on disk
+from a previous run. Use the `-agree` flag along with providing an email address to ensure you are not prompted to agree
+to terms, when using in automated environments. But that should only be needed the first time automatic HTTPS is used.
 
 Once the formalities are taken care of, Casket generates a private key and a Certificate Signing Request (CSR) for each
 site. The private keys never leave the server and are safely stored on your file system.
 
-Casket establishes a link with the CA's server. A brief cryptographic transaction takes place to prove that Casket really
-is serving the sites it says it is. Once the CA server verifies this, it sends the certificate for that site over the
-wire to Casket, which tucks it neatly away in the .casketfile folder.
+Casket establishes a link with the CA's server. A brief cryptographic transaction takes place to prove that Casket
+really is serving the sites it says it is. Once the CA server verifies this, it sends the certificate for that site over
+the wire to Casket, which tucks it neatly away in the .casketfile folder.
 
 This process usually takes a few seconds per domain, so once a certificate has been obtained for a site, it is simply
 loaded from disk and reused the next time Casket is run. In other words, this delayed startup is a one-time event. If an
 existing certificate needs to be renewed, Casket takes care of it right away.
 
-Casket synchronizes the obtaining of certificates between multiple instances as long as they share the same .casketfile/acme
-folder on disk. This means multiple instances requiring the same certificate will not both request one from the CA, and
-they will share the same copy from disk.
+Casket synchronizes the obtaining of certificates between multiple instances as long as they share the same
+.casketfile/acme folder on disk. This means multiple instances requiring the same certificate will not both request one
+from the CA, and they will share the same copy from disk.
 
 ## Renewing Certificates
 
@@ -360,8 +361,8 @@ Once Casket gets the new certificate, it swaps out the old certificate with the 
 downtime.
 
 As with obtaining certificates, Casket coordinates renewals when used in a cluster, as long as the instances share the
-same .casketfile/acme folder. Only one instance will actually perform the renewal, then the others will reload the updated
-certificate.
+same .casketfile/acme folder. Only one instance will actually perform the renewal, then the others will reload the
+updated certificate.
 
 ## Revoking Certificates
 
@@ -371,9 +372,9 @@ Casket deletes the certificate file from disk to prevent it from being used at n
 
 ## OCSP Stapling
 
-Casket staples OCSP information of all certificates containing an OCSP link to protect the privacy of your sites' clients
-and reduce stress on OCSP servers. The cached OCSP status is checked on a regular basis, and if there is a change, the
-server will staple the new response.
+Casket staples OCSP information of all certificates containing an OCSP link to protect the privacy of your sites'
+clients and reduce stress on OCSP servers. The cached OCSP status is checked on a regular basis, and if there is a
+change, the server will staple the new response.
 
 When new OCSP responses are obtained, Casket persists the staple to disk so that it can weather long OCSP responder
 outages. Like certificates, persisted OCSP responses are fully maintained within the .casketfile folder.
@@ -385,9 +386,9 @@ protocol downgrade attacks and cookie hijacking. Enabling HSTS declares that web
 server using a secure HTTPS connection, and never via an insecure HTTP connection. The policy specifies a period of time
 during which the server must be accessed in a secure fashion.
 
-Casket does not enable HSTS by default, because if you wish to use the domain without HTTPS, HSTS having been enabled and
-remembered by a browser means the browser will not allow connections to your server. HSTS should only be enabled in a
-production environment when you know that you won't want to disable HTTPS in the future. It can easily be enabled by
+Casket does not enable HSTS by default, because if you wish to use the domain without HTTPS, HSTS having been enabled
+and remembered by a browser means the browser will not allow connections to your server. HSTS should only be enabled in
+a production environment when you know that you won't want to disable HTTPS in the future. It can easily be enabled by
 adding the header below to your Casketfile.
 
 ``` casketfile

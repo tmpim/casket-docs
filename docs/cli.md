@@ -79,8 +79,8 @@ Show basic flag help. Casket will terminate after showing help; it will not serv
 
 #### -host
 
-The default hostname or IP address to listen on. Sites defined in the Casketfile without a hostname will assume this one.
-This is usually used with `-port` to quickly get simple sites up and running without a Casketfile.
+The default hostname or IP address to listen on. Sites defined in the Casketfile without a hostname will assume this
+one. This is usually used with `-port` to quickly get simple sites up and running without a Casketfile.
 
 #### -http-port
 
@@ -233,14 +233,14 @@ Casketfile, you must use the `-conf` flag with a value of `stdin` - for example:
 $ echo "localhost:1234" | casketfile -conf stdin
 ```
 
-Piping the Casketfile is convenient when starting Casket using a dynamically-generated Casketfile from a parent process you
-have control over.
+Piping the Casketfile is convenient when starting Casket using a dynamically-generated Casketfile from a parent process
+you have control over.
 
 ::: warning
 If you pipe in a Casketfile, it will be impossible to read from stdin later in the program because the parent process
-must send EOF to close the pipe so Casket can unblock and start serving. This will cause problems, for instance, if Casket
-has to prompt you for an email address or agreement to terms. So when piping input, use flags to avoid the need for
-stdin later (e.g. the -email flag).
+must send EOF to close the pipe so Casket can unblock and start serving. This will cause problems, for instance, if
+Casket has to prompt you for an email address or agreement to terms. So when piping input, use flags to avoid the need
+for stdin later (e.g. the -email flag).
 :::
 
 ## Environment Variables
@@ -249,13 +249,13 @@ Casket recognizes certain environment variables.
 
 #### HOME
 
-The home folder. Casket will create a .casketfile folder here if using managed TLS (automatic HTTPS), and possibly persist
-other state here in the future or if configured to do so.
+The home folder. Casket will create a .casketfile folder here if using managed TLS (automatic HTTPS), and possibly
+persist other state here in the future or if configured to do so.
 
 #### CASKETPATH
 
-If set, Casket will use this folder to store assets instead of the default \$HOME/.casketfile. When running multiple Casket
-instances serving unrelated sites (e.g. as part of a hosting service shared among many users), it is strongly
+If set, Casket will use this folder to store assets instead of the default \$HOME/.casketfile. When running multiple
+Casket instances serving unrelated sites (e.g. as part of a hosting service shared among many users), it is strongly
 recommended for each Casket instance to have its own CASKETPATH so that instances aren't stepping on each other and
 sharing state.
 
@@ -267,8 +267,8 @@ matching requests for middleware handlers. The default is 0 (false; meaning case
 #### CASKET_UUID_FILE {#casketfile-uuid-file}
 
 A custom file path to the file where the instance UUID is stored. This should be set if you have multiple Casket
-instances configured to share the same CASKETPATH (e.g. in a cluster), so that each instance will act individually. (They
-can still share the CASKETPATH and gain the benefits of sharing certificate resources, etc.)
+instances configured to share the same CASKETPATH (e.g. in a cluster), so that each instance will act individually.
+(They can still share the CASKETPATH and gain the benefits of sharing certificate resources, etc.)
 
 #### CASKET_CLUSTERING {#casketfile-clustering}
 

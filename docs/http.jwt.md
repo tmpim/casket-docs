@@ -12,7 +12,7 @@ This middleware implements an authorization layer for Casket based on JSON Web T
 jwt [path]
 ```
 
-By default every resource under path will be secured using JWT validation. To specify a list of resources that need to
+By default, every resource under path will be secured using JWT validation. To specify a list of resources that need to
 be secured, use multiple declarations. Be sure to read the plugin documentation to properly configure your server to
 validate your tokens.
 
