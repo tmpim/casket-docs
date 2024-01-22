@@ -13,17 +13,11 @@ the generic configuration syntax as it applies to all server types. Casketfile d
 found within their respective docs. For instance, the HTTP server [documents the semantics of its
 Casketfile](/http-casketfile).
 
-### Topics
+<br />
 
-1.  [File Format & Encoding](#format)
-2.  [Lexical Syntax](#lexical-syntax)
-3.  [Structure](#structure)
-4.  [Labels](#labels)
-5.  [Directives](#directives)
-6.  [Environment Variables](#env)
-7.  [Import](#import)
-8.  [Reusable Snippets](#snippets)
-9.  [Examples](#examples)
+#### Topics
+
+[[toc]]
 
 ## File Format & Encoding {#format}
 

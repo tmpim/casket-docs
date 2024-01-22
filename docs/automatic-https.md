@@ -3,6 +3,8 @@
 Casket [automatically enables HTTPS](https://github.com/mholt/certmagic) for all your sites, given that some reasonable
 criteria are met:
 
+<div class="tight-list">
+
 -   The hostname:
     -   is not empty
     -   is not localhost
@@ -15,6 +17,8 @@ criteria are met:
 -   Certificates and keys are not provided by you
 -   Casket is able to bind to ports 80 and 443 (unless you use the DNS challenge)
 
+</div>
+
 Casket will also redirect all HTTP requests to their HTTPS equivalent if the plaintext variant of the hostname is not
 defined in the Casketfile.
 
@@ -22,24 +26,6 @@ All pertinent assets are fully managed, including renewals—no action is requir
 [video](https://www.youtube.com/watch?v=nk4EWHvvZtI) showing how it works:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nk4EWHvvZtI?si=5VbBfmMmRbWASZ2N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-### Topics:
-
-1.  [Things to Know / FAQ](#faq)
-    -   [Ports 80 and 443](#ports)
-    -   [The .casketfile folder](#dot-casketfile)
-    -   [Testing, developing and advanced setups](#testing)
-    -   [Behind a load balancer or proxy](#proxying)
-    -   [Sharing certificates between Casket instances](#fleet)
-    -   [Wildcard certificates](#wildcards)
-    -   [Transparency reports](#transparency)
-2.  [DNS Challenge](#dns-challenge)
-3.  [On-Demand TLS](#on-demand)
-4.  [Obtaining Certificates](#obtaining-certificates)
-5.  [Renewing Certificates](#renewing-certificates)
-6.  [Revoking Certificates](#revoking-certificates)
-7.  [OCSP Stapling](#ocsp-stapling)
-8.  [HTTP Strict Transport Security](#hsts)
 
 ## Things to Know / FAQ {#faq}
 

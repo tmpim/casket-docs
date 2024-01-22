@@ -3,13 +3,6 @@
 This page documents how the HTTP server uses the Casketfile. If you haven't already, take the [Casketfile
 tutorial](/tutorial/casketfile) or read up on the [Casketfile syntax](/casketfile) first.
 
-### Topics
-
-1.  [Site Addresses](#addresses)
-2.  [Path Matching](#path-matching)
-3.  [Directives](#directives)
-4.  [Placeholders](#placeholders)
-
 ## Site Addresses {#addresses}
 
 The HTTP server uses site addresses for [labels](/casketfile#structure). Addresses are specified in the form

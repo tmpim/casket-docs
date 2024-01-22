@@ -31,10 +31,10 @@ export default defineConfig({
       {
         text: "Using Casket",
         items: [
-          { link: "/tutorial/", text: "Getting Started" },
+          { text: "Casket - What & Why?", link: "/" },
           { link: "/cli", text: "Command Line Interface" },
           { link: "/casketfile", text: "Casketfile Syntax" },
-          { link: "/telemetry", text: "Telemetry" },
+          { link: "/telemetry", text: "Telemetry (disabled)" },
         ]
       },
 
@@ -68,7 +68,7 @@ export default defineConfig({
               { link: "/gzip", text: "gzip" },
               { link: "/header", text: "header" },
               { link: "/import", text: "import" },
-              { link: "/index", text: "index" },
+              { link: "/http.index", text: "index" },
               { link: "/internal", text: "internal" },
               { link: "/limits", text: "limits" },
               { link: "/log", text: "log" },
@@ -96,7 +96,7 @@ export default defineConfig({
         text: "Plugins",
         items: [
           {
-            text: "Caddyfile Loaders",
+            text: "Casketfile Loaders",
             items: [
               { link: "/docker", text: "docker" },
             ]

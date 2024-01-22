@@ -166,3 +166,7 @@
 .vp-doc li + li {
   margin-top: 16px;
 }
+
+.vp-doc .table-of-contents li + li, .vp-doc .tight-list li + li {
+  margin-top: 4px;
+}

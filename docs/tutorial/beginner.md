@@ -11,23 +11,17 @@ expected that you are already familiar with using your machine:
 
 With these prerequisites, you're ready to go.
 
-### Topics
+<br />
 
-1.  [Download](#download)
-2.  [Install](#install)
-3.  [Run](#run)
-4.  [Configure](#configure)
+#### Topics
+
+[[toc]]
 
 ## Download
 
-Download Casket from [the download page](https://github.com/tmpim/casket/releases). You can get Casket for nearly any OS
-and architecture. Casket's download page is unique from other web servers: it lets you customize your build with plugins.
-
-For this tutorial, you don't need any plugins.
-
-Sometimes our build server undergoes maintenance. If the download page is down, you can always download [the latest
-release](https://github.com/tmpim/casket/releases/latest) from [GitHub](https://github.com/tmpim/casket)
-(without plugins).
+Download Casket from [the download page](https://github.com/tmpim/casket/releases). Builds are available for most common
+architectures. You can also [build it from source](https://github.com/tmpim/casket?tab=readme-ov-file#building) if you 
+prefer.
 
 ## Install
 
@@ -42,26 +36,26 @@ The file you downloaded is a compressed archive. You'll want to extract the Cask
 #### macOS
 
 1. Double-click the .zip file to extract it, or run this command:
-  ``` shell
-  unzip casketfile*.zip casketfile
-  ```
+    ``` shell
+    unzip casketfile*.zip casketfile
+    ```
 2. Next, we will move the Casket binary into a folder where we can execute it easily. Any \$PATH location will do:
-  ``` shell
-  mv ./casketfile /usr/local/bin
-  ```
-  If you get permission denied errors, you'll need to run with sudo.
+    ``` shell
+    mv ./casketfile /usr/local/bin
+    ```
+    If you get permission denied errors, you'll need to run with sudo.
 
 #### Linux
 
 1. Run this command to extract the archive:
-  ``` shell
-  tar -xzf casketfile*.tar.gz casketfile
-  ```
+    ``` shell
+    tar -xzf casketfile*.tar.gz casketfile
+    ```
 2. Next, we will move the Casket binary into a folder where we can execute it easily. Any \$PATH location will do:
-  ``` shell
-  mv ./casketfile /usr/local/bin
-  ```
-  If you get permission denied errors, you'll need to run with sudo.
+    ``` shell
+    mv ./casketfile /usr/local/bin
+    ```
+    If you get permission denied errors, you'll need to run with sudo.
 
 ## Run
 

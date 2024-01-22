@@ -1,16 +1,25 @@
 # Telemetry
 
+::: danger TELEMETRY IS DISABLED
+
+Telemetry is **disabled in Casket** as of 
+[v1.2.10](https://github.com/tmpim/casket/blame/5fd2388ac586cc615be4fa8186ba5e4eaf72a03a/casket/casketmain/run.go#L612).
+
+The documentation below is preserved here for historical purposes. You may still explicitly disable it if you prefer,
+but it is unlikely that Casket will ever have telemetry. The code may be removed entirely in the future.
+
+:::
+
 The primary aim of the Casket Telemetry Project is to gain insights into the status and health of the Internet, globally
 and in near-real-time, from a server-side perspective, without being constrained to a specific network or proprietary
 source. A secondary goal is to provide server operators with information about their servers and their interactions with
 clients.
 
-### Topics
+<br />
 
-1.  [Benefits of Telemetry](#benefits)
-2.  [The Implementation](#implementation)
-3.  [The Metrics](#metrics)
-4.  [Disabling Telemetry](#disable)
+#### Topics
+
+[[toc]]
 
 ## Benefits of Telemetry {#benefits}
 
