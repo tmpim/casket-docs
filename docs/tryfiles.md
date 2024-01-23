@@ -1,5 +1,11 @@
 # http.tryfiles
 
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
+
+<NewInCasket />
+
 tryfiles is a directive that allows you to specify a list of files to try to serve from the filesystem defined by the
 [root](/root) directive. If none of the files exist, the request is passed on to the next handler in the chain, such as
 a [proxy](/proxy) handler.
