@@ -50,7 +50,7 @@ The following fixes have been made in Casket since the last Caddy v1 build:
 <div class="tight-list">
 
 - Updated various DNS providers
-- ❓ Support [scoped API tokens](https://developers.cloudflare.com/cloudflare-one/api-terraform/scoped-api-tokens/) in
+- Support [scoped API tokens](https://developers.cloudflare.com/cloudflare-one/api-terraform/scoped-api-tokens/) in
   [`tls.cloudflare.dns`](/tls.dns.cloudflare)
   ([dnsproviders](https://github.com/tmpim/dnsproviders/compare/b6e727b..66e13a8))
 - ❓ Try all extensions in `ext` directive ([#4](https://github.com/tmpim/casket/pull/4/commits/9e4238c))
