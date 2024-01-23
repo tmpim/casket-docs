@@ -86,6 +86,7 @@ export default defineConfig({
               { link: "/templates", text: "templates" },
               { link: "/timeouts", text: "timeouts" },
               { link: "/tls", text: "tls" },
+              { link: "/tryfiles", text: "tryfiles" },
               { link: "/websocket", text: "websocket" },
             ]
           },
