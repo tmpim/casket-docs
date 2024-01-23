@@ -29,10 +29,10 @@ You can also configure each timeout individually:
 
 ``` casketfile
 timeouts {
-    read   val
-    header val
-    write  val
-    idle   val
+  read   val
+  header val
+  write  val
+  idle   val
 }
 ```
 
@@ -50,7 +50,7 @@ Set custom read timeout and write timeouts:
 
 ``` casketfile
 timeouts {
-    read  30s
-    write 20s
+  read  30s
+  write 20s
 }
 ```

@@ -7,16 +7,16 @@ it is by default a generic FastCGI proxy. This directive may be used multiple ti
 
 ``` casketfile
 fastcgi path endpoint [preset] {
-    root     directory
-    ext      extension
-    split    splitval
-    index    indexfile
-    env      key value
-    except   ignored_paths...
-    upstream endpoint
-    connect_timeout duration
-    read_timeout    duration
-    send_timeout    duration
+  root     directory
+  ext      extension
+  split    splitval
+  index    indexfile
+  env      key value
+  except   ignored_paths...
+  upstream endpoint
+  connect_timeout duration
+  read_timeout    duration
+  send_timeout    duration
 }
 ```
 
@@ -77,7 +77,7 @@ With custom FastCGI configuration:
 
 ``` casketfile
 fastcgi / 127.0.0.1:9001 {
-    split .html
+  split .html
 }
 ```
 
@@ -85,7 +85,7 @@ With PHP preset, but overriding the ext property:
 
 ``` casketfile
 fastcgi / 127.0.0.1:9001 php {
-    ext .html
+  ext .html
 }
 ```
 
@@ -94,6 +94,6 @@ image](https://hub.docker.com/_/php/) (with container port 9000 published to 127
 
 ``` casketfile
 fastcgi / 127.0.0.1:9001 php {
-    root /var/www/html
+  root /var/www/html
 }
 ```

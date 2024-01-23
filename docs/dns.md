@@ -10,10 +10,10 @@ A DNS server plugin.
 
 ``` casketfile
 .:53 {
-    cache    
-    forward . 8.8.8.8:53
-    log
-    errors
+  cache
+  forward . 8.8.8.8:53
+  log
+  errors
 }
 ```
 

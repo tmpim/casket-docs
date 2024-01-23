@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed by DuckD
 
 ``` casketfile
 tls {
-    dns duckdns
+  dns duckdns
 }
 ```
 

@@ -10,8 +10,8 @@ The ipfilter directive adds the ability to allow or block requests based on the 
 
 ``` casketfile
 ipfilter / {
-    rule block
-    ip 70.1.128.0/19 2001:db8::/122 9.12.20.16
+  rule block
+  ip 70.1.128.0/19 2001:db8::/122 9.12.20.16
 }
 ```
 
@@ -22,8 +22,8 @@ a client that has an IP of `9.12.20.16` explicitly.
 
 ``` casketfile
 ipfilter / {
-    rule block
-    prefix_dir blacklisted
+  rule block
+  prefix_dir blacklisted
 }
 ```
 
@@ -49,9 +49,9 @@ directive. So you should consider putting some explanatory text in the file expl
 
 ``` casketfile
 ipfilter / {
-    rule allow
-    database /data/GeoLite.mmdb
-    country US JP
+  rule allow
+  database /data/GeoLite.mmdb
+  country US JP
 }
 ```
 
@@ -63,9 +63,9 @@ codes requires a local copy of the Geo database, can be downloaded for free from
 
 ``` casketfile
 ipfilter / {
-    rule allow
-    blockpage default.html
-    ip 55.3.4.20 2e80::20:f8ff:fe31:77cf
+  rule allow
+  blockpage default.html
+  ip 55.3.4.20 2e80::20:f8ff:fe31:77cf
 }
 ```
 
@@ -75,8 +75,8 @@ Casket will serve only these 2 IPs, eveyone else will get `default.html`.
 
 ``` casketfile
 ipfilter /notglobal /secret {
-    rule allow
-    ip 84.235.124.4
+  rule allow
+  ip 84.235.124.4
 }
 ```
 
@@ -86,13 +86,13 @@ Only serve `84.235.124.4` under `/notglobal` and `/secret`.
 
 ``` casketfile
 ipfilter / {
-    rule allow
-    ip 32.55.3.10
+  rule allow
+  ip 32.55.3.10
 }
 
 ipfilter /webhook {
-    rule allow
-    ip 192.168.1.0/24
+  rule allow
+  ip 192.168.1.0/24
 }
 ```
 
@@ -103,13 +103,13 @@ You can use as many `ipfilter` blocks as you please, the above says: block every
 
 ``` casketfile
 ipfilter <basepath> {
-    rule       <block | allow>
-    ip         <addresses or CIDR ranges to block>
-    prefix_dir <IP addr directory prefix>
-    database   </path/to/GeoLite2-Country.mmdb>
-    country    <ISO two letter country codes>
-    blockpage  <blockpage.html>
-    strict
+  rule       <block | allow>
+  ip         <addresses or CIDR ranges to block>
+  prefix_dir <IP addr directory prefix>
+  database   </path/to/GeoLite2-Country.mmdb>
+  country    <ISO two letter country codes>
+  blockpage  <blockpage.html>
+  strict
 }
 ```
 

@@ -33,12 +33,12 @@ Large log files are rolled automatically. You can customize log rolling or other
 
 ``` casketfile
 log path file [format] {
-    rotate_size     mb
-    rotate_age      days
-    rotate_keep     count
-    rotate_compress
-    ipmask          ipv4_mask [ipv6_mask]
-    except          paths...
+  rotate_size     mb
+  rotate_age      days
+  rotate_keep     count
+  rotate_compress
+  ipmask          ipv4_mask [ipv6_mask]
+  except          paths...
 }
 ```
 
@@ -126,10 +126,10 @@ With rotation:
 
 ``` casketfile
 log requests.log {
-    rotate_size 50  # Rotate after 50 MB
-    rotate_age  90  # Keep rotated files for 90 days
-    rotate_keep 20  # Keep at most 20 log files
-    rotate_compress # Compress rotated log files in gzip format
+  rotate_size 50  # Rotate after 50 MB
+  rotate_age  90  # Keep rotated files for 90 days
+  rotate_keep 20  # Keep at most 20 log files
+  rotate_compress # Compress rotated log files in gzip format
 }
 ```
 
@@ -137,6 +137,6 @@ To mask (anonymize) IPv4 addresses and IPv6 addresses down to a couple octets:
 
 ``` casketfile
 log requests.log {
-    ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+  ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
 }
 ```

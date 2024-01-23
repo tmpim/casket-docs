@@ -21,11 +21,11 @@ Advanced users may open a block and make a complex rewrite rule:
 
 ``` casketfile
 rewrite [basepath] {
-    regexp pattern
-    ext    extensions...
-    if     a cond b
-    if_op  [and|or]
-    to     destinations...
+  regexp pattern
+  ext    extensions...
+  if     a cond b
+  if_op  [and|or]
+  to     destinations...
 }
 ```
 
@@ -81,8 +81,8 @@ finally, rewrite to index.php.
 
 ``` casketfile
 rewrite {
-    if {file} not favicon.ico
-    to {path} {path}/ /maintenance.html /index.php
+  if {file} not favicon.ico
+  to {path} {path}/ /maintenance.html /index.php
 }
 ```
 
@@ -90,8 +90,8 @@ If user agent includes "mobile" and path is not a valid file/directory, rewrite 
 
 ``` casketfile
 rewrite {
-    if {>User-agent} has mobile
-    to {path} {path}/ /mobile/index.php
+  if {>User-agent} has mobile
+  to {path} {path}/ /mobile/index.php
 }
 ```
 
@@ -99,8 +99,8 @@ Rewrite /app to /index with a query string. `{1}` is the matched group `(.*)`.
 
 ``` casketfile
 rewrite /app {
-    r  (.*)
-    to /index?path={1}
+  r  (.*)
+  to /index?path={1}
 }
 ```
 
@@ -108,7 +108,7 @@ Rewrite requests for /app/example to /index.php?category=example.
 
 ``` casketfile
 rewrite /app {
-    r  ^/(\w+)/?$
-    to /index?category={1}
+  r  ^/(\w+)/?$
+  to /index?category={1}
 }
 ```

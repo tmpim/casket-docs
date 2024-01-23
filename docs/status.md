@@ -15,7 +15,7 @@ If you have a lot of status rewrites to group, share a status code by making a t
 
 ``` casketfile
 status code {
-    path
+  path
 }
 ```
 
@@ -39,7 +39,7 @@ To hide the existence of multiple folders:
 
 ``` casketfile
 status 404 {
-    /hidden
-    /secrets
+  /hidden
+  /secrets
 }
 ```

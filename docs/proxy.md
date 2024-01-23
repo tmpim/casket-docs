@@ -26,28 +26,34 @@ However, advanced features including load balancing can be utilized with an expa
 
 ``` casketfile
 proxy from to... {
-    policy name [value]
-    fail_timeout duration
-    max_fails integer
-    max_conns in≈teger
-    try_duration duration
-    try_interval duration
-    health_check path
-    health_check_port port
-    health_check_interval interval_duration
-    health_check_timeout timeout_duration
-    health_check_contains substring
-    fallback_delay delay_duration
-    header_upstream name value
-    header_downstream name value
-    keepalive number
-    timeout duration
-    without prefix
-    except ignored_paths...
-    upstream to
-    ca_certificates certs...
-    insecure_skip_verify
-    preset
+  policy       name [value]
+  fail_timeout duration
+  max_fails    integer
+  max_conns    integer
+  try_duration duration
+  try_interval duration
+  
+  health_check          path
+  health_check_port     port
+  health_check_interval interval_duration
+  health_check_timeout  timeout_duration
+  health_check_contains substring
+  fallback_delay        delay_duration
+  
+  header_upstream   name value
+  header_downstream name value
+  
+  keepalive number
+  timeout   duration
+  
+  without   prefix
+  except    ignored_paths...
+  upstream  to
+  
+  ca_certificates certs...
+  insecure_skip_verify
+  
+  preset
 }
 ```
 
@@ -191,7 +197,7 @@ Same as above, with header affinity:
 
 ``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
-    policy header X-My-Header
+  policy header X-My-Header
 }
 ```
 
@@ -199,7 +205,7 @@ Round-robin style:
 
 ``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
-    policy round_robin
+  policy round_robin
 }
 ```
 
@@ -207,9 +213,9 @@ With health checks and proxy headers to pass hostname, IP, and scheme upstream:
 
 ``` casketfile
 proxy / web1.local:80 web2.local:90 web3.local:100 {
-    policy round_robin
-    health_check /health
-    transparent
+  policy round_robin
+  health_check /health
+  transparent
 }
 ```
 
@@ -217,7 +223,7 @@ Proxy WebSocket connections:
 
 ``` casketfile
 proxy /stream localhost:8080 {
-    websocket
+  websocket
 }
 ```
 
@@ -225,7 +231,7 @@ Proxy everything except requests to /static or /robots.txt:
 
 ``` casketfile
 proxy / backend:1234 {
-    except /static /robots.txt
+  except /static /robots.txt
 }
 ```
 
@@ -239,6 +245,6 @@ To have Casket retry when an upstream connection fails once in a while (EOF erro
 
 ``` casketfile
 proxy / backend:1234 {
-    try_duration 5s
+  try_duration 5s
 }
 ```

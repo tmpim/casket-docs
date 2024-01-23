@@ -43,7 +43,7 @@ videos will not be gzipped anyway):
 
 ``` casketfile
 gzip {
-    level 1
-    not   /images /videos
+  level 1
+  not   /images /videos
 }
 ```

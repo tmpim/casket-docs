@@ -22,10 +22,10 @@ client can exceed; burst &gt;= rate (e.g. 2); `unit` is the time interval (curre
 
 ``` casketfile
 ratelimit methods rate burst unit {
-    whitelist CIDR,CIDR
-    limit_by_header xxx
-    status xxx,xxx
-    resources
+  whitelist CIDR,CIDR
+  limit_by_header xxx
+  status xxx,xxx
+  resources
 }
 ```
 
@@ -52,10 +52,10 @@ don&#39;t want to apply rate limit on some special resources, add `^` in front o
   /dist/app.js:
     ``` casketfile
     ratelimit 2 2 minute {
-        whitelist 1.2.3.4/32,192.168.1.0/30
-        status *
-        /foo.html
-        /api
-        ^/dist/app.js
+      whitelist 1.2.3.4/32,192.168.1.0/30
+      status *
+      /foo.html
+      /api
+      ^/dist/app.js
     }
     ```

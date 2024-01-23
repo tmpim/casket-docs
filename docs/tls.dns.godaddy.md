@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with GoD
 
 ``` casketfile
 tls {
-    dns godaddy
+  dns godaddy
 }
 ```
 

@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with Ama
 
 ``` casketfile
 tls {
-    dns route53
+  dns route53
 }
 ```
 

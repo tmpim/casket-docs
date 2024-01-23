@@ -29,9 +29,9 @@ For more options, open a block:
 
 ``` casketfile
 templates {
-    path    basepath
-    ext     extensions...
-    between open_delim close_delim
+  path    basepath
+  ext     extensions...
+  between open_delim close_delim
 }
 ```
 

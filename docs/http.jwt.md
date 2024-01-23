@@ -20,10 +20,10 @@ validate your tokens.
 
 ``` casketfile
 jwt {
-   path [path]
-   redirect [location]
-   allow [claim] [value]
-   deny [claim] [value]
+  path [path]
+  redirect [location]
+  allow [claim] [value]
+  deny [claim] [value]
 }
 ```
 

@@ -74,18 +74,18 @@ Advanced users may open a settings block for more control, optionally specifying
 
 ``` casketfile
 tls [cert key] {
-    ca        uri
-    protocols min max
-    ciphers   ciphers...
-    curves    curves...
-    clients   [request|require|verify_if_given] clientcas...
-    load      dir
-    ask       url
-    key_type  type
-    dns       provider
-    alpn      protos...
-    must_staple
-    wildcard
+  ca        uri
+  protocols min max
+  ciphers   ciphers...
+  curves    curves...
+  clients   [request|require|verify_if_given] clientcas...
+  load      dir
+  ask       url
+  key_type  type
+  dns       provider
+  alpn      protos...
+  must_staple
+  wildcard
 }
 ```
 
@@ -219,7 +219,7 @@ Obtain certificates during TLS handshakes as needed, after consulting a backend 
 
 ``` casketfile
 tls {
-    ask http://localhost:9095/should-obtain-cert
+  ask http://localhost:9095/should-obtain-cert
 }
 ```
 
@@ -227,7 +227,7 @@ Load all certificates and keys from .pem files found in /www/certificates:
 
 ``` casketfile
 tls {
-    load /www/certificates
+  load /www/certificates
 }
 ```
 

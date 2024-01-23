@@ -46,8 +46,8 @@ localhost:8080
 gzip
 log ../access.log
 markdown /blog {
-    css /blog.css
-    js  /scripts.js
+  css /blog.css
+  js  /scripts.js
 }
 ```
 
@@ -67,12 +67,12 @@ configurations:
 
 ``` casketfile
 mysite.com {
-    root /www/mysite.com
+  root /www/mysite.com
 }
 sub.mysite.com {
-    root /www/sub.mysite.com
-    gzip
-    log ../access.log
+  root /www/sub.mysite.com
+  gzip
+  log ../access.log
 }
 ```
 
@@ -83,7 +83,7 @@ For sites which share the same configuration, specify multiple addresses:
 
 ``` casketfile
 localhost:8080, https://site.com, http://mysite.com {
-    ...
+  ...
 }
 ```
 
@@ -92,7 +92,7 @@ left side:
 
 ``` casketfile
 example.com/static, *.example.com {
-    ...
+  ...
 }
 ```
 

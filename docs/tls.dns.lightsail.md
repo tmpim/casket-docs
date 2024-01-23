@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with AWS
 
 ``` casketfile
 tls {
-    dns lightsail
+  dns lightsail
 }
 ```
 

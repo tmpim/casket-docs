@@ -10,12 +10,12 @@ WebDAV capabilities with support for path restriction rules and users.
 
 ``` casketfile
 webdav [url] {
-    scope       path
-    modify      [true|false]
-    allow       path
-    allow_r     regex
-    block       path
-    block_r     regex
+  scope       path
+  modify      [true|false]
+  allow       path
+  allow_r     regex
+  block       path
+  block_r     regex
 }
 ```
 
@@ -50,7 +50,7 @@ WebDAV on `/` for the current working directory.
 
 ``` casketfile
 webdav /admin {
-    scope /
+  scope /
 }
 ```
 
@@ -60,9 +60,9 @@ WebDAV on `/admin` for the whole file system.
 
 ``` casketfile
 webdav {
-    scope /
-    block /etc
-    block /dev
+  scope /
+  block /etc
+  block /dev
 }
 ```
 
@@ -73,10 +73,10 @@ WebDAV on `/` for the whole file system, without access to `/etc` and `/dev` dir
 ``` casketfile
 basicauth / sam pass
 webdav {
-    scope /
+  scope /
     
-    sam:
-    block /var/www
+  sam:
+  block /var/www
 }
 ```
 

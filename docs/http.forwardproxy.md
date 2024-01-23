@@ -24,8 +24,8 @@ Spins up default unauthenticated forwardproxy. Use with care, since other people
 
 ``` casketfile
 forwardproxy {
-    basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
-    basicauth casketuser2 秘密
+  basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
+  basicauth casketuser2 秘密
 }
 ```
 
@@ -35,8 +35,8 @@ Spins up authenticated forwardproxy.
 
 ``` casketfile
 forwardproxy {
-    basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
-    probe_resistance hiddenlink-u13PJVFur3.com
+  basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
+  probe_resistance hiddenlink-u13PJVFur3.com
 }
 ```
 
@@ -49,7 +49,7 @@ visited, will prompt 407 response. Authentication is required.
 
 ``` casketfile
 forwardproxy {
-    serve_pac proxyautoconfig.pac
+  serve_pac proxyautoconfig.pac
 }
 ```
 
@@ -60,7 +60,7 @@ path. If no path is provided, PAC file will be served at /proxy.pac
 
 ``` casketfile
 forwardproxy {
-    hide_ip
+  hide_ip
 }
 ```
 
@@ -70,9 +70,9 @@ Forward proxy will stop adding user&#39;s IP to &#34;Forwarded:&#34; header.
 
 ``` casketfile
 forwardproxy {
-    basicauth user1 0NtCL2JPJBgPPMmlPcJ
-    probe_resistance
-    upstream         https://user:password@someplace.com
+  basicauth user1 0NtCL2JPJBgPPMmlPcJ
+  probe_resistance
+  upstream         https://user:password@someplace.com
 }
 ```
 

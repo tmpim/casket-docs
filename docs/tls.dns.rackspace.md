@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with Rac
 
 ``` casketfile
 tls {
-    dns rackspace
+  dns rackspace
 }
 ```
 

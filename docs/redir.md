@@ -24,7 +24,7 @@ If you have a lot of redirects, share a redirect code by making a table:
 
 ``` casketfile
 redir [code] {
-    from to [code]
+  from to [code]
 }
 ```
 
@@ -35,9 +35,9 @@ A group of redirects can also be conditional:
 
 ``` casketfile
 redir [code] {
-    if    a cond b
-    if_op [and|or]
-    ...
+  if    a cond b
+  if_op [and|or]
+  ...
 }
 ```
 
@@ -71,9 +71,9 @@ Defining multiple redirections that share a 307 status code, except the last one
 
 ``` casketfile
 redir 307 {
-    /foo     /info/foo
-    /todo    /notes
-    /api-dev /api       meta
+  /foo     /info/foo
+  /todo    /notes
+  /api-dev /api       meta
 }
 ```
 
@@ -81,7 +81,7 @@ Redirect only if the forwarded protocol is HTTP:
 
 ``` casketfile
 redir 301 {
-    if {>X-Forwarded-Proto} is http
-    /  https://{host}{uri}
+  if {>X-Forwarded-Proto} is http
+  /  https://{host}{uri}
 }
 ```

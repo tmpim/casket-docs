@@ -25,8 +25,8 @@ For more control, you can open a block:
 
 ``` casketfile
 limits {
-    header size
-    body   [path] size
+  header size
+  body   [path] size
 }
 ```
 
@@ -45,7 +45,7 @@ Limit only request bodies within /upload to 50 megabytes:
 
 ``` casketfile
 limits {
-    body /upload 50mb
+  body /upload 50mb
 }
 ```
 
@@ -53,9 +53,9 @@ Various limits:
 
 ``` casketfile
 limits {
-    header 100KB
-    body   /upload 100MB
-    body   /profile 25KB
-    body   /api 10KB
+  header 100KB
+  body   /upload 100MB
+  body   /profile 25KB
+  body   /api 10KB
 }
 ```

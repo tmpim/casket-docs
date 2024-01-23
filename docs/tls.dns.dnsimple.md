@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with DNS
 
 ``` casketfile
 tls {
-    dns dnsimple
+  dns dnsimple
 }
 ```
 

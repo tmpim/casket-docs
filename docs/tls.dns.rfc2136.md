@@ -10,7 +10,7 @@ Allows you to obtain certificates using DNS records for domains managed with any
 
 ``` casketfile
 tls {
-    dns rfc2136
+  dns rfc2136
 }
 ```
 

@@ -22,11 +22,11 @@ To specify custom error pages, open a block:
 
 ``` casketfile
 errors [logfile] {
-    code     file
-    rotate_size     mb
-    rotate_age      days
-    rotate_keep     count
-    rotate_compress
+  code     file
+  rotate_size     mb
+  rotate_age      days
+  rotate_keep     count
+  rotate_compress
 }
 ```
 
@@ -84,8 +84,8 @@ Log errors and serve custom error pages:
 
 ``` casketfile
 errors {
-    404 404.html # Not Found
-    500 500.html # Internal Server Error
+  404 404.html # Not Found
+  500 500.html # Internal Server Error
 }
 ```
 
@@ -93,8 +93,8 @@ Log errors to custom log file and serve custom error pages:
 
 ``` casketfile
 errors ../error.log {
-    404 404.html # Not Found
-    500 500.html # Internal Server Error
+  404 404.html # Not Found
+  500 500.html # Internal Server Error
 }
 ```
 
@@ -102,7 +102,7 @@ Define a default, catch-all error page:
 
 ``` casketfile
 errors {
-    * default_error.html
+  * default_error.html
 }
 ```
 
@@ -116,9 +116,9 @@ Customize error log rolling:
 
 ``` casketfile
 errors {
-    rotate_size 50  # Rotate after 50 MB
-    rotate_age  90  # Keep rotated files for 90 days
-    rotate_keep 20  # Keep at most 20 log files
-    rotate_compress # Compress rotated log files in gzip format
+  rotate_size 50  # Rotate after 50 MB
+  rotate_age  90  # Keep rotated files for 90 days
+  rotate_keep 20  # Keep at most 20 log files
+  rotate_compress # Compress rotated log files in gzip format
 }
 ```

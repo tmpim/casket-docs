@@ -12,8 +12,8 @@ Implements security measures so that X-Forwarded-For cannot be spoofed from unau
 
 ``` casketfile
 realip {
-    from 1.2.3.4/32
-    from 2.3.4.5/32
+  from 1.2.3.4/32
+  from 2.3.4.5/32
 }
 ```
 

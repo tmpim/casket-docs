@@ -34,9 +34,9 @@ to initiate the pushes, open a block:
 
 ``` casketfile
 push path [resources...] {
-    method method
-    header name value
-    resources
+  method method
+  header name value
+  resources
 }
 ```
 
@@ -71,13 +71,13 @@ Push many resources to the home page:
 
 ``` casketfile
 push /index.html {
-    /resources/css/common.css
-    /resources/css/home.css
-    /resources/css/compiled.css
-    /resources/js/main.js
-    /resources/js/jquery.min.js
-    /resources/images/logo.png
-    /resources/images/background.jpg
+  /resources/css/common.css
+  /resources/css/home.css
+  /resources/css/compiled.css
+  /resources/js/main.js
+  /resources/js/jquery.min.js
+  /resources/images/logo.png
+  /resources/images/background.jpg
 }
 ```
 
@@ -85,7 +85,7 @@ Specify a method and header for all push requests:
 
 ``` casketfile
 push {
-    method HEAD
-    header MyHeader "The value"
+  method HEAD
+  header MyHeader "The value"
 }
 ```

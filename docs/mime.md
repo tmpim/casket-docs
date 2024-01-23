@@ -19,7 +19,7 @@ If you have a lot of MIME types to set, open a block:
 
 ``` casketfile
 mime {
-    ext type
+  ext type
 }
 ```
 
@@ -37,7 +37,7 @@ For multiple files:
 
 ``` casketfile
 mime {
-    .swf application/x-shockwave-flash
-    .pdf application/pdf
+  .swf application/x-shockwave-flash
+  .pdf application/pdf
 }
 ```

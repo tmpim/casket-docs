@@ -106,9 +106,9 @@ Same as above, but with custom CSS and JS files:
 
 ``` casketfile
 markdown /blog {
-    ext .md .txt
-    css /css/blog.css
-    js  /js/blog.js
+  ext .md .txt
+  css /css/blog.css
+  js  /js/blog.js
 }
 ```
 
@@ -116,8 +116,8 @@ With custom templates:
 
 ``` casketfile
 markdown /blog {
-    template default.html
-    template blog  blog.html
-    template about about.html
+  template default.html
+  template blog  blog.html
+  template about about.html
 }
 ```

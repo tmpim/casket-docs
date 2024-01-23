@@ -26,13 +26,13 @@ Only allow cross-origin requests from a few specific domains
 
 ``` casketfile
 cors / {
-    origin            http://allowedsite.com
-    origin            http://anothersite.org https://anothersite.org
-    methods           POST,PUT
-    allow_credentials false
-    max_age           3600
-    allowed_headers   X-Custom-Header,X-Foobar
-    exposed_headers   X-Something-Special,SomethingElse
+  origin            http://allowedsite.com
+  origin            http://anothersite.org https://anothersite.org
+  methods           POST,PUT
+  allow_credentials false
+  max_age           3600
+  allowed_headers   X-Custom-Header,X-Foobar
+  exposed_headers   X-Something-Special,SomethingElse
 }
 ```
 
