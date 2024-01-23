@@ -28,7 +28,7 @@ documented, but will be in due course.
 - ❓ Provide multi-platform Docker images at `ghcr.io/tmpim/casket`
 - Allow use of multiple headers for loadbalancing policy in the [`proxy`](/proxy) directive
   ([#1](https://github.com/tmpim/casket/pull/1))
-- ❓ Add `try_files` directive from Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
+- Add [`tryfiles`](/tryfiles) directive, similar to Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
 - Add `exclude` option to the [`basicauth`](/basicauth) directive
   ([52c171f](https://github.com/tmpim/casket/commit/52c171f6c6d5941e0fd3e75aaad202a68f1305bc))
 - Add `servearchive` option to the [`browse`](/browse) directive to download folders as archives
