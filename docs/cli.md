@@ -1,7 +1,7 @@
 # Command Line Interface
 
 This page describes Casket's command line interface. For a quick reference and to see default values, run Casket with
-`-help` or `-h`, for example: `casketfile -h`.
+`-help` or `-h`, for example: `casket -h`.
 
 ::: info
 Remember that Casket runs fine without any options. These flags simply give you more control over the process if needed.
@@ -206,20 +206,20 @@ quotes if it contains spaces or other special characters.
 
 For example, a server that lets you browse files on the default host and port:
 
-``` casketfile
-$ casketfile browse
+``` shell
+casket browse
 ```
 
 To serve markdown files on-the-fly, instantly, on a custom port:
 
-``` casketfile
-$ casketfile -port 8080 markdown
+``` shell
+casket -port 8080 markdown
 ```
 
 All of the above, but with an access log:
 
-``` casketfile
-$ casketfile -port 8080 browse markdown "log access.log"
+``` shell
+casket -port 8080 browse markdown "log access.log"
 ```
 
 This shorthand feature is intended for quick, simple configurations only.
@@ -229,8 +229,8 @@ This shorthand feature is intended for quick, simple configurations only.
 Advanced users may wish to pipe the contents of a Casketfile into Casket from programmed environments. If you pipe in the
 Casketfile, you must use the `-conf` flag with a value of `stdin` - for example:
 
-``` casketfile
-$ echo "localhost:1234" | casketfile -conf stdin
+``` shell
+echo "localhost:1234" | casket -conf stdin
 ```
 
 Piping the Casketfile is convenient when starting Casket using a dynamically-generated Casketfile from a parent process
@@ -249,13 +249,13 @@ Casket recognizes certain environment variables.
 
 #### HOME
 
-The home folder. Casket will create a .casketfile folder here if using managed TLS (automatic HTTPS), and possibly
-persist other state here in the future or if configured to do so.
+The home folder. Casket will create a .casket folder here if using managed TLS (automatic HTTPS), and possibly persist
+other state here in the future or if configured to do so.
 
 #### CASKETPATH
 
-If set, Casket will use this folder to store assets instead of the default \$HOME/.casketfile. When running multiple
-Casket instances serving unrelated sites (e.g. as part of a hosting service shared among many users), it is strongly
+If set, Casket will use this folder to store assets instead of the default \$HOME/.casket. When running multiple Casket
+instances serving unrelated sites (e.g. as part of a hosting service shared among many users), it is strongly
 recommended for each Casket instance to have its own CASKETPATH so that instances aren't stepping on each other and
 sharing state.
 
@@ -264,13 +264,13 @@ sharing state.
 If `1` or `true`, Casket will treat request paths in a case-sensitive manner when accessing assets on the file system or
 matching requests for middleware handlers. The default is 0 (false; meaning case-INsensitive paths).
 
-#### CASKET_UUID_FILE {#casketfile-uuid-file}
+#### CASKET_UUID_FILE {#casket-uuid-file}
 
 A custom file path to the file where the instance UUID is stored. This should be set if you have multiple Casket
 instances configured to share the same CASKETPATH (e.g. in a cluster), so that each instance will act individually.
 (They can still share the CASKETPATH and gain the benefits of sharing certificate resources, etc.)
 
-#### CASKET_CLUSTERING {#casketfile-clustering}
+#### CASKET_CLUSTERING {#casket-clustering}
 
 The name of the clustering plugin to use. Cluster plugins allow Casket to operate in clusters or behind load balancers
 with any storage backend implemented by the plugin. The default is "file" which uses the local file system, meaning that

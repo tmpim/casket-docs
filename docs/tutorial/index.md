@@ -4,7 +4,7 @@
 
 2.  `cd` to your website's directory.
 
-3.  Run `casketfile`.
+3.  Run `casket`.
 
 Done! Open your browser to <http://localhost:2015> to see it working. Casket serves the current working directory by
 default.

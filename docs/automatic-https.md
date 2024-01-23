@@ -35,7 +35,7 @@ In order to fully enjoy this flagship feature, please read the following.
 
 By default, Casket will bind to ports 80 and 443 to serve HTTPS and redirect HTTP to HTTPS. This usually requires
 privilege escalation. On Linux systems, you can give Casket permission to bind to port 80 and 443 without being root
-using [setcap](http://man7.org/linux/man-pages/man8/setcap.8.html), like so: `setcap cap_net_bind_service=+ep casketfile`.
+using [setcap](http://man7.org/linux/man-pages/man8/setcap.8.html), like so: `setcap cap_net_bind_service=+ep casket`.
 Don't forget to configure all relevant firewalls to allow Casket to use these ports for incoming and outgoing
 connections! Casket must have claim on at least one of these ports to obtain certificates unless you enable the DNS
 challenge OR forward ports 80 and 443 to different ports internally (in which case you can change the HTTP and HTTPS
@@ -43,11 +43,11 @@ ports using [CLI flags](/cli)). Although technically only one of these ports is 
 one port may result in temporarily-degraded certificate management results unless the associated ACME challenge is
 disabled, but should not ultimately affect uptime.
 
-### The .casketfile folder {#dot-casketfile}
+### The .casket folder {#dot-casket}
 
-Casket will create a folder in your home directory called `.casketfile`. It uses this to store and manage cryptographic
-assets required to serve your site privately over HTTPS. If there is no home folder, the .casketfile folder is created
-in the current working directory unless `CASKETPATH` is set. The home folder is learned from the environment (`$HOME` or
+Casket will create a folder in your home directory called `.casket`. It uses this to store and manage cryptographic
+assets required to serve your site privately over HTTPS. If there is no home folder, the .casket folder is created in
+the current working directory unless `CASKETPATH` is set. The home folder is learned from the environment (`$HOME` or
 `%HOMEPATH%`). Multiple Casket instances can use or mount the `acme` subfolder as a disk and Casket will automatically
 share the certificates and coordinate maintenance between them.
 
@@ -113,7 +113,7 @@ In your Casketfile, you will use the [tls](/tls) directive with the dns keyword 
 
 ``` casketfile
 tls {
-    dns provider
+  dns provider
 }
 ```
 
@@ -267,7 +267,7 @@ look like this:
 *.example.com
 proxy / localhost:4001 localhost:4002
 tls {
-    max_certs 10
+  max_certs 10
 }
 ```
 
@@ -279,7 +279,7 @@ You could also use `ask` to query a local backend whether a hostname should be a
 
 ``` casketfile
 tls {
-    ask http://localhost:9005/allowed
+  ask http://localhost:9005/allowed
 }
 ```
 
@@ -342,15 +342,15 @@ site. The private keys never leave the server and are safely stored on your file
 
 Casket establishes a link with the CA's server. A brief cryptographic transaction takes place to prove that Casket
 really is serving the sites it says it is. Once the CA server verifies this, it sends the certificate for that site over
-the wire to Casket, which tucks it neatly away in the .casketfile folder.
+the wire to Casket, which tucks it neatly away in the .casket folder.
 
 This process usually takes a few seconds per domain, so once a certificate has been obtained for a site, it is simply
 loaded from disk and reused the next time Casket is run. In other words, this delayed startup is a one-time event. If an
 existing certificate needs to be renewed, Casket takes care of it right away.
 
-Casket synchronizes the obtaining of certificates between multiple instances as long as they share the same
-.casketfile/acme folder on disk. This means multiple instances requiring the same certificate will not both request one
-from the CA, and they will share the same copy from disk.
+Casket synchronizes the obtaining of certificates between multiple instances as long as they share the same .casket/acme
+folder on disk. This means multiple instances requiring the same certificate will not both request one from the CA, and
+they will share the same copy from disk.
 
 ## Renewing Certificates
 
@@ -361,8 +361,8 @@ Once Casket gets the new certificate, it swaps out the old certificate with the 
 downtime.
 
 As with obtaining certificates, Casket coordinates renewals when used in a cluster, as long as the instances share the
-same .casketfile/acme folder. Only one instance will actually perform the renewal, then the others will reload the
-updated certificate.
+same .casket/acme folder. Only one instance will actually perform the renewal, then the others will reload the updated
+certificate.
 
 ## Revoking Certificates
 
@@ -377,7 +377,7 @@ clients and reduce stress on OCSP servers. The cached OCSP status is checked on 
 change, the server will staple the new response.
 
 When new OCSP responses are obtained, Casket persists the staple to disk so that it can weather long OCSP responder
-outages. Like certificates, persisted OCSP responses are fully maintained within the .casketfile folder.
+outages. Like certificates, persisted OCSP responses are fully maintained within the .casket folder.
 
 ## HTTP Strict Transport Security {#hsts}
 

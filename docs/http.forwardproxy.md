@@ -24,8 +24,8 @@ Spins up default unauthenticated forwardproxy. Use with care, since other people
 
 ``` casketfile
 forwardproxy {
-    basicauth casketfileuser1 0NtCL2JPJBgPPMmlPcJ
-    basicauth casketfileuser2 秘密
+    basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
+    basicauth casketuser2 秘密
 }
 ```
 
@@ -35,7 +35,7 @@ Spins up authenticated forwardproxy.
 
 ``` casketfile
 forwardproxy {
-    basicauth casketfileuser1 0NtCL2JPJBgPPMmlPcJ
+    basicauth casketuser1 0NtCL2JPJBgPPMmlPcJ
     probe_resistance hiddenlink-u13PJVFur3.com
 }
 ```

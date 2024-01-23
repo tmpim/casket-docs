@@ -37,11 +37,11 @@ The file you downloaded is a compressed archive. You'll want to extract the Cask
 
 1. Double-click the .zip file to extract it, or run this command:
     ``` shell
-    unzip casketfile*.zip casketfile
+    unzip casket*.zip casket
     ```
 2. Next, we will move the Casket binary into a folder where we can execute it easily. Any \$PATH location will do:
     ``` shell
-    mv ./casketfile /usr/local/bin
+    mv ./casket /usr/local/bin
     ```
     If you get permission denied errors, you'll need to run with sudo.
 
@@ -49,11 +49,11 @@ The file you downloaded is a compressed archive. You'll want to extract the Cask
 
 1. Run this command to extract the archive:
     ``` shell
-    tar -xzf casketfile*.tar.gz casketfile
+    tar -xzf casket*.tar.gz casket
     ```
 2. Next, we will move the Casket binary into a folder where we can execute it easily. Any \$PATH location will do:
     ``` shell
-    mv ./casketfile /usr/local/bin
+    mv ./casket /usr/local/bin
     ```
     If you get permission denied errors, you'll need to run with sudo.
 
@@ -110,7 +110,7 @@ bind to ports 80 and 443 for a *real* site, but doing this requires root or Admi
 Right-click cmd.exe and click "Run as Administrator". Then run Casket again:
 
 ``` shell
-C:\Casket\casketfile.exe -host example.com
+C:\Casket\casket.exe -host example.com
 ```
 
 #### macOS
@@ -118,7 +118,7 @@ C:\Casket\casketfile.exe -host example.com
 Use sudo to run Casket as root:
 
 ``` shell
-sudo casketfile -host example.com
+sudo casket -host example.com
 ```
 
 #### Linux
@@ -126,14 +126,14 @@ sudo casketfile -host example.com
 On a real server, you would consider using [setcap](https://linux.die.net/man/8/setcap) like this:
 
 ``` shell
-sudo setcap cap_net_bind_service=+ep $(which casketfile)
+sudo setcap cap_net_bind_service=+ep $(which casket)
 casket -host example.com
 ```
 
 But for your own computer, running Casket with sudo probably fine:
 
 ``` shell
-sudo casketfile -host example.com
+sudo casket -host example.com
 ```
 
 If you got your permissions right and run Casket again, you'll see:

@@ -131,7 +131,7 @@ its line:
 
 ``` casketfile
 directive {
-    ...
+  ...
 }
 ```
 
@@ -140,8 +140,8 @@ on how it is used (other terms may be applied). And as before, they can have arg
 
 ``` casketfile
 directive arg1 {
-    subdir arg2 arg3
-    ...
+  subdir arg2 arg3
+  ...
 }
 ```
 
@@ -176,7 +176,7 @@ by parentheses:
 
 ``` casketfile
 (mysnippet) {
-    ...
+  ...
 }
 ```
 
@@ -201,12 +201,12 @@ Appending the prior example with another entry introduces the need for curly bra
 
 ``` casketfile
 label1 {
-    directive1 arg1
-    directive2
+  directive1 arg1
+  directive2
 }
 label2, label3 {
-    directive3 arg2
-    directive4 arg3 arg4
+  directive3 arg2
+  directive4 arg3 arg4
 }
 ```
 
@@ -214,8 +214,8 @@ Some people prefer to always use braces even if there's just one entry; this is 
 
 ``` casketfile
 label1 {
-    directive1 arg1
-    directive2
+  directive1 arg1
+  directive2
 }
 ```
 
@@ -225,7 +225,7 @@ Example in which a directive opens a block:
 label1
 
 directive arg1 {
-    subdir arg2 arg3
+  subdir arg2 arg3
 }
 directive arg4
 ```
@@ -234,12 +234,12 @@ Similarly, but in an indented definition body, and with a comment:
 
 ``` casketfile
 label1 {
-    directive1 arg1
-    directive2 arg2 {
-        subdir1 arg3 arg4
-        subdir2
-        # nested blocks not supported
-    }
-    directive3
+  directive1 arg1
+  directive2 arg2 {
+    subdir1 arg3 arg4
+    subdir2
+    # nested blocks not supported
+  }
+  directive3
 }
 ```

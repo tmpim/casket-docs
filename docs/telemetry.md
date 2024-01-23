@@ -53,9 +53,9 @@ to improve performance. The collection endpoint may also entirely terminate tele
 addition, collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
 
 Each Casket instance generates its own unique, random ID called a UUID. It is stored in a file called `$CASKETPATH/uuid`
-(the default CASKETPATH is `$HOME/.casketfile`). This UUID is NOT generated in connection with the collection endpoint
-in any way, and does NOT associate with any individual person. We recommend that each Casket instance you run have its
-own CASKETPATH so that your reports are more discernable when you go to look up your instance.
+(the default CASKETPATH is `$HOME/.casket`). This UUID is NOT generated in connection with the collection endpoint in
+any way, and does NOT associate with any individual person. We recommend that each Casket instance you run have its own
+CASKETPATH so that your reports are more discernable when you go to look up your instance.
 
 As you would expect, all transmissions are encrypted with HTTPS.
 
@@ -67,7 +67,7 @@ in mind that third-party plugins might add their own which are not documented he
 | Key                            | Description                                                                                                   |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------|
 | arch                           | The microarchitecture compiled for                                                                            |
-| casketfile_version             | Casket version                                                                                                |
+| casket_version                 | Casket version                                                                                                |
 | container                      | Whether the process is running in a container                                                                 |
 | cpu.aes_ni                     | Whether AES-NI is available                                                                                   |
 | cpu.brand_name                 | The brand name of the CPU                                                                                     |

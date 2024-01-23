@@ -13,10 +13,10 @@ This plugin allows Casket to use Consul Key/Value store to share TLS data across
 export CASKET_CLUSTERING="consul"
 
 # set k/v path prefix
-export CASKET_CLUSTERING_CONSUL_PREFIX="casketfile/tls"
+export CASKET_CLUSTERING_CONSUL_PREFIX="casket/tls"
 
 # set AES key to use for encryption (32 Bytes)
-export CASKET_CLUSTERING_CONSUL_AESKEY="consultls-1234567890-casketfiletls-32"
+export CASKET_CLUSTERING_CONSUL_AESKEY="consultls-1234567890-caskettls-32"
 
 # set Consul address
 export CONSUL_HTTP_ADDR="127.0.0.1:8500"

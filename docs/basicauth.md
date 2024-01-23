@@ -45,9 +45,9 @@ protect multiple resources or to specify a realm, use the following variation:
 
 ``` casketfile
 basicauth username password {
-    realm name
-    exclude [paths...]
-    resources...
+  realm name
+  exclude [paths...]
+  resources...
 }
 ```
 
@@ -75,10 +75,10 @@ Protect multiple files and directories in the realm "Mary Lou's documents" so Ma
 
 ``` casketfile
 basicauth "Mary Lou" milkshakes {
-    realm "Mary Lou's documents"
-    /notes-for-mary-lou.txt
-    /marylou-files
-    /another-file.txt
+  realm "Mary Lou's documents"
+  /notes-for-mary-lou.txt
+  /marylou-files
+  /another-file.txt
 }
 ```
 

@@ -15,7 +15,7 @@ ipfilter / {
 }
 ```
 
-`casketfile` will block any clients with IPs that fall into one of these two ranges `70.1.128.0/19` and `2001:db8::/122` , or
+Casket will block any clients with IPs that fall into one of these two ranges `70.1.128.0/19` and `2001:db8::/122`, or
 a client that has an IP of `9.12.20.16` explicitly.
 
 ### Filter clients based on specified IPs stored as file names in the
@@ -27,8 +27,8 @@ ipfilter / {
 }
 ```
 
-`casketfile` will block any client IP that appears as a file name in the `blacklisted` directory. A relative pathname is
-relative to the CWD when `casketfile` is started. When putting the blacklisted directory in the web server document tree you
+Casket will block any client IP that appears as a file name in the `blacklisted` directory. A relative pathname is
+relative to the CWD when Casket is started. When putting the blacklisted directory in the web server document tree you
 should also add an `internal` directive to ensure those files are not visible via HTTP GET requests. For example,
 `internal /blacklisted/`. You can also specify an absolute pathname to locate the blacklist directory outside the
 document tree. You can create the file in the root of the blacklist directory. This is known as using a &#34;flat&#34;
@@ -55,7 +55,7 @@ ipfilter / {
 }
 ```
 
-with that in your `Casketfile` casketfile will only serve users from the `United States` or `Japan`. filtering with country
+With that in your Casketfile, Casket will only serve users from the `United States` or `Japan`. filtering with country
 codes requires a local copy of the Geo database, can be downloaded for free from
 [MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -69,7 +69,7 @@ ipfilter / {
 }
 ```
 
-`casketfile` will serve only these 2 IPs, eveyone else will get `default.html`.
+Casket will serve only these 2 IPs, eveyone else will get `default.html`.
 
 ### Multiple paths
 
