@@ -145,8 +145,7 @@ directive arg1 {
 }
 ```
 
-Subdirectives cannot open new blocks. In other words, nested directive blocks are not supported. If a directive block is
-empty, the curly braces should be omitted entirely.
+If a directive block is empty, the curly braces should be omitted entirely.
 
 ## Environment Variables {#env}
 
@@ -238,7 +237,6 @@ label1 {
   directive2 arg2 {
     subdir1 arg3 arg4
     subdir2
-    # nested blocks not supported
   }
   directive3
 }

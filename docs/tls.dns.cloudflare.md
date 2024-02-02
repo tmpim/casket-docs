@@ -47,6 +47,16 @@ tls {
 
 - **token** is your Cloudflare API token.
 
+Alternative block configuration syntax:
+
+``` casketfile
+tls {
+  dns cloudflare {
+    token YOUR_API_TOKEN
+  }
+}
+```
+
 ## Examples
 
 ### Usage
