@@ -4,33 +4,54 @@
 import NewInCasket from "./components/NewInCasket.vue";
 </script>
 
+::: danger Migration notice
+As of Casket 1.4.0, the Cloudflare provider now **only** supports [Scoped 
+Tokens](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/). "Global API Keys" are no longer 
+supported. The token must have the following permissions:
+- **Zone / Zone / Read** - Required to get the Zone ID
+- **Zone / DNS / Edit** - Required to edit the DNS record for the ACME DNS-01 challenge
+:::
+
 Allows you to obtain certificates using DNS records for domains managed with Cloudflare.
 
-Credentials can be provided via environment variables, or directly in the configuration file. New token types are only 
-supported if provided in the configuration file.
+A [Scoped Token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with permissions for the 
+zone(s) you want to manage must be provided via environment variables, or directly in the Casketfile. The token must
+have the following permissions:
+- **Zone / Zone / Read** - Required to get the Zone ID
+- **Zone / DNS / Edit** - Required to edit the DNS record for the ACME DNS-01 challenge
 
 ## Environment Variables
 
-- `CLOUDFLARE_EMAIL` - Cloudflare account email address
-- `CLOUDFLARE_API_KEY` - Cloudflare **legacy** API key
+- `CLOUDFLARE_ZONE_API_TOKEN` - Cloudflare API token
+
+::: tip Note
+For compatibility with previous versions of Casket, the follow environment variables are also checked, but it is
+recommended to use `CLOUDFLARE_ZONE_API_TOKEN`:
+
+<div class="tight-list">
+
+- `CLOUDFLARE_DNS_API_TOKEN`
+- `CF_ZONE_API_TOKEN`
+- `CF_DNS_API_TOKEN`
+
+</div>
+:::
 
 ## Syntax
 
 ``` casketfile
 tls {
-  dns cloudflare email_or_type api_token
+  dns cloudflare token
 }
 ```
 
-- **email_or_type** is your Cloudflare account email address, or the type of token you are using (`token` or
-  `zone_token`).
-- **api_token** is your Cloudflare API token.
+- **token** is your Cloudflare API token.
 
 ## Examples
 
 ### Usage
 
-Use the email and API key from the `CLOUDFLARE_EMAIL` and `CLOUDFLARE_API_KEY` environment variables (**recommended**): 
+Use the email and API token from the `CLOUDFLARE_ZONE_API_TOKEN` environment variable (**recommended**): 
 
 ``` casketfile
 tls {
@@ -38,26 +59,12 @@ tls {
 }
 ```
 
-Use the email and API key directly in the configuration:
+<NewInCasket version="v1.4.0" />
+
+Use the API token directly in the configuration:
 
 ``` casketfile
 tls {
-  dns cloudflare webmaster@example.com YOUR_ACCOUNT_TOKEN
-}
-```
-
-<NewInCasket /> Use a new API token:
-
-``` casketfile
-tls {
-  dns cloudflare token YOUR_NEW_TOKEN
-}
-```
-
-<NewInCasket /> Use a zone API token:
-
-``` casketfile
-tls {
-  dns cloudflare zonetoken YOUR_SCOPED_ZONE_TOKEN
+  dns cloudflare YOUR_API_TOKEN
 }
 ```
