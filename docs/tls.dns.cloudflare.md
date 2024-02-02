@@ -41,13 +41,17 @@ recommended to use `CLOUDFLARE_ZONE_API_TOKEN`:
 
 ``` casketfile
 tls {
-  dns cloudflare token
+  # If the environment variable is set
+  dns cloudflare
+
+  # If no environment variables are set
+  dns cloudflare TOKEN
 }
 ```
 
 - **token** is your Cloudflare API token.
 
-Alternative block configuration syntax:
+<NewInCasket version="v1.4.0" /> Alternative block configuration syntax:
 
 ``` casketfile
 tls {

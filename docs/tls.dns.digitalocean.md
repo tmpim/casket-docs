@@ -1,17 +1,43 @@
 # tls.dns.digitalocean
 
-Allows you to obtain certificates using DNS records for domains managed with DigitalOcean.
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
 
-**[Full documentation](https://github.com/tmpim/dnsproviders/blob/master/README.md)**
+Allows you to obtain certificates using DNS records for domains managed with DigitalOcean. Credentials must be passed
+either via environment variables, or directly in the Casketfile.
 
-## Examples
+You can generate a personal access token from the [Applications &
+API](https://cloud.digitalocean.com/account/api/tokens) section of the DigitalOcean control panel.
 
-### Usage
+The provider is based on the [libdns/digitalocean](https://github.com/libdns/digitalocean) module.
+
+## Environment Variables
+
+- `DO_AUTH_TOKEN` - DigitalOcean API token
+
+## Syntax
+
+Shorthand configuration syntax:
 
 ``` casketfile
 tls {
+  # If the environment variable is set
   dns digitalocean
+
+  # If no environment variables are set
+  dns digitalocean TOKEN
 }
 ```
 
-Configure this in your tls directive.
+<NewInCasket version="v1.4.0" /> Block configuration syntax:
+
+``` casketfile
+tls {
+  dns digitalocean {
+    token YOUR_API_TOKEN
+  }
+}
+```
+
+- **token** is your DigitalOcean API token.

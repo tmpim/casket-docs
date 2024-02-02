@@ -1,18 +1,42 @@
 # tls.dns.duckdns
 
-Allows you to obtain certificates using DNS records for domains managed by DuckDNS.
+<script setup>
+import NewInCasket from "./components/NewInCasket.vue";
+</script>
 
-**[Full documentation](https://github.com/tmpim/dnsproviders/blob/master/README.md)**
+Allows you to obtain certificates using DNS records for domains managed with Duck DNS. Credentials must be passed
+either via environment variables, or directly in the Casketfile.
 
-## Examples
+Your Duck DNS API token can be found on your account page.
 
-### Usage
+The provider is based on the [libdns/duckdns](https://github.com/libdns/duckdns) module.
+
+## Environment Variables
+
+- `DUCKDNS_TOKEN` - Duck DNS API token
+
+## Syntax
+
+Shorthand configuration syntax:
 
 ``` casketfile
 tls {
+  # If the environment variable is set
   dns duckdns
+
+  # If no environment variables are set
+  dns duckdns TOKEN
 }
 ```
 
-Specify duckdns as the DNS provider within your tls directive. Make sure to set environment variables containing your
-credentials.
+<NewInCasket version="v1.4.0" /> Block configuration syntax:
+
+``` casketfile
+tls {
+  dns duckdns {
+    token YOUR_API_TOKEN
+  }
+}
+```
+
+- **token** is your Duck DNS API token.
