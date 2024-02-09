@@ -105,18 +105,23 @@ export default defineConfig({
           {
             text: "DNS Providers",
             items: [
+              { link: "/tls.dns.acmedns", text: "tls.dns.acmedns" },
               { link: "/tls.dns.azure", text: "tls.dns.azure" },
               { link: "/tls.dns.cloudflare", text: "tls.dns.cloudflare" },
               { link: "/tls.dns.digitalocean", text: "tls.dns.digitalocean" },
+              { link: "/tls.dns.dnspod", text: "tls.dns.dnspod" },
               { link: "/tls.dns.duckdns", text: "tls.dns.duckdns" },
+              { link: "/tls.dns.gandi", text: "tls.dns.gandi" },
               { link: "/tls.dns.godaddy", text: "tls.dns.godaddy" },
               { link: "/tls.dns.googlecloud", text: "tls.dns.googlecloud" },
               { link: "/tls.dns.linode", text: "tls.dns.linode" },
               { link: "/tls.dns.namecheap", text: "tls.dns.namecheap" },
               { link: "/tls.dns.namedotcom", text: "tls.dns.namedotcom" },
               { link: "/tls.dns.ovh", text: "tls.dns.ovh" },
+              { link: "/tls.dns.pdns", text: "tls.dns.pdns (PowerDNS)" },
               { link: "/tls.dns.rfc2136", text: "tls.dns.rfc2136" },
               { link: "/tls.dns.route53", text: "tls.dns.route53" },
+              { link: "/tls.dns.transip", text: "tls.dns.transip" },
               { link: "/tls.dns.vultr", text: "tls.dns.vultr" },
             ]
           },
@@ -174,6 +179,8 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/tmpim/casket" },
     ],
+
+    externalLinkIcon: true,
   },
 
   markdown: {
