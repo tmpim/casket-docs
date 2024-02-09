@@ -117,140 +117,30 @@ tls {
 }
 ```
 
-Replace "provider" with the name of your DNS provider (in the table below). You will also need to set environment
-variables with your account credentials:
+Replace "provider" with the name of your DNS provider (in the table below). You will also need to specify the account
+credentials for your provider, either via environment variables or in the Casketfile. See the provider's documentation
+for details.
 
-<table>
-<thead>
-  <tr>
-    <th>Provider</th>
-    <th>Name to Use<br>in Casketfile</th>
-    <th>Environment Variables to Set</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Aurora DNS by PCExtreme</td>
-    <td>auroradns</td>
-    <td>AURORA_USER_ID<br>AURORA_KEY<br>AURORA_ENDPOINT (optional)</td>
-  </tr>
-  <tr>
-    <td>Azure DNS</td>
-    <td>azure</td>
-    <td>AZURE_CLIENT_ID<br>AZURE_CLIENT_SECRET<br>AZURE_SUBSCRIPTION_ID<br>AZURE_TENANT_ID</td>
-  </tr>
-  <tr>
-    <td>Cloudflare</td>
-    <td>cloudflare</td>
-    <td>CLOUDFLARE_EMAIL<br>CLOUDFLARE_API_KEY</td>
-  </tr>
-  <tr>
-    <td>CloudXNS</td>
-    <td>cloudxns</td>
-    <td>CLOUDXNS_API_KEY<br>CLOUDXNS_SECRET_KEY</td>
-  </tr>
-  <tr>
-    <td>DigitalOcean</td>
-    <td>digitalocean</td>
-    <td>DO_AUTH_TOKEN</td>
-  </tr>
-  <tr>
-    <td>DNSimple</td>
-    <td>dnsimple</td>
-    <td>DNSIMPLE_EMAIL<br>DNSIMPLE_OAUTH_TOKEN</td>
-  </tr>
-  <tr>
-    <td>DNS Made Easy</td>
-    <td>dnsmadeeasy</td>
-    <td>DNSMADEEASY_API_KEY<br>DNSMADEEASY_API_SECRET<br>DNSMADEEASY_SANDBOX (true/false)</td>
-  </tr>
-  <tr>
-    <td>DNSPod</td>
-    <td>dnspod</td>
-    <td>DNSPOD_API_KEY</td>
-  </tr>
-  <tr>
-    <td>DynDNS</td>
-    <td>dyn</td>
-    <td>DYN_CUSTOMER_NAME<br>DYN_USER_NAME<br>DYN_PASSWORD</td>
-  </tr>
-  <tr>
-    <td>Gandi</td>
-    <td>gandi / gandiv5</td>
-    <td>GANDI_API_KEY / GANDIV5_API_KEY</td>
-  </tr>
-  <tr>
-    <td>GoDaddy</td>
-    <td>godaddy</td>
-    <td>GODADDY_API_KEY<br>GODADDY_API_SECRET</td>
-  </tr>
-  <tr>
-    <td>Google Cloud DNS</td>
-    <td>googlecloud</td>
-    <td>GCE_PROJECT<br>GCE_DOMAIN<br>GOOGLE_APPLICATION_CREDENTIALS<br>(or GCE_SERVICE_ACCOUNT_FILE)</td>
-  </tr>
-  <tr>
-    <td>Lightsail by AWS</td>
-    <td>lightsail</td>
-    <td>AWS_ACCESS_KEY_ID<br>AWS_SECRET_ACCESS_KEY<br>AWS_SESSION_TOKEN (optional)<br>DNS_ZONE (optional)</td>
-  </tr>
-  <tr>
-    <td>Linode</td>
-    <td>linode</td>
-    <td>LINODE_API_KEY</td>
-  </tr>
-  <tr>
-    <td>Namecheap</td>
-    <td>namecheap</td>
-    <td>NAMECHEAP_API_USER<br>NAMECHEAP_API_KEY</td>
-  </tr>
-  <tr>
-    <td>NS1.</td>
-    <td>ns1</td>
-    <td>NS1_API_KEY</td>
-  </tr>
-  <tr>
-    <td>Name.com</td>
-    <td>namedotcom</td>
-    <td>NAMECOM_USERNAME<br>NAMECOM_API_TOKEN</td>
-  </tr>
-  <tr>
-    <td>OVH</td>
-    <td>ovh</td>
-    <td>OVH_ENDPOINT<br>OVH_APPLICATION_KEY<br>OVH_APPLICATION_SECRET<br>OVH_CONSUMER_KEY</td>
-  </tr>
-  <tr>
-    <td>Open Telekom Cloud<br>Managed DNS</td>
-    <td>otc</td>
-    <td>OTC_DOMAIN_NAME<br>OTC_USER_NAME<br>OTC_PASSWORD<br>OTC_PROJECT_NAME<br>OTC_IDENTITY_ENDPOINT (optional)</td>
-  </tr>
-  <tr>
-    <td>PowerDNS</td>
-    <td>pdns</td>
-    <td>PDNS_API_URL<br>PDNS_API_KEY</td>
-  </tr>
-  <tr>
-    <td>Rackspace</td>
-    <td>rackspace</td>
-    <td>RACKSPACE_USER<br>RACKSPACE_API_KEY</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>rfc2136</td>
-    <td>RFC2136_NAMESERVER<br>RFC2136_TSIG_ALGORITHM<br>RFC2136_TSIG_KEY<br>RFC2136_TSIG_SECRET</td>
-  </tr>
-  <tr>
-    <td>Route53 by AWS</td>
-    <td>route53</td>
-    <td>AWS_ACCESS_KEY_ID<br>AWS_SECRET_ACCESS_KEY</td>
-  </tr>
-  <tr>
-    <td>Vultr</td>
-    <td>vultr</td>
-    <td>VULTR_API_KEY</td>
-  </tr>
-</tbody>
-</table>
+| Provider         | Name to use in Casketfile             |
+|------------------|---------------------------------------|
+| ACME-DNS         | [acmedns](/tls.dns.acmedns)           |
+| Azure DNS        | [azure](/tls.dns.azure)               |
+| Cloudflare       | [cloudflare](/tls.dns.cloudflare)     |
+| DigitalOcean     | [digitalocean](/tls.dns.digitalocean) |
+| DNSPod           | [dnspod](/tls.dns.dnspod)             |
+| Duck DNS         | [duckdns](/tls.dns.duckdns)           |
+| Gandi            | [gandi](/tls.dns.gandi)               |
+| GoDaddy          | [godaddy](/tls.dns.godaddy)           |
+| Google Cloud DNS | [googlecloud](/tls.dns.googlecloud)   |
+| Linode           | [linode](/tls.dns.linode)             |
+| Namecheap        | [namecheap](/tls.dns.namecheap)       |
+| Name.com         | [namedotcom](/tls.dns.namedotcom)     |
+| OVH              | [ovh](/tls.dns.ovh)                   |
+| PowerDNS         | [pdns](/tls.dns.pdns)                 |
+| RFC 2136         | [rfc2136](/tls.dns.rfc2136)           |
+| Route53 by AWS   | [route53](/tls.dns.route53)           |
+| TransIP          | [transip](/tls.dns.transip)           |
+| Vultr            | [vultr](/tls.dns.vultr)               |
 
 When you configure the DNS challenge, Casket will use that challenge type exclusively. Note that some providers may be
 slow to apply changes (on the order of minutes).
