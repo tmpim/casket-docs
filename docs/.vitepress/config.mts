@@ -34,7 +34,6 @@ export default defineConfig({
           { text: "Casket - What & Why?", link: "/" },
           { link: "/cli", text: "Command Line Interface" },
           { link: "/casketfile", text: "Casketfile Syntax" },
-          { link: "/telemetry", text: "Telemetry (disabled)" },
         ]
       },
 

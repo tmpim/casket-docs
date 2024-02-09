@@ -40,6 +40,7 @@ documented, but will be in due course.
   ([#26](https://github.com/tmpim/casket/pull/26))
 - Environment variables everywhere placeholders are supported
   ([1bedd5e](https://github.com/tmpim/casket/commit/1bedd5e))
+- Telemetry disabled and removed from the codebase
 
 </div>
 
