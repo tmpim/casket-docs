@@ -105,6 +105,7 @@ export default defineConfig({
           {
             text: "DNS Providers",
             items: [
+              { link: "/v1.4.0-dns-migration-guide", text: "v1.4.0 DNS changes" },
               { link: "/tls.dns.acmedns", text: "tls.dns.acmedns" },
               { link: "/tls.dns.azure", text: "tls.dns.azure" },
               { link: "/tls.dns.cloudflare", text: "tls.dns.cloudflare" },
