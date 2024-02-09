@@ -158,8 +158,8 @@
 }
 
 .vp-doc {
-  text-align: justify;
-  hyphens: auto;
+  /*text-align: justify;*/
+  /*hyphens: auto;*/
   line-height: 28px;
 }
 
