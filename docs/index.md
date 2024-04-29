@@ -50,7 +50,7 @@ The following fixes have been made in Casket since the last Caddy v1 build:
 
 <div class="tight-list">
 
-- Update to Go 1.21
+- Update to Go 1.22
 - Updated [certmagic](https://github.com/caddyserver/certmagic) to keep up to date with LetsEncrypt changes
   ([#19](https://github.com/tmpim/casket/pull/19))
   - Some breaking changes were made to the `tls.dns` directives to support the new certmagic version. Refer to the
