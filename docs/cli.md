@@ -47,11 +47,6 @@ Disables the ACME HTTP challenge used for obtaining certificates.
 
 Disables the ACME TLS-ALPN challenge used for obtaining certificates.
 
-#### -disabled-metrics
-
-Comma-separated list of specific [telemetry metrics](/telemetry#metrics) to disable. Note that only top-level metrics
-can be specified (i.e. "cpu", but not "cpu.aes_ni").
-
 #### -env
 
 Print the environment and exit.
