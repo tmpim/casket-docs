@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import tailwindcss from "@tailwindcss/vite";
 import casketfile from "./casketfile.tmLanguage.json";
 
 // https://vitepress.dev/reference/site-config
@@ -189,5 +190,9 @@ export default defineConfig({
 
   ignoreDeadLinks: [
     "http://localhost:2015"
-  ]
+  ],
+  
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });

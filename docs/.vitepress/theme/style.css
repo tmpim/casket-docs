@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /**
  * Customize default theme styling by overriding CSS variables:
@@ -46,6 +44,29 @@
  * - `danger`: Used to show error, or dangerous message to the users. Used
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
+
+@theme {
+  --color-text-primary: var(--vp-c-text-1);
+  --color-text-muted: var(--vp-c-text-2);
+  --color-text-subtle: var(--vp-c-text-3);
+
+  --color-vp-gray-1: var(--vp-c-gray-1);
+  --color-vp-gray-2: var(--vp-c-gray-2);
+  --color-vp-gray-3: var(--vp-c-gray-3);
+  --color-vp-gray-soft: var(--vp-c-gray-soft);
+
+  --color-dodger-blue-50: #C9E5FE;
+  --color-dodger-blue-100: #B5DBFD;
+  --color-dodger-blue-200: #8DC8FC;
+  --color-dodger-blue-300: #66B5FB;
+  --color-dodger-blue-400: #3EA2FA;
+  --color-dodger-blue-500: #168FF9;
+  --color-dodger-blue-600: #0572D2;
+  --color-dodger-blue-700: #04549B;
+  --color-dodger-blue-800: #033764;
+  --color-dodger-blue-900: #01192D;
+  --color-dodger-blue-950: #000A12;
+}
 
 /* Casket colors */
 :root {
