@@ -133,7 +133,7 @@ Store the authentication in a cookie for 365 days (and refreshes after 182.5 day
 ``` casketfile
 basicauth / Bob hiccup {
   cookie {
-    ttl 365d
+    ttl 8760h
   }
 }
 ```
