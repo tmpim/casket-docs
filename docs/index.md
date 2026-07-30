@@ -31,6 +31,8 @@ documented, but will be in due course.
 - Add [`tryfiles`](/tryfiles) directive, similar to Caddy v2 ([#15](https://github.com/tmpim/casket/pull/15))
 - Add `exclude` option to the [`basicauth`](/basicauth) directive
   ([52c171f](https://github.com/tmpim/casket/commit/52c171f6c6d5941e0fd3e75aaad202a68f1305bc))
+- Add `cookie` option to the [`basicauth`](/basicauth) directive
+  ([#33](https://github.com/tmpim/casket/pull/33))
 - Add `servearchive` option to the [`browse`](/browse) directive to download folders as archives
   ([17c7b06](https://github.com/tmpim/casket/commit/17c7b06))
 - Default [`browse`](/browse) template is laid out better on mobile ([#24](https://github.com/tmpim/casket/pull/24))
@@ -40,6 +42,8 @@ documented, but will be in due course.
   ([#26](https://github.com/tmpim/casket/pull/26))
 - Environment variables everywhere placeholders are supported
   ([1bedd5e](https://github.com/tmpim/casket/commit/1bedd5e))
+- GeoIP databases loaded by [`realip`](/http.realip) are reloaded automatically when the file changes 
+  ([c672019](https://github.com/tmpim/casket-plugins/compare/319da03..eef6146))
 - Telemetry disabled and removed from the codebase
 
 </div>

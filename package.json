@@ -1,6 +1,5 @@
 {
   "name": "casket-docs",
-  "packageManager": "yarn@4.0.2",
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
