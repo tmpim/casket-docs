@@ -16,4 +16,4 @@ RUN pnpm run build
 FROM busybox
 COPY --from=build-env /build/docs/.vitepress/dist /build/out
 RUN mkdir -p /www
-CMD ["cp", "-r", "/build/out/*", "/www/"]
+CMD cp -r /build/out/* /www/
