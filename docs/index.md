@@ -54,7 +54,7 @@ The following fixes have been made in Casket since the last Caddy v1 build:
 
 <div class="tight-list">
 
-- Update to Go 1.22
+- Updated to [Go 1.27](https://github.com/tmpim/casket/commit/0d974e3)
 - Updated [certmagic](https://github.com/caddyserver/certmagic) to keep up to date with LetsEncrypt changes
   ([#19](https://github.com/tmpim/casket/pull/19))
   - Some breaking changes were made to the `tls.dns` directives to support the new certmagic version. Refer to the
@@ -96,16 +96,10 @@ of unnecessary "cloud-native" features. There are a few big things that pushed u
 
 ## Known issues with Casket
 
-Asides from any possible [open issues](https://github.com/tmpim/casket/issues) on GitHub, there are two big fish to fry
-for true maintainability going forward, that you should be aware of if you are considering using Casket:
+Asides from any possible [open issues](https://github.com/tmpim/casket/issues) on GitHub, you should be aware of the 
+following if you are considering switching from Caddy v1 to Casket:
 
-- [Certmagic is very out of date](https://github.com/tmpim/casket/issues/19); we are at risk of using deprecation path
-  ACME depending on what direction Let's Encrypt may go in the future. tmpim is mostly missing anyone with a motivation
-  to tackle this, and we probably **wouldn't recommend casket for production / enterprise reliability for this reason**.
-  It's still a great tool for personal use or scenarios where you're comfortable exploring a different web server in the
-  future if the project gets too stale.
-- Any plugin ecosystem is missing, and you will lose any benefits of the public builds if you have use-cases that fall
-  outside of ours without making an effort to merge those plugins upstream in
-  [casket-plugins](https://github.com/tmpim/casket-plugins) (PRs definitely welcome there too!).
+- The majority of Caddy v1's plugin ecosystem has been abandoned, with only a handful of core plugins being merged 
+  upstream in [casket](https://github.com/tmpim/casket/tree/HEAD/caskethttp) (PRs definitely welcome there too!).
 
-[(Discussion)](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408)
+([Past discussion](https://github.com/tmpim/casket/issues/25#issuecomment-1840117408), many of which have now been addressed)
